@@ -1,6 +1,60 @@
-﻿namespace Portfolyo
-{
-    public class _
-    {
-    }
-}
+# =========================
+# Visual Studio
+# =========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Build outputs
+# =========================
+bin/
+obj/
+
+# =========================
+# .NET
+# =========================
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# =========================
+# ASP.NET Core
+# =========================
+appsettings.Development.json
+appsettings.*.json.user
+
+# =========================
+# Entity Framework
+# =========================
+Migrations/*.Designer.cs
+Migrations/*.csproj.user
+
+# =========================
+# Publish
+# =========================
+publish/
+wwwroot/lib/
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS
+# =========================
+Thumbs.db
+.DS_Store
+
+# =========================
+# Node (ileride gerekirse)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
