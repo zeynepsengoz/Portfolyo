@@ -1,0 +1,37 @@
+﻿@model List<Portfolyo.Data.ServicesTable>
+@{
+	Layout = null;
+}
+
+<section id="services" class="pb-0">
+	<div class="container">
+		<div class="row mb-8">
+			<div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
+				<div class="section-title h2 mb-3">
+					<h2 class="mb-0">Neler Yapıyorum?</h2>
+					<span class="title-letter">S</span>
+				</div>
+				<p>Fusce massa dolor, mattis sed ultrices ut, placerat ut leo. Donec sed fringilla lectus, non vulputate orci. Integer id libero euismod, interdum ligula vel, porttitor magna. Sed euismod maximus finibus.</p>
+			</div>
+		</div>
+		<div class="row my-n2 mx-sm-n2">
+
+			@foreach(var item in Model)
+			{
+				<div class="col-md-6 col-xl-4 py-2 px-md-2">
+					<div class="feature-block feature-boxed feature-decorated">
+						<div class="@item.Icon text-primary mb-3">
+							<div>
+								<i class="ti-timer"></i>
+							</div>
+						</div>
+						<h3 class="h4 mb-2">@item.Title</h3>
+						<p>@item.Description</p>
+					</div>
+				</div>
+			}
+		
+		</div>
+	</div>
+</section>
+

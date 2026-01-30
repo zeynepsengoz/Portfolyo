@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="p-6 bg-background-light min-h-screen">
+    <div class="max-w-6xl mx-auto">
+
+        <h1 class="text-2xl font-bold mb-8 text-slate-900">
+            Dashboard
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Mesajlar -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border">
+                <p class="text-sm text-slate-500">Toplam Mesaj</p>
+                <h2 class="text-3xl font-bold mt-2">
+                    @ViewBag.MessageCount
+                </h2>
+            </div>
+
+            <!-- Projeler -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border">
+                <p class="text-sm text-slate-500">Toplam Proje</p>
+                <h2 class="text-3xl font-bold mt-2">
+                    @ViewBag.ProjectCount
+                </h2>
+            </div>
+
+            <!-- Yetenekler -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border">
+                <p class="text-sm text-slate-500">Toplam Yetenek</p>
+                <h2 class="text-3xl font-bold mt-2">
+                    @ViewBag.SkillCount
+                </h2>
+            </div>
+
+        </div>
+
+    </div>
+</div>

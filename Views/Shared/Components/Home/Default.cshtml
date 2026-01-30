@@ -1,0 +1,34 @@
+﻿@using Portfolyo.Data
+@model AboutMeTable
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="zh-home">
+    <div class="page-container">
+        <div class="zh-home__wrap">
+
+            <!-- SOL -->
+            <div class="zh-home__left">
+                <h1 class="zh-home__name">@Model?.NameSurname</h1>
+
+                <div class="zh-home__title">@Model?.JobTitle</div>
+                <br />
+                @if (!string.IsNullOrEmpty(Model?.Description))
+                {
+                    <p class="zh-home__desc">@Model.Description</p>
+                }
+            </div>
+
+            <!-- SAĞ -->
+            <div class="zh-home__right">
+                <img class="zh-home__avatar"
+                     src="@(string.IsNullOrEmpty(Model?.ImagePath)
+                                                        ? "/images/placeholder.png"
+                                                        : Model.ImagePath)" />
+            </div>
+
+        </div>
+    </div>
+</section>

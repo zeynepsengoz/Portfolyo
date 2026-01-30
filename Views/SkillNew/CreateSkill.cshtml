@@ -1,0 +1,88 @@
+﻿@model Portfolyo.Data.SkillTable
+
+@{
+    ViewData["Title"] = "Yeni Yetenek Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="p-6 bg-background-light min-h-screen">
+    <div class="max-w-2xl mx-auto">
+
+        <!-- Geri Dön -->
+        <a href="/SkillNew/SkillList"
+           class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 mb-6">
+            <span class="material-symbols-outlined text-base">arrow_back</span>
+            Listeye Geri Dön
+        </a>
+
+        <!-- CARD -->
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-8">
+
+            <h1 class="text-2xl font-bold text-slate-900 mb-1">
+                Yeni Yetenek Ekle
+            </h1>
+            <p class="text-sm text-slate-500 mb-8">
+                Portfolyonuzda sergilenecek yeni bir yetenek tanımlayın.
+            </p>
+
+            <form method="post">
+
+                <!-- YETENEK ADI -->
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">
+                        Yetenek Adı
+                    </label>
+                    <input type="text"
+                           name="Title"
+                           placeholder="Örn: C#, React, UI Design"
+                           required
+                           class="w-full rounded-xl border border-slate-300 px-4 py-3
+                                  text-slate-900 placeholder-slate-400
+                                  focus:ring-2 focus:ring-primary/30 focus:outline-none">
+                </div>
+
+                <!-- SEVİYE -->
+                <div class="mb-10">
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-sm font-semibold text-slate-700">
+                            Yetenek Seviyesi (%)
+                        </label>
+                        <span id="levelValue"
+                              class="text-sm font-semibold text-primary">
+                            50%
+                        </span>
+                    </div>
+
+                    <input type="range"
+                           name="Levels"
+                           min="0"
+                           max="100"
+                           value="50"
+                           class="w-full accent-primary"
+                           oninput="document.getElementById('levelValue').innerText = this.value + '%'">
+
+                    <div class="flex justify-between text-xs text-slate-400 mt-2">
+                        <span>Başlangıç</span>
+                        <span>Uzman</span>
+                    </div>
+                </div>
+
+                <!-- KAYDET BUTONU -->
+                <button type="submit"
+                        class="w-full rounded-xl bg-primary hover:brightness-110
+                               text-white py-4 font-semibold
+                               transition shadow-lg shadow-primary/30">
+                    Yeteneği Kaydet
+                </button>
+
+            </form>
+        </div>
+
+        <!-- BİLGİ -->
+        <div class="mt-4 flex items-center gap-2 text-xs text-slate-500">
+            <span class="material-symbols-outlined text-sm">info</span>
+            Bu yetenek kaydedildikten sonra otomatik olarak listeleme sayfasında görünecektir.
+        </div>
+
+    </div>
+</div>

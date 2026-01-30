@@ -1,0 +1,613 @@
+﻿
+
+/* =========================
+   ABOUT SECTION – FINAL
+========================= */
+/*#about {
+    padding-top: 80px;
+    padding-bottom: 20px;
+}*/
+
+
+    /* BAŞLIK */
+    /*#about .section-title h2 {
+        font-size: 40px;
+        font-weight: 700;
+        color: #111;
+    }*/
+
+    /* SOL TARAF (AÇIKLAMA) */
+    /*#about .about-text {
+        font-size: 15px;
+        line-height: 1.8;
+        color: #333;
+        max-width: 520px;
+        margin: 0;
+    }*/
+
+    /* SAĞ TARAF */
+    /*#about .about-right {
+        border-left: 1px solid #e5e7eb;
+        padding-left: 28px;
+    }*/
+
+    /* KİŞİSEL BİLGİLER */
+    /*#about .about-info {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #about .about-info li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #about .about-info strong {
+            font-weight: 600;
+        }*/
+
+    /* EĞİTİM */
+    /*#about .about-education {
+        margin-top: 32px;
+    }
+
+        #about .about-education h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        #about .about-education strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        #about .about-education div {
+            font-size: 14px;
+        }
+
+        #about .about-education span {
+            font-size: 13px;
+            color: #6b7280;
+        }*/
+
+/* ABOUT RESPONSIVE */
+/*@media (max-width: 992px) {
+    #about .about-right {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 24px;
+    }
+
+    #about .about-text {
+        max-width: 100%;
+    }
+}*/
+
+
+
+
+
+
+
+/* =========================
+   SKILLS SECTION – FINAL
+========================= */
+/*#skills {
+    padding-top: 80px;
+    padding-bottom: 20px;*/ /* 👈 kritik */
+/*}*/
+    /* BAŞLIK */
+    /*#skills .section-title h2 {
+        font-size: 40px;
+        font-weight: 700;
+        color: #111;
+        text-align: center;
+    }*/
+
+    /* GRID – ABOUT İLE AYNI HİZA */
+    /*#skills .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }*/
+
+    /* TEK SKILL */
+    /*#skills .skill-box {
+        width: 100%;
+    }*/
+
+    /* BAŞLIK SATIRI */
+    /*#skills .skill-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 6px;
+    }
+
+    #skills .skill-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #111;
+    }
+
+    #skills .skill-percent {
+        font-size: 14px;
+        font-weight: 600;
+        color: #2563eb;
+    }*/
+
+    /* BAR */
+    /*#skills .skill-bar {
+        width: 100%;
+        height: 8px;
+        background-color: #e5e7eb;
+        border-radius: 999px;
+        overflow: hidden;
+    }
+
+    #skills .skill-bar-fill {
+        height: 100%;
+        background-color: #2563eb;
+        border-radius: 999px;
+        transition: width 1s ease-out;
+    }*/
+
+/* SKILLS RESPONSIVE */
+/*@media (max-width: 768px) {
+    #skills .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}*/
+/* =========================
+   PORTFOLIO – SIFIRDAN (3 ÜST + 1 ALT)
+========================= */
+
+/*.portfolio-section {
+    padding: 40px 0 20px;
+}*/
+
+/* grid alanı */
+/*#portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);*/ /* çizdiğin kare kutu gibi */
+    /*justify-content: center;*/ /* tüm grid ortada */
+    /*gap: 48px 48px;*/ /* yatay/dikey boşluk */
+    /*margin-top: 28px;
+}*/
+
+/* kart */
+/*#portfolio .portfolio-card {
+    width: 300px;
+    height: 260px;*/ /* kareye yakın */
+    /*border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #111;
+}*/
+
+/* görsel */
+/*#portfolio .portfolio-media,
+#portfolio .portfolio-media img {
+    width: 100%;
+    height: 100%;
+}
+
+    #portfolio .portfolio-media img {
+        object-fit: cover;
+        display: block;
+    }*/
+
+
+
+/* RESPONSIVE */
+/*@media (max-width: 1100px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: repeat(2, 300px);*/ /* tablet: 2 + 2 */
+    /*}
+}
+
+@media (max-width: 680px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: 1fr;*/ /* mobil: tek tek */
+        /*justify-items: center;
+    }
+
+    #portfolio .portfolio-card {
+        width: 92%;
+        max-width: 340px;
+        height: 240px;
+    }
+}
+
+#portfolio .portfolio-filter {
+    margin-bottom: 48px;*/ /* ← nefes burada */
+/*}*/
+
+/* =========================
+   PORTFOLIO – FINAL CLEAN
+========================= */
+
+/*#portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: center;
+    gap: 48px;
+    margin-top: 32px;
+}*/
+
+/* KART – TAMAMI TIKLANABİLİR */
+/*.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}*/
+
+    /* HOVER → SADECE KART BÜYÜR */
+    /*.portfolio-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+    }*/
+
+/* ÜST – RESİM (BOYUT SABİT, BÜYÜME YOK) */
+/*.portfolio-image {
+    width: 100%;
+    height: 220px;*/ /* 👈 2. görseldeki ideal boy */
+    /*background: #000;
+    overflow: hidden;
+}
+
+    .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }*/
+
+/* ALT – YAZI */
+/*.portfolio-body {
+    padding: 16px 18px 18px;
+    background: #f9fafb;
+}
+
+    .portfolio-body h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #111;
+    }
+
+    .portfolio-body p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #374151;
+        margin: 0;
+    }*/
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/*@media (max-width: 1100px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media (max-width: 680px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .portfolio-card {
+        width: 92%;
+        max-width: 340px;
+    }
+
+    .portfolio-image {
+        height: 200px;
+    }
+}
+
+#portfolio-detail {
+    padding: 80px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.detail-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.detail-image {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+    .detail-image img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+        background: #000;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+
+.detail-content h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.detail-category {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}*/
+
+/* Responsive */
+/*@media (max-width: 992px) {
+    .detail-card {
+        grid-template-columns: 1fr;
+    }
+}*/
+
+/* =========================
+   PORTFOLIO DETAIL – CLEAN FINAL
+========================= */
+
+/*.portfolio-detail-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}*/
+
+/* Geri dön */
+/*.back-link {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}*/
+
+/* Ana düzen */
+/*.detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: flex-start;
+}*/
+
+/* SOL YAZI */
+/*.detail-info h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.detail-meta {
+    display: inline-block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 26px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-desc {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #374151;
+    max-width: 480px;
+    margin-bottom: 32px;
+}*/
+
+/* Buton */
+/*.detail-actions {
+    margin-bottom: 48px;
+}*/
+
+/* BEN NELER YAPTIM */
+/*.detail-section {
+    max-width: 480px;
+}
+
+    .detail-section h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .detail-section h3::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: #6366f1;
+            margin-top: 8px;
+        }
+
+    .detail-section ul {
+        padding-left: 16px;
+    }
+
+    .detail-section li {
+        margin-bottom: 12px;
+        line-height: 1.6;
+        color: #374151;
+    }*/
+
+/* 3D TASARIM – ALT GALERİ */
+/*.detail-gallery {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+    .detail-gallery img {
+        width: 160px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }*/
+
+        /* HOVER EFEKT */
+        /*.detail-gallery img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+            z-index: 2;
+        }*/
+
+
+/* SAĞ GÖRSEL */
+/*.detail-image {
+    position: sticky;
+    top: 120px;
+}
+
+    .detail-image img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 18px;
+        background: #000;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08);
+    }*/
+
+/* RESPONSIVE */
+/*.portfolio-detail-page {
+    max-width: 1200px;*/ /* 1100 → 1200 */
+    /*margin: 0 auto;
+    padding: 72px 32px;
+}
+
+.detail-layout {
+    background: #fafafa;
+    border-radius: 24px;
+    padding: 48px;
+}
+
+   
+    .detail-info h1 {
+        font-size: 32px;
+    }
+
+    .detail-image img {
+        max-height: 260px;
+    }
+
+    .detail-image {
+        position: static;
+    }
+}
+
+.image-actions {
+    margin-top: 24px;
+    text-align: left;*/ /* soldaki maddelerle aynı hizayı verir */
+/*}
+
+.image-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-actions {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.demo-label {
+    font-size: 16px;*/ /* biraz büyüttük */
+    /*font-weight: 600;*/ /* okunurluk */
+    /*color: #6d28d9;*/ /* Demo morunun yumuşak tonu */
+    /*margin-bottom: 6px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}*/
+
+/* GALERİ */
+/*.detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+    .detail-gallery img {
+        width: 100%;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+      .pixel-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 12px;
+}
+
+        .pixel-gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;*/
+            /* 🔽 SİYAHI KALDIR */
+            /*background: #f8fafc;*/ /* çok açık gri */
+            /*padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            image-rendering: pixelated;*/ /* 🔥 pixel art netliği */
+            /*transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+            .pixel-gallery img:hover {
+                transform: translateY(-4px) scale(1.03);
+                box-shadow: 0 12px 30px rgba(0,0,0,.18);
+            }
+
+
+.portfolio-filter a.active {
+    color: #6d28d9;
+    border-bottom: 2px solid #6d28d9;
+}*/
+
+

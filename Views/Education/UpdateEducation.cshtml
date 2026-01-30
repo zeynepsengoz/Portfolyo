@@ -1,0 +1,131 @@
+﻿@model EducationTable
+
+@{
+    ViewData["Title"] = "Eğitimi Güncelle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="bg-background-light min-h-screen flex items-center justify-center p-6">
+
+    <!-- CARD -->
+    <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8">
+
+        <h1 class="text-2xl font-bold text-slate-900 mb-1">
+            Eğitimi Güncelle
+        </h1>
+        <p class="text-sm text-slate-500 mb-6">
+            Mevcut eğitim bilgilerini düzenleyebilirsiniz.
+        </p>
+
+        <!-- BACK -->
+        <a href="/Education/Index"
+           class="inline-block text-blue-600 hover:underline text-sm mb-6">
+            ← Eğitimlere Dön
+        </a>
+
+        <form method="post" class="space-y-6">
+
+            <!-- ID -->
+            <input type="hidden" name="EducationId" value="@Model.EducationId" />
+
+            <!-- OKUL -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">
+                    Okul
+                </label>
+                <input type="text"
+                       name="SchoolName"
+                       value="@Model.SchoolName"
+                       class="w-full rounded-xl border border-slate-300
+                              px-4 py-3 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <!-- BÖLÜM -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">
+                    Bölüm
+                </label>
+                <input type="text"
+                       name="Department"
+                       value="@Model.Department"
+                       class="w-full rounded-xl border border-slate-300
+                              px-4 py-3 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <!-- SINIF -->
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-1">
+                    Sınıf
+                </label>
+                <input type="text"
+                       name="ClassLevel"
+                       value="@Model.ClassLevel"
+                       class="w-full rounded-xl border border-slate-300
+                              px-4 py-3 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <!-- YILLAR -->
+            <div class="grid grid-cols-2 gap-4">
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">
+                        Başlangıç Yılı
+                    </label>
+                    <input type="number"
+                           name="StartYear"
+                           value="@Model.StartYear"
+                           class="w-full rounded-xl border border-slate-300
+                                  px-4 py-3 text-slate-900
+                                  focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">
+                        Bitiş Yılı
+                    </label>
+                    <input type="number"
+                           name="EndYear"
+                           value="@Model.EndYear"
+                           placeholder="Devam Ediyor"
+                           class="w-full rounded-xl border border-slate-300
+                                  px-4 py-3 text-slate-900
+                                  focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+            </div>
+
+            <!-- DEVAM EDİYOR -->
+            <div class="flex items-center gap-2">
+                <input type="checkbox"
+                       name="IsCurrent"
+                       value="true"
+                       @(Model.IsCurrent ? "checked" : "") />
+                <span class="text-sm text-slate-700">
+                    Devam Ediyor
+                </span>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="flex justify-end gap-3 pt-4">
+
+                <a href="/Education/Index"
+                   class="px-6 py-2 rounded-full bg-slate-100 text-slate-600
+                          hover:bg-slate-200 transition">
+                    Vazgeç
+                </a>
+
+                <button type="submit"
+                        class="px-6 py-2 rounded-full bg-blue-600 text-white
+                               hover:bg-blue-700 transition shadow-md">
+                    Güncelle
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

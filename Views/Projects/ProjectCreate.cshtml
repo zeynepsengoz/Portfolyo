@@ -1,0 +1,141 @@
+﻿@*  @model Portfolyo.Data.ProjectsTable
+@{
+    ViewData["Title"] = "ProjectCreate";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>ProjectCreate</h1>
+
+<form method="post">
+    <label>
+            Proje Adı
+    </label>
+    <input type="text" class="form-control" name="ProjectName" />
+
+    <label>
+        Proje Başlığı
+    </label>
+    <input type="text" class="form-control" name="Title" />
+
+    <label>
+        Proje Resmi
+    </label>
+    <input type="text" class="form-control" name="Image" />
+
+    <label>
+        Proje Kategorisi
+    </label>
+    
+    <select> class="form-control" name"CategoryId"> 
+        <option value="">Kategoriyi Seçiniz</option>
+
+      
+
+        @foreach (var item in ViewBag.Category)
+        {
+           <option value="@item.Value">@item.Text</option>
+        }
+
+    </select>
+
+    
+
+    <button type="submit" class="btn btn-success">Ekle</button>
+</form>
+  *@
+
+@model Portfolyo.Data.ProjectsTable
+@{
+    ViewData["Title"] = "Yeni Proje Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="min-h-screen bg-white flex items-center justify-center px-4">
+    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
+
+        <!-- ÜST -->
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-slate-900">Yeni Proje Ekle</h1>
+            <p class="text-slate-500 text-sm mt-1">
+                Portföyüne yeni bir proje ekleyebilirsin.
+            </p>
+
+            <a asp-controller="Projects"
+               asp-action="Index"
+               class="inline-flex items-center gap-2 text-sm text-indigo-600 mt-4 hover:underline">
+                ← Projelere Dön
+            </a>
+        </div>
+
+        <!-- FORM -->
+        <form method="post" class="space-y-5">
+
+            <!-- Proje Adı -->
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">
+                    Proje Adı
+                </label>
+                <input asp-for="ProjectName"
+                       placeholder="Örn: Portfolio Website"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
+                              text-slate-900 placeholder-slate-400
+                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+            </div>
+
+            <!-- Başlık -->
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">
+                    Proje Başlığı
+                </label>
+                <input asp-for="Title"
+                       placeholder="Kısa açıklama / başlık"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
+                              text-slate-900 placeholder-slate-400
+                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+            </div>
+
+            <!-- Görsel -->
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">
+                    Proje Görseli (URL)
+                </label>
+                <input asp-for="Image"
+                       placeholder="https://..."
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
+                              text-slate-900 placeholder-slate-400
+                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+            </div>
+
+            <!-- Kategori -->
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">
+                    Proje Kategorisi
+                </label>
+                <select asp-for="CategoryId"
+                        asp-items="ViewBag.Category"
+                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5
+                               text-slate-900 bg-white
+                               focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
+                    <option value="">Kategori Seçiniz</option>
+                </select>
+            </div>
+
+            <hr class="my-6">
+
+            <!-- BUTONLAR -->
+            <div class="flex justify-end gap-3">
+                <a asp-controller="Projects"
+                   asp-action="Index"
+                   class="px-5 py-2.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200">
+                    Vazgeç
+                </a>
+
+                <button type="submit"
+                        class="px-6 py-2.5 rounded-full bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">
+                    Kaydet
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

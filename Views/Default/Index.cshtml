@@ -1,0 +1,474 @@
+﻿@* 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+
+
+@await Component.InvokeAsync("About")
+@await Component.InvokeAsync("Skill")
+
+
+
+
+<section id="portfolio">
+	<div class="container-fluid px-lg-5">
+		<div class="portfolio-inner">
+
+			<div class="portfolio-container isotope-container row my-n2 mx-sm-n2 justify-content-center">
+				<!-- kartlar burada -->
+			</div>
+
+		</div>
+	</div>
+
+
+		<!-- BAŞLIK -->
+		<div class="row mb-6">
+			<div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
+				<div class="section-title h2 mb-3">
+					<h2 class="mb-0">Portfolio</h2>
+					<span class="title-letter">P</span>
+				</div>
+
+				<!-- FİLTRELER -->
+				<nav class="portfolio-filter isotope-filter">
+					<ul class="justify-content-center">
+
+						<li>
+							<a href="#" class="active" data-filter="*">
+								<i class="fas fa-border-all me-1"></i> Tümü
+							</a>
+						</li>
+
+						<li>
+							<a href="#" data-filter=".game">
+								<i class="fas fa-gamepad me-1"></i> Oyun
+							</a>
+						</li>
+
+						<li>
+							<a href="#" data-filter=".design">
+								<i class="fas fa-palette me-1"></i> Tasarım
+							</a>
+						</li>
+
+						<li>
+							<a href="#" data-filter=".web">
+								<i class="fas fa-code me-1"></i> Web
+							</a>
+						</li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+
+
+
+
+
+
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-lg-auto">
+				<div class="row mb-8">
+					<div class="col-lg-8 mx-lg-auto text-center">
+						<div class="section-title h2 mb-3">
+							<h2 class="mb-0">İletişim</h2>
+							
+						</div>
+						<p>Benimle iletişime geçmek ister misiniz? Sorularınız için bana mesaj gönderebilirsiniz.</p>
+					</div>
+				</div>
+				<div class="row mb-8">
+					<div class="col-md-4 mb-5 mb-md-0">
+						<div class="feature-block">
+							<div class="feature-icon text-primary mb-4">
+								<div class="mx-auto">
+									<i class="ti-mobile"></i>
+								</div>
+							</div>
+							<p class="text-center">
+								Telefon: +90 5xx xxx xx xx
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-4 mb-5 mb-md-0">
+						<div class="feature-block">
+							<div class="feature-icon text-primary mb-4">
+								<div class="mx-auto">
+									<i class="ti-location-pin"></i>
+								</div>
+							</div>
+							<p class="text-center">
+								İstanbul,Türkiye
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="feature-block">
+							<div class="feature-icon text-primary mb-4">
+								<div class="mx-auto">
+									<i class="ti-email"></i>
+								</div>
+							</div>
+							<p class="text-center">
+								<a href="mailto:zeynepsengoz05@gmail.com">zeynepsengoz05@gmail.com</a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+				
+
+				<div class="contact-form">
+					<form method="post" action="/Messages/SendMessage" autocomplete="off">
+
+						<div class="form-row">
+
+							<div class="col-12 col-md-6">
+								<div class="form-group">
+									<input type="text"
+										   name="Name"
+										   placeholder="Adınız"
+										   class="form-control"
+										   required />
+								</div>
+							</div>
+
+							<div class="col-12 col-md-6">
+								<div class="form-group">
+									<input type="email"
+										   name="Email"
+										   placeholder="E-posta adresiniz"
+										   class="form-control"
+										   required />
+								</div>
+							</div>
+
+							<div class="col-12 mb-4">
+								<div class="form-group">
+									<textarea name="MessageContent"
+											  placeholder="Mesajınız"
+											  class="form-control"
+											  rows="7"
+											  required></textarea>
+								</div>
+							</div>
+
+							<div class="col-12 text-center">
+								<button class="btn btn-primary" type="submit">
+									Mesaj Gönder
+								</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+
+
+<!-- Site footer -->
+				<footer class="site-footer bg-light">
+					<div class="container text-center">
+
+						<p class="mb-2 text-muted">
+							Dijital Oyun Tasarımı & Yazılım Odaklı Portfolyo
+						</p>
+
+						<p class="mb-0">
+							© 2025 Zeynep Şengöz — Tüm Hakları Saklıdır
+						</p>
+
+					</div>
+				</footer>
+
+ *@ 
+
+@model List<Portfolyo.Data.ProjectsTable>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+@await Component.InvokeAsync("Home")
+@await Component.InvokeAsync("About")
+@await Component.InvokeAsync("Skill")
+
+
+<section id="portfolio" class="portfolio-section">
+
+    <div class="container">
+
+        <!-- BAŞLIK -->
+        <div class="row mb-4">
+            <div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
+                <div class="section-title h2 mb-3">
+                    <h2 class="mb-0">Portfolyo</h2>
+                    <span class="title-letter">P</span>
+                </div>
+
+                <!-- FİLTRELER -->
+                <nav class="portfolio-filter isotope-filter">
+                    <ul class="justify-content-center">
+
+                        <li>
+                            <a href="#" class="active" data-filter="*">
+                                <i class="fas fa-border-all me-1"></i> Tümü
+                            </a>
+                        </li>
+
+                        @{
+                            // Kategorileri tekilleştir
+                            var categories = Model
+                            .Select(x => x.Category?.CategoryName)
+                            .Where(x => !string.IsNullOrWhiteSpace(x))
+                            .Distinct()
+                            .ToList();
+
+                            // Slug fonksiyonu: boşluk/türkçe karakter vb. güvenli hale getirir
+                            string Slugify(string text)
+                            {
+                                text = text.Trim().ToLower();
+
+                                // Türkçe karakter dönüşümü
+                                text = text.Replace("ı", "i")
+                                .Replace("İ", "i")
+                                .Replace("ş", "s")
+                                .Replace("Ş", "s")
+                                .Replace("ğ", "g")
+                                .Replace("Ğ", "g")
+                                .Replace("ü", "u")
+                                .Replace("Ü", "u")
+                                .Replace("ö", "o")
+                                .Replace("Ö", "o")
+                                .Replace("ç", "c")
+                                .Replace("Ç", "c");
+
+                                // Boşluk ve bazı işaretleri kaldır
+                                text = text.Replace(" ", "")
+                                .Replace("-", "")
+                                .Replace(".", "")
+                                .Replace("/", "")
+                                .Replace("&", "")
+                                .Replace("(", "")
+                                .Replace(")", "");
+
+                                return text;
+                            }
+                        }
+
+                        @foreach (var cat in categories)
+                        {
+                            var slug = Slugify(cat);
+                            <li>
+                                <a href="#" data-filter=".@slug">@cat</a>
+                            </li>
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        
+
+        <!-- KARTLAR -->
+        <div class="portfolio-grid isotope-container">
+
+            @foreach (var item in Model)
+            {
+                var imgPath = string.IsNullOrEmpty(item.Image)
+                ? "/images/portfolio/placeholder.png"
+                : item.Image;
+
+                var catClass = (item.Category?.CategoryName ?? "")
+                .Replace(" ", "")
+                .ToLower();
+
+                <a href="/Portfolio/Detail/@item.ProjectId"
+                   class="portfolio-card isotope-item @catClass">
+
+                    <!-- ÜST: RESİM -->
+                    <div class="portfolio-image">
+                        <img src="@imgPath" alt="@item.ProjectName" />
+                    </div>
+
+                    <!-- ALT: YAZI -->
+                    <div class="portfolio-body">
+                        <h4>@item.ProjectName</h4>
+                        <p>@item.Title • @item.Category?.CategoryName</p>
+                    </div>
+
+                </a>
+            }
+        </div>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const links = document.querySelectorAll(".portfolio-filter a[data-filter]");
+              const items = document.querySelectorAll(".portfolio-grid .portfolio-card");
+
+              links.forEach(link => {
+                link.addEventListener("click", function (e) {
+                  e.preventDefault();
+
+                  // aktif class
+                  links.forEach(x => x.classList.remove("active"));
+                  this.classList.add("active");
+
+                  const filter = this.getAttribute("data-filter"); 
+
+                  items.forEach(item => {
+                    if (filter === "*") {
+                      item.style.display = "";
+                      return;
+                    }
+
+                    const cls = filter.replace(".", ""); 
+                    item.style.display = item.classList.contains(cls) ? "" : "none";
+                  });
+                });
+              });
+            });
+        </script>
+
+
+
+
+
+<!-- =======================
+        CONTACT
+======================== -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-lg-auto">
+
+                <div class="row mb-8">
+                    <div class="col-lg-8 mx-lg-auto text-center">
+                        <div class="section-title h2 mb-3">
+                            <h2 class="mb-0">İletişim</h2>
+                        </div>
+                        <p>
+                            Benimle iletişime geçmek ister misiniz?
+                            Sorularınız için bana mesaj gönderebilirsiniz.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row mb-8">
+                    <div class="col-md-4 mb-5 mb-md-0">
+                        <div class="feature-block">
+                            <div class="feature-icon text-primary mb-4">
+                                <div class="mx-auto">
+                                    <i class="ti-mobile"></i>
+                                </div>
+                            </div>
+                            <p class="text-center">
+                                Telefon: +90 5xx xxx xx xx
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-5 mb-md-0">
+                        <div class="feature-block">
+                            <div class="feature-icon text-primary mb-4">
+                                <div class="mx-auto">
+                                    <i class="ti-location-pin"></i>
+                                </div>
+                            </div>
+                            <p class="text-center">
+                                İstanbul, Türkiye
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-block">
+                            <div class="feature-icon text-primary mb-4">
+                                <div class="mx-auto">
+                                    <i class="ti-email"></i>
+                                </div>
+                            </div>
+                            <p class="text-center">
+                                <a href="mailto:zeynepsengoz05@gmail.com">
+                                    zeynepsengoz05@gmail.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form method="post" action="/Messages/SendMessage" autocomplete="off">
+                        <div class="form-row">
+
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <input type="text"
+                                           name="Name"
+                                           placeholder="Adınız"
+                                           class="form-control"
+                                           required />
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <input type="email"
+                                           name="Email"
+                                           placeholder="E-posta adresiniz"
+                                           class="form-control"
+                                           required />
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <div class="form-group">
+                                    <textarea name="MessageContent"
+                                              placeholder="Mesajınız"
+                                              class="form-control"
+                                              rows="7"
+                                              required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary" type="submit">
+                                    Mesaj Gönder
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =======================
+        FOOTER
+======================== -->
+<footer class="site-footer bg-light">
+    <div class="container text-center">
+        <p class="mb-2 text-muted">
+            Dijital Oyun Tasarımı & Yazılım Odaklı Portfolyo
+        </p>
+        <p class="mb-0">
+            © 2025 Zeynep Şengöz — Tüm Hakları Saklıdır
+        </p>
+    </div>
+</footer>
+

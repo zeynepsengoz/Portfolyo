@@ -1,0 +1,24 @@
+﻿@model Portfolyo.Data.ServicesTable
+
+@{
+    ViewData["Title"] = "UpdateServices";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Burası Güncelleme Sayfası</h1>
+
+<form method="post">
+    <label> Id</label>
+    <input type="text" class="form-control" name="ExperinceId" value="@Model.ExperinceId" readonly />
+    <label>Başlık</label>
+    <input type="text" class="form-control" name="Title" value="@Model.Title" readonly />
+    <label>Açıklama</label>
+    <input type="text" class="form-control" name="Description" value="@Model.Description" readonly />
+    <label>Icon</label>
+    <input type="text" class="form-control" name="Icon" value="@Model.Icon"/>
+
+    <button type="submit" class="btn btn-success">Oluştur</button>
+</form>
+
+
+
