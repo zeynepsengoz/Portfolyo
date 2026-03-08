@@ -579,9 +579,15 @@ License: https://themeforest.net/licenses/standard
 
 		contactForm.each( function(){
 			var el = $(this),
-				elResult = el.find('.contact-form-result');
+				elResult = el.find('.contact-form-result'),
+				formEl = el.find('form');
 
-			el.find('form').validate({
+			// Custom backend form (ASP.NET MVC) should use normal submit flow.
+			if (formEl.attr('action') && formEl.attr('action').indexOf('/Messages/SendMessage') !== -1) {
+				return true;
+			}
+
+			formEl.validate({
 				submitHandler: function(form) {
 					elResult.fadeOut( 500 );
 
