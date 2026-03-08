@@ -11,6 +11,6 @@ public class HomeController : Controller
     [HttpGet("")]
     public IActionResult Index()
     {
-        return View();
+        return Redirect("/Dashboard/Index");
     }
 }
