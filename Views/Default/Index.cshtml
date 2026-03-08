@@ -78,8 +78,14 @@
                             var categories = Model
                                 .Select(x => x.Category?.CategoryName)
                                 .Where(x => !string.IsNullOrWhiteSpace(x))
+                                .Select(x => x!)
                                 .Distinct()
                                 .ToList();
+
+                            if (!categories.Any(x => Slugify(x) == "characterdesign"))
+                            {
+                                categories.Add("Character Design");
+                            }
                         }
 
                         @foreach (var cat in categories)
