@@ -65,7 +65,7 @@
                     <ul class="justify-content-center">
 
                         <li>
-                            <a href="#" class="active" data-filter="all">
+                            <a href="#portfolio" class="active" data-filter="all">
                                 <i class="fas fa-border-all me-1"></i> Tümü
                             </a>
                         </li>
@@ -83,7 +83,7 @@
                         {
                             var slug = Slugify(cat);
                             <li>
-                                <a href="#" data-filter="@slug">@cat</a>
+                                <a href="#portfolio" data-filter="@slug">@cat</a>
                             </li>
                         }
 
@@ -185,11 +185,15 @@
                   currentPage = 1;
                 }
 
-                items.forEach(item => item.classList.add("portfolio-hidden"));
+                items.forEach(item => {
+                  item.hidden = true;
+                });
 
                 const start = (currentPage - 1) * perPage;
                 const pageItems = filtered.slice(start, start + perPage);
-                pageItems.forEach(item => item.classList.remove("portfolio-hidden"));
+                pageItems.forEach(item => {
+                  item.hidden = false;
+                });
 
                 renderPagination(totalPages);
               }
