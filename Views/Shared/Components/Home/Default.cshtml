@@ -9,7 +9,6 @@
     <div class="page-container">
         <div class="zh-home__wrap">
 
-            <!-- SOL -->
             <div class="zh-home__left">
                 <h1 class="zh-home__name">@Model?.NameSurname</h1>
 
@@ -21,12 +20,11 @@
                 }
             </div>
 
-            <!-- SAĞ -->
             <div class="zh-home__right">
                 <img class="zh-home__avatar"
                      src="@(string.IsNullOrEmpty(Model?.ImagePath)
-                                                        ? "/images/placeholder.png"
-                                                        : Model.ImagePath)" />
+                                ? "/images/placeholder.png"
+                                : Model.ImagePath)" />
             </div>
 
         </div>

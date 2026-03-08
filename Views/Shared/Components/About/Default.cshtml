@@ -2,48 +2,32 @@
 
 <section id="about" class="about-section">
     <div class="about-wrapper">
-
-        <h2 class="about-title">Hakkımda</h2>
+        <h2 class="about-title">About</h2>
 
         <div class="about-grid">
-
-            <!-- SOL: PARAGRAF -->
             <div class="about-left">
-                <p>
-                    @Model.Info?.LongDescription
-                </p>
+                <p>@Model.Info?.LongDescription</p>
             </div>
 
-            <!-- SAĞ: BİLGİLER -->
             <div class="about-right">
-
                 <ul class="about-info">
-                    <li><strong>Yaş:</strong> @Model.Info?.Age</li>
+                    <li><strong>Age:</strong> @Model.Info?.Age</li>
                     <li>
-                        <strong>E-posta:</strong>
-                        <a href="mailto:@Model.Info?.Email">
-                            @Model.Info?.Email
-                        </a>
+                        <strong>Email:</strong>
+                        <a href="mailto:@Model.Info?.Email">@Model.Info?.Email</a>
                     </li>
-                    <li>
-                        <strong>İlgi Alanları:</strong>
-                        @Model.Info?.Interests
-                    </li>
+                    <li><strong>Interests:</strong> @Model.Info?.Interests</li>
                 </ul>
 
                 <div class="about-education">
-                    <h3>Eğitim</h3>
+                    <h3>Education</h3>
 
                     @foreach (var edu in Model.Educations)
                     {
                         <div class="edu-item">
                             <strong>@edu.SchoolName</strong>
                             <div>@edu.Department</div>
-                            <small>
-                                @edu.StartYear –
-                                @(edu.EndYear.HasValue? edu.EndYear.ToString() : "Devam Ediyor")
-                            </small>
-
+                            <small>@edu.StartYear – @(edu.EndYear.HasValue ? edu.EndYear.ToString() : "Ongoing")</small>
                         </div>
                     }
                 </div>

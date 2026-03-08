@@ -1,36 +1,28 @@
 ﻿@model List<Portfolyo.Data.MessageTable>
 
 @{
-    ViewData["Title"] = "Mesajlar";
+    ViewData["Title"] = "Messages";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="p-6 bg-background-light min-h-screen">
     <div class="max-w-6xl mx-auto">
 
-        <!-- HEADER -->
         <div class="mb-8">
-            <h1 class="text-2xl font-bold text-slate-900">
-                Gelen Mesajlar
-            </h1>
-            <p class="text-sm text-slate-500 mt-1">
-                İletişim formundan gönderilen tüm mesajlar
-            </p>
+            <h1 class="text-2xl font-bold text-slate-900">Incoming Messages</h1>
+            <p class="text-sm text-slate-500 mt-1">All messages submitted from the contact form.</p>
         </div>
 
-        <!-- TABLE -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
             <table class="w-full text-left">
                 <thead>
                     <tr class="bg-slate-50 border-b border-slate-200">
                         <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">#</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Ad</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">E-posta</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Mesaj</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Tarih</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">
-                            İşlemler
-                        </th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Name</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Email</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Message</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Date</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">Actions</th>
                     </tr>
                 </thead>
 
@@ -43,24 +35,18 @@
                             <td class="px-6 py-4">@item.MessageId</td>
                             <td class="px-6 py-4 font-semibold">@item.Name</td>
                             <td class="px-6 py-4">@item.Email</td>
-                            <td class="px-6 py-4 text-slate-600 truncate max-w-xs">
-                                @item.MessageContent
-                            </td>
-                            <td class="px-6 py-4 text-slate-500">
-                                @item.MessageDate.ToString("dd.MM.yyyy HH:mm")
-                            </td>
+                            <td class="px-6 py-4 text-slate-600 truncate max-w-xs">@item.MessageContent</td>
+                            <td class="px-6 py-4 text-slate-500">@item.MessageDate.ToString("dd.MM.yyyy HH:mm")</td>
 
                             <td class="px-6 py-4 text-right">
                                 <form method="post"
                                       action="/AdminMessages/Delete/@item.MessageId"
-                                      onsubmit="return confirm('Bu mesaj silinsin mi?')"
+                                      onsubmit="return confirm('Delete this message?')"
                                       onclick="event.stopPropagation();">
                                     <button type="submit"
-                                            class="inline-flex items-center gap-1 rounded-full
-                                                       bg-red-50 text-red-600 px-4 py-1.5
-                                                       text-xs font-medium hover:bg-red-100 transition">
+                                            class="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-4 py-1.5 text-xs font-medium hover:bg-red-100 transition">
                                         <span class="material-symbols-outlined text-sm">delete</span>
-                                        Sil
+                                        Delete
                                     </button>
                                 </form>
                             </td>
@@ -72,5 +58,3 @@
 
     </div>
 </div>
-
-

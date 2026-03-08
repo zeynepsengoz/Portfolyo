@@ -1,7 +1,7 @@
 ﻿@model List<Portfolyo.Data.ProjectsTable>
 
 @{
-    ViewData["Title"] = "Projelerim";
+    ViewData["Title"] = "Projects";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 
     bool IsWebCategory(string? categoryName)
@@ -21,20 +21,40 @@
 
         return normalized.Contains("web");
     }
+
+    string DisplayCategoryName(string? categoryName)
+    {
+        var normalized = (categoryName ?? string.Empty).Trim().ToLowerInvariant()
+            .Replace("ı", "i")
+            .Replace("ş", "s")
+            .Replace("ğ", "g")
+            .Replace("ü", "u")
+            .Replace("ö", "o")
+            .Replace("ç", "c");
+
+        return normalized switch
+        {
+            "oyun" => "Game",
+            "web" => "Web",
+            "blender" => "Blender",
+            "pixelart" => "Pixel Art",
+            _ => categoryName ?? string.Empty
+        };
+    }
 }
 
 <div class="p-6 bg-background-light min-h-screen">
     <div class="max-w-7xl mx-auto">
         <div class="flex items-center justify-between mb-8">
             <div>
-                <h1 class="text-2xl font-bold text-slate-900">Projelerim</h1>
-                <p class="text-sm text-slate-500 mt-1">Sıralama, görsel ve linkler dahil tüm proje alanlarını buradan yönetebilirsin.</p>
+                <h1 class="text-2xl font-bold text-slate-900">Projects</h1>
+                <p class="text-sm text-slate-500 mt-1">Manage ordering, images, links, and all project fields from this page.</p>
             </div>
 
             <a href="/Projects/ProjectCreate"
                class="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition">
                 <span class="material-symbols-outlined text-base">add</span>
-                Yeni Proje Ekle
+                Add New Project
             </a>
         </div>
 
@@ -42,15 +62,15 @@
             <table class="w-full table-fixed text-left">
                 <thead>
                     <tr class="bg-slate-50 border-b border-slate-200">
-                        <th class="w-[8%] px-4 py-4 text-xs font-semibold text-slate-500 uppercase">Sıra</th>
-                        <th class="w-[14%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Proje Adı</th>
-                        <th class="w-[16%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Başlık</th>
-                        <th class="w-[16%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Açıklama</th>
-                        <th class="w-[14%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Proje Linki</th>
-                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Kart Görseli</th>
-                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Galeri</th>
-                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Kategori</th>
-                        <th class="w-[18%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">İşlemler</th>
+                        <th class="w-[8%] px-4 py-4 text-xs font-semibold text-slate-500 uppercase">Order</th>
+                        <th class="w-[14%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Project Name</th>
+                        <th class="w-[16%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Title</th>
+                        <th class="w-[16%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Description</th>
+                        <th class="w-[14%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Project Link</th>
+                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Card Image</th>
+                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Gallery</th>
+                        <th class="w-[8%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Category</th>
+                        <th class="w-[18%] px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">Actions</th>
                     </tr>
                 </thead>
 
@@ -63,10 +83,10 @@
                                     <span class="min-w-[24px] text-center font-semibold">@item.DisplayOrder</span>
                                     <div class="flex flex-col gap-1">
                                         <form method="post" action="/Projects/MoveUp/@item.ProjectId">
-                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">↑</button>
+                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">^</button>
                                         </form>
                                         <form method="post" action="/Projects/MoveDown/@item.ProjectId">
-                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">↓</button>
+                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">v</button>
                                         </form>
                                     </div>
                                 </div>
@@ -86,7 +106,7 @@
                                 }
                                 else
                                 {
-                                    <span class="text-xs text-slate-400 italic">Yok</span>
+                                    <span class="text-xs text-slate-400 italic">None</span>
                                 }
                             </td>
 
@@ -97,16 +117,14 @@
                                 }
                                 else
                                 {
-                                    <span class="text-xs text-slate-400 italic">Yok</span>
+                                    <span class="text-xs text-slate-400 italic">None</span>
                                 }
                             </td>
 
-                            <td class="px-6 py-4 text-sm text-slate-600">
-                                @(item.ProjectImages?.Count ?? 0) görsel
-                            </td>
+                            <td class="px-6 py-4 text-sm text-slate-600">@(item.ProjectImages?.Count ?? 0) images</td>
 
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600">@item.Category?.CategoryName</span>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600">@DisplayCategoryName(item.Category?.CategoryName)</span>
                             </td>
 
                             <td class="px-6 py-4 text-right">
@@ -114,14 +132,14 @@
                                     <a href="/Projects/ProjectUpdate/@item.ProjectId"
                                        class="inline-flex items-center gap-1 rounded-full bg-amber-50 text-amber-600 px-4 py-1.5 text-xs font-medium hover:bg-amber-100 transition">
                                         <span class="material-symbols-outlined text-sm">edit</span>
-                                        Düzenle
+                                        Edit
                                     </a>
 
                                     <a href="/Projects/ProjectDelete/@item.ProjectId"
-                                       onclick="return confirm('Silmek istediğine emin misin?')"
+                                       onclick="return confirm('Are you sure you want to delete this project?')"
                                        class="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-4 py-1.5 text-xs font-medium hover:bg-red-100 transition">
                                         <span class="material-symbols-outlined text-sm">delete</span>
-                                        Sil
+                                        Delete
                                     </a>
                                 </div>
                             </td>

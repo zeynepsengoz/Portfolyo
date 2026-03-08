@@ -1,124 +1,55 @@
 ﻿@model EducationTable
 
 @{
-    ViewData["Title"] = "Yeni Eğitim";
+    ViewData["Title"] = "Add Education";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="flex items-center justify-center min-h-screen px-6 bg-white">
     <div class="w-full max-w-2xl">
-
-        <!-- FORM CARD -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-lg p-8">
-
-            <h1 class="text-2xl font-bold text-slate-900">
-                Yeni Eğitim
-            </h1>
-
-            <p class="text-sm text-slate-500 mt-1 mb-6">
-                Akademik geçmişine yeni bir eğitim ekle.
-            </p>
+            <h1 class="text-2xl font-bold text-slate-900">Add Education</h1>
+            <p class="text-sm text-slate-500 mt-1 mb-6">Add a new entry to your academic background.</p>
 
             <form method="post">
-
-                <!-- OKUL -->
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-slate-700 mb-1">
-                        Okul
-                    </label>
-                    <input asp-for="SchoolName"
-                           class="w-full rounded-xl
-                                  bg-white text-black
-                                  border border-slate-300
-                                  placeholder:text-slate-400
-                                  focus:border-primary focus:ring-primary" />
+                    <label class="block text-sm font-medium text-slate-700 mb-1">School</label>
+                    <input asp-for="SchoolName" class="w-full rounded-xl bg-white text-black border border-slate-300 placeholder:text-slate-400 focus:border-primary focus:ring-primary" />
                 </div>
 
-                <!-- BÖLÜM -->
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-slate-700 mb-1">
-                        Bölüm
-                    </label>
-                    <input asp-for="Department"
-                           class="w-full rounded-xl
-                                  bg-white text-black
-                                  border border-slate-300
-                                  placeholder:text-slate-400
-                                  focus:border-primary focus:ring-primary" />
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Department</label>
+                    <input asp-for="Department" class="w-full rounded-xl bg-white text-black border border-slate-300 placeholder:text-slate-400 focus:border-primary focus:ring-primary" />
                 </div>
 
-                <!-- SINIF -->
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-slate-700 mb-1">
-                        Sınıf
-                    </label>
-                    <input asp-for="ClassLevel"
-                           class="w-full rounded-xl
-                                  bg-white text-black
-                                  border border-slate-300
-                                  placeholder:text-slate-400
-                                  focus:border-primary focus:ring-primary" />
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Class Level</label>
+                    <input asp-for="ClassLevel" class="w-full rounded-xl bg-white text-black border border-slate-300 placeholder:text-slate-400 focus:border-primary focus:ring-primary" />
                 </div>
 
-                <!-- YILLAR -->
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">
-                            Başlangıç Yılı
-                        </label>
-                        <input asp-for="StartYear"
-                               type="number"
-                               class="w-full rounded-xl
-                                      bg-white text-black
-                                      border border-slate-300
-                                      focus:border-primary focus:ring-primary" />
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Start Year</label>
+                        <input asp-for="StartYear" type="number" class="w-full rounded-xl bg-white text-black border border-slate-300 focus:border-primary focus:ring-primary" />
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">
-                            Bitiş Yılı
-                        </label>
-                        <input asp-for="EndYear"
-                               type="number"
-                               placeholder="Devam Ediyor"
-                               class="w-full rounded-xl
-                                      bg-white text-black
-                                      border border-slate-300
-                                      placeholder:text-slate-400
-                                      focus:border-primary focus:ring-primary" />
+                        <label class="block text-sm font-medium text-slate-700 mb-1">End Year</label>
+                        <input asp-for="EndYear" type="number" placeholder="Ongoing" class="w-full rounded-xl bg-white text-black border border-slate-300 placeholder:text-slate-400 focus:border-primary focus:ring-primary" />
                     </div>
                 </div>
 
-                <!-- DEVAM EDİYOR -->
                 <div class="mb-6">
                     <label class="inline-flex items-center gap-2">
-                        <input asp-for="IsCurrent"
-                               type="checkbox"
-                               class="rounded border-slate-300
-                                      text-primary focus:ring-primary" />
-                        <span class="text-sm text-slate-700">
-                            Devam Ediyor
-                        </span>
+                        <input asp-for="IsCurrent" type="checkbox" class="rounded border-slate-300 text-primary focus:ring-primary" />
+                        <span class="text-sm text-slate-700">Ongoing</span>
                     </label>
                 </div>
 
-                <!-- BUTTONS -->
                 <div class="flex justify-end gap-3">
-                    <a href="/Education/Index"
-                       class="px-5 py-2.5 rounded-full
-                              bg-slate-100 hover:bg-slate-200
-                              text-sm font-medium text-slate-700">
-                        Vazgeç
-                    </a>
-
-                    <button type="submit"
-                            class="px-6 py-2.5 rounded-full
-                                   bg-primary hover:bg-blue-700
-                                   text-sm font-semibold text-white">
-                        Kaydet
-                    </button>
+                    <a href="/Education/Index" class="px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-sm font-medium text-slate-700">Cancel</a>
+                    <button type="submit" class="px-6 py-2.5 rounded-full bg-primary hover:bg-blue-700 text-sm font-semibold text-white">Save</button>
                 </div>
-
             </form>
         </div>
     </div>

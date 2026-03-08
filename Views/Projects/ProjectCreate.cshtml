@@ -1,89 +1,84 @@
 ﻿@model Portfolyo.Data.ProjectsTable
 @{
-    ViewData["Title"] = "Yeni Proje Ekle";
+    ViewData["Title"] = "Add New Project";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="min-h-screen bg-white flex items-start justify-center px-4 py-8">
     <div class="w-full max-w-2xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
         <div class="mb-6">
-            <h1 class="text-2xl font-bold text-slate-900">Yeni Proje Ekle</h1>
-            <p class="text-slate-500 text-sm mt-1">Kart görseli ve detay galerisi bu ekrandan yüklenir.</p>
+            <h1 class="text-2xl font-bold text-slate-900">Add New Project</h1>
+            <p class="text-slate-500 text-sm mt-1">Upload the card preview image and detail gallery on this screen.</p>
 
-            <a asp-controller="Projects"
-               asp-action="Index"
-               class="inline-flex items-center gap-2 text-sm text-indigo-600 mt-4 hover:underline">
-                ← Projelere Dön
+            <a asp-controller="Projects" asp-action="Index" class="inline-flex items-center gap-2 text-sm text-indigo-600 mt-4 hover:underline">
+                ‹ Back to Projects
             </a>
         </div>
 
         <form method="post" enctype="multipart/form-data" class="space-y-5">
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Adı</label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Project Name</label>
                 <input asp-for="ProjectName"
-                       placeholder="Örn: Portfolio Website"
+                       placeholder="Example: Portfolio Website"
                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Başlığı</label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Project Title</label>
                 <input asp-for="Title"
-                       placeholder="Kısa başlık"
+                       placeholder="Short title"
                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Açıklaması</label>
-                <textarea asp-for="Description"
-                          rows="4"
-                          placeholder="Projeyi kısa ve net şekilde anlat..."
+                <label class="block text-sm font-medium text-slate-800 mb-1">Project Description</label>
+                <textarea asp-for="Description" rows="4"
+                          placeholder="Describe the project briefly and clearly..."
                           class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"></textarea>
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Kategorisi</label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Project Category</label>
                 <select asp-for="CategoryId"
                         id="project-category-select"
                         asp-items="ViewBag.Category"
                         class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
-                    <option value="">Kategori Seçiniz</option>
+                    <option value="">Select Category</option>
                 </select>
             </div>
 
             <div>
-                <label id="project-link-label" class="block text-sm font-medium text-slate-800 mb-1">GitHub Linki (Opsiyonel)</label>
+                <label id="project-link-label" class="block text-sm font-medium text-slate-800 mb-1">GitHub Link (Optional)</label>
                 <input asp-for="GithubUrl"
                        id="project-link-input"
-                       placeholder="https://github.com/kullanici/proje"
+                       placeholder="https://github.com/username/project"
                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
-                <p id="project-link-help" class="text-xs text-slate-500 mt-2">Web projelerinde GitHub, tasarım/oyun projelerinde itch.io linki ekleyebilirsin.</p>
+                <p id="project-link-help" class="text-xs text-slate-500 mt-2">For web projects add a GitHub link; for design/game projects add an itch.io link.</p>
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Kart Önizleme Görseli</label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Card Preview Image</label>
                 <input type="file" name="previewImageFile" accept=".jpg,.jpeg,.png,.webp,.gif"
                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
             </div>
 
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">Detay Galeri Görselleri</label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Detail Gallery Images</label>
                 <input type="file" name="detailImageFiles" multiple accept=".jpg,.jpeg,.png,.webp,.gif"
                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
-                <p class="text-xs text-slate-500 mt-2">Birden fazla görsel seçebilirsin.</p>
+                <p class="text-xs text-slate-500 mt-2">You can select multiple images.</p>
             </div>
 
             <hr class="my-6">
 
             <div class="flex justify-end gap-3">
-                <a asp-controller="Projects"
-                   asp-action="Index"
+                <a asp-controller="Projects" asp-action="Index"
                    class="px-5 py-2.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200">
-                    Vazgeç
+                    Cancel
                 </a>
 
-                <button type="submit"
-                        class="px-6 py-2.5 rounded-full bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">
-                    Kaydet
+                <button type="submit" class="px-6 py-2.5 rounded-full bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700">
+                    Save
                 </button>
             </div>
         </form>
@@ -112,19 +107,36 @@
                 .replace("ç", "c");
         }
 
+        function localizeCategoryOptions() {
+            const map = {
+                "oyun": "Game",
+                "web": "Web",
+                "blender": "Blender",
+                "pixelart": "Pixel Art"
+            };
+
+            Array.from(categorySelect.options).forEach(function (option) {
+                const key = normalize(option.text);
+                if (map[key]) {
+                    option.text = map[key];
+                }
+            });
+        }
+
         function updateProjectLinkUI() {
             var selectedText = categorySelect.options[categorySelect.selectedIndex]?.text || "";
             var isWeb = normalize(selectedText).indexOf("web") !== -1;
 
-            linkLabel.textContent = isWeb ? "GitHub Linki (Opsiyonel)" : "itch.io Linki (Opsiyonel)";
+            linkLabel.textContent = isWeb ? "GitHub Link (Optional)" : "itch.io Link (Optional)";
             linkInput.placeholder = isWeb
-                ? "https://github.com/kullanici/proje"
-                : "https://kullanici.itch.io/oyun-adi";
+                ? "https://github.com/username/project"
+                : "https://username.itch.io/game-name";
             linkHelp.textContent = isWeb
-                ? "Bu proje web kategorisinde: GitHub linki ekleyebilirsin."
-                : "Bu proje tasarım/oyun kategorisinde: itch.io linki ekleyebilirsin.";
+                ? "This project is in the web category: you can add a GitHub link."
+                : "This project is in the design/game category: you can add an itch.io link.";
         }
 
+        localizeCategoryOptions();
         categorySelect.addEventListener("change", updateProjectLinkUI);
         updateProjectLinkUI();
     });

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Deneyimler";
+    ViewData["Title"] = "Experience";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -8,14 +8,12 @@
 
         <div class="flex items-start justify-between gap-4">
             <div>
-                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Deneyimler</h1>
-                <p class="mt-2 text-sm text-slate-500">
-                    Çalışma/ajans/iş deneyimlerini burada yönetebilirsin.
-                </p>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Experience</h1>
+                <p class="mt-2 text-sm text-slate-500">Manage your work/studio/professional experience from here.</p>
             </div>
 
             <span class="rounded-full bg-primary/10 px-4 py-2 text-xs font-extrabold text-primary border border-primary/20">
-                Şimdilik Pasif
+                Temporarily Disabled
             </span>
         </div>
 
@@ -25,28 +23,21 @@
                     <span class="material-symbols-outlined icon-fill text-[28px]">work</span>
                 </div>
 
-                <h2 class="text-lg font-extrabold text-slate-900">Henüz deneyim eklenmedi</h2>
-                <p class="max-w-md text-sm text-slate-500">
-                    Şu an bu bölümü kullanmıyorsun. Hazır olduğunda deneyimlerini ekleyip
-                    ana sitede “Deneyimler” kısmında gösterebilirsin.
-                </p>
+                <h2 class="text-lg font-extrabold text-slate-900">No experience added yet</h2>
+                <p class="max-w-md text-sm text-slate-500">This section is currently inactive. You can enable it later and display experience items on the public site.</p>
 
                 <div class="mt-4 flex flex-wrap gap-3 justify-center">
                     <a href="/Dashboard/Index"
                        class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:brightness-95">
                         <span class="material-symbols-outlined icon-fill text-[20px]">dashboard</span>
-                        Dashboard’a dön
+                        Back to Dashboard
                     </a>
 
-                    <button type="button"
-                            disabled
-                            class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-3
-           text-sm font-extrabold text-slate-400 border border-slate-200
-           cursor-not-allowed">
+                    <button type="button" disabled
+                            class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-3 text-sm font-extrabold text-slate-400 border border-slate-200 cursor-not-allowed">
                         <span class="material-symbols-outlined text-[20px]">add</span>
-                        Ekle (Yakında)
+                        Add (Soon)
                     </button>
-
                 </div>
             </div>
         </div>

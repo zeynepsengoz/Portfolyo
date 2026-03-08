@@ -21,7 +21,7 @@ namespace Portfolyo.Controllers
             _context.MessageTables.Add(message);
             await _context.SaveChangesAsync();
 
-            TempData["ContactSuccess"] = "Mesajınız iletildi. Teşekkürler, en kısa sürede dönüş yapacağım.";
+            TempData["ContactSuccess"] = "Your message has been sent. Thank you, I will get back to you shortly.";
             return Redirect("/Default/Index?sent=1#contact");
         }
     }

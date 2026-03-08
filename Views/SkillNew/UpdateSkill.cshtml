@@ -1,79 +1,38 @@
 ﻿@model Portfolyo.Data.SkillTable
 
 @{
-    ViewData["Title"] = "Yetenek Güncelle";
+    ViewData["Title"] = "Update Skill";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="bg-background-light min-h-screen flex items-center justify-center p-6">
-
-    <!-- CARD -->
     <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8">
 
-        <h1 class="text-2xl font-bold text-slate-900 mb-1">
-            Yeteneği Güncelle
-        </h1>
-        <p class="text-sm text-slate-500 mb-6">
-            Mevcut yetenek bilgilerini düzenleyebilirsiniz.
-        </p>
+        <h1 class="text-2xl font-bold text-slate-900 mb-1">Update Skill</h1>
+        <p class="text-sm text-slate-500 mb-6">Edit the current skill information.</p>
 
-        <!-- BACK -->
-        <a href="/SkillNew/SkillList"
-           class="inline-block text-blue-600 hover:underline text-sm mb-6">
-            ← Yeteneklere Dön
-        </a>
+        <a href="/SkillNew/SkillList" class="inline-block text-blue-600 hover:underline text-sm mb-6">‹ Back to Skills</a>
 
         <form method="post" class="space-y-6">
-
-            <!-- ID -->
             <input type="hidden" name="SkilId" value="@Model.SkilId" />
 
-            <!-- TITLE -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Yetenek Adı
-                </label>
-                <input type="text"
-                       name="Title"
-                       value="@Model.Title"
-                       class="w-full rounded-xl border border-slate-300
-                              px-4 py-3 text-slate-900
-                              focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Skill Name</label>
+                <input type="text" name="Title" value="@Model.Title"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
-            <!-- LEVEL -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Seviye (%)
-                </label>
-                <input type="number"
-                       name="Levels"
-                       value="@Model.Levels"
-                       min="0"
-                       max="100"
-                       class="w-full rounded-xl border border-slate-300
-                              px-4 py-3 text-slate-900
-                              focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Level (%)</label>
+                <input type="number" name="Levels" value="@Model.Levels" min="0" max="100"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
-            <!-- BUTTONS -->
             <div class="flex justify-end gap-3 pt-4">
-
-                <a href="/SkillNew/SkillList"
-                   class="px-6 py-2 rounded-full bg-slate-100 text-slate-600
-                          hover:bg-slate-200 transition">
-                    Vazgeç
-                </a>
-
-                <button type="submit"
-                        class="px-6 py-2 rounded-full bg-blue-600 text-white
-                               hover:bg-blue-700 transition shadow-md">
-                    Güncelle
-                </button>
-
+                <a href="/SkillNew/SkillList" class="px-6 py-2 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Cancel</a>
+                <button type="submit" class="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition shadow-md">Update</button>
             </div>
 
         </form>
-
     </div>
 </div>

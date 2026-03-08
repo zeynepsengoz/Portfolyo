@@ -1,24 +1,39 @@
 ﻿@model Portfolyo.Data.ServicesTable
 
 @{
-    ViewData["Title"] = "UpdateServices";
+    ViewData["Title"] = "Update Experience Item";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Burası Güncelleme Sayfası</h1>
+<div class="p-6 bg-background-light min-h-screen flex justify-center">
+    <div class="w-full max-w-xl bg-white rounded-2xl border border-slate-200 shadow-sm p-8">
+        <h1 class="text-2xl font-bold text-slate-900 mb-6">Update Experience Item</h1>
 
-<form method="post">
-    <label> Id</label>
-    <input type="text" class="form-control" name="ExperinceId" value="@Model.ExperinceId" readonly />
-    <label>Başlık</label>
-    <input type="text" class="form-control" name="Title" value="@Model.Title" readonly />
-    <label>Açıklama</label>
-    <input type="text" class="form-control" name="Description" value="@Model.Description" readonly />
-    <label>Icon</label>
-    <input type="text" class="form-control" name="Icon" value="@Model.Icon"/>
+        <form method="post" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Id</label>
+                <input type="text" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 bg-slate-50" name="ExperinceId" value="@Model.ExperinceId" readonly />
+            </div>
 
-    <button type="submit" class="btn btn-success">Oluştur</button>
-</form>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Title</label>
+                <input type="text" class="w-full rounded-xl border border-slate-300 px-4 py-2.5" name="Title" value="@Model.Title" />
+            </div>
 
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Description</label>
+                <input type="text" class="w-full rounded-xl border border-slate-300 px-4 py-2.5" name="Description" value="@Model.Description" />
+            </div>
 
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Icon</label>
+                <input type="text" class="w-full rounded-xl border border-slate-300 px-4 py-2.5" name="Icon" value="@Model.Icon" />
+            </div>
 
+            <div class="flex justify-end gap-3 pt-2">
+                <a href="/Services/Index" class="px-5 py-2.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium hover:bg-slate-200">Cancel</a>
+                <button type="submit" class="px-6 py-2.5 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

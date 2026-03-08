@@ -1,138 +1,87 @@
 ﻿@model AboutViewModel
 
 @{
-    ViewData["Title"] = "Hakkımda";
+    ViewData["Title"] = "About";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="p-6 bg-slate-50 min-h-screen">
     <div class="max-w-5xl mx-auto">
 
-        <!-- HEADER -->
         <div class="mb-8">
-            <h1 class="text-2xl font-bold text-slate-900">
-                Hakkımda Bilgileri
-            </h1>
-            <p class="text-sm text-slate-500 mt-1">
-                Ana sayfa ve Hakkımda bölümünde görünen bilgileri buradan düzenleyin.
-            </p>
+            <h1 class="text-2xl font-bold text-slate-900">About Information</h1>
+            <p class="text-sm text-slate-500 mt-1">Edit the information shown on the home page and About section here.</p>
         </div>
 
-        <!-- FORM CARD -->
-        <form method="post"
-              class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 space-y-10">
-
-            <!-- ================= GENEL BİLGİLER ================= -->
+        <form method="post" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-8 space-y-10">
             <div>
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">
-                    Genel Bilgiler
-                </h3>
+                <h3 class="text-lg font-semibold text-slate-800 mb-4">General Information</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
                     <div>
-                        <label class="text-sm font-medium text-slate-600">Ad Soyad</label>
+                        <label class="text-sm font-medium text-slate-600">Full Name</label>
                         <input asp-for="About.NameSurname"
-                               class="mt-1 w-full rounded-lg border border-slate-300
-                                      px-4 py-2 text-sm text-slate-800 bg-white
-                                      focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                               class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium text-slate-600">Ünvan</label>
+                        <label class="text-sm font-medium text-slate-600">Job Title</label>
                         <input asp-for="About.JobTitle"
-                               class="mt-1 w-full rounded-lg border border-slate-300
-                                      px-4 py-2 text-sm text-slate-800 bg-white
-                                      focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                               class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                     </div>
 
                     <div class="md:col-span-2">
-                        <label class="text-sm font-medium text-slate-600">
-                            Profil Fotoğrafı (URL)
-                        </label>
+                        <label class="text-sm font-medium text-slate-600">Profile Photo (URL)</label>
                         <input asp-for="About.ImagePath"
-                               class="mt-1 w-full rounded-lg border border-slate-300
-                                      px-4 py-2 text-sm text-slate-800 bg-white
-                                      focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                               class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                     </div>
 
-                    <!-- KISA AÇIKLAMA -->
                     <div class="md:col-span-2">
-                        <label class="text-sm font-medium text-slate-600">
-                            Kısa Açıklama
-                        </label>
-                        <textarea asp-for="About.ShortDescription"
-                                  rows="5"
-                                  class="mt-1 w-full rounded-xl border border-slate-300
-                                         px-4 py-3 text-sm text-slate-800 bg-white
-                                         focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        </textarea>
+                        <label class="text-sm font-medium text-slate-600">Short Description</label>
+                        <textarea asp-for="About.ShortDescription" rows="5"
+                                  class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                     </div>
                 </div>
             </div>
 
             <hr class="border-slate-200" />
 
-            <!-- ================= HAKKIMDA DETAYLARI ================= -->
             <div>
-                <h3 class="text-lg font-semibold text-slate-800 mb-4">
-                    Hakkımda Detayları
-                </h3>
+                <h3 class="text-lg font-semibold text-slate-800 mb-4">About Details</h3>
 
                 <div class="space-y-6">
-
                     <div>
-                        <label class="text-sm font-medium text-slate-600">
-                            Hakkımda Açıklama
-                        </label>
-                        <textarea asp-for="Info.LongDescription"
-                                  rows="6"
-                                  class="mt-1 w-full rounded-xl border border-slate-300
-                                         px-4 py-3 text-sm text-slate-800 bg-white
-                                         focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        </textarea>
+                        <label class="text-sm font-medium text-slate-600">Long Description</label>
+                        <textarea asp-for="Info.LongDescription" rows="6"
+                                  class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="text-sm font-medium text-slate-600">Yaş</label>
-                            <input asp-for="Info.Age"
-                                   type="number"
-                                   class="mt-1 w-full rounded-lg border border-slate-300
-                                          px-4 py-2 text-sm text-slate-800 bg-white
-                                          focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                            <label class="text-sm font-medium text-slate-600">Age</label>
+                            <input asp-for="Info.Age" type="number"
+                                   class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                         </div>
 
                         <div>
-                            <label class="text-sm font-medium text-slate-600">E-posta</label>
-                            <input asp-for="Info.Email"
-                                   type="email"
-                                   class="mt-1 w-full rounded-lg border border-slate-300
-                                          px-4 py-2 text-sm text-slate-800 bg-white
-                                          focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                            <label class="text-sm font-medium text-slate-600">Email</label>
+                            <input asp-for="Info.Email" type="email"
+                                   class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                         </div>
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium text-slate-600">
-                            İlgi Alanları
-                        </label>
+                        <label class="text-sm font-medium text-slate-600">Interests</label>
                         <input asp-for="Info.Interests"
-                               class="mt-1 w-full rounded-lg border border-slate-300
-                                      px-4 py-2 text-sm text-slate-800 bg-white
-                                      focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                               class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 text-sm text-slate-800 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" />
                     </div>
                 </div>
             </div>
 
-            <!-- ================= ACTION ================= -->
             <div class="flex justify-end pt-4">
                 <button type="submit"
-                        class="inline-flex items-center rounded-full
-                               bg-blue-600 hover:bg-blue-700
-                               px-6 py-2.5 text-sm font-semibold text-white
-                               shadow-md transition">
-                    Kaydet
+                        class="inline-flex items-center rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition">
+                    Save
                 </button>
             </div>
 

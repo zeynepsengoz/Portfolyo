@@ -20,6 +20,26 @@
         return normalized.Contains("web");
     }
 
+    string DisplayCategoryName(string? categoryName)
+    {
+        var normalized = categoryName?.Trim().ToLowerInvariant()
+            .Replace("ı", "i")
+            .Replace("ş", "s")
+            .Replace("ğ", "g")
+            .Replace("ü", "u")
+            .Replace("ö", "o")
+            .Replace("ç", "c");
+
+        return normalized switch
+        {
+            "oyun" => "Game",
+            "web" => "Web",
+            "blender" => "Blender",
+            "pixelart" => "Pixel Art",
+            _ => categoryName ?? string.Empty
+        };
+    }
+
     var previewImage = string.IsNullOrWhiteSpace(Model.Image)
         ? "/images/portfolio/placeholder.png"
         : Model.Image;
@@ -31,19 +51,17 @@
 }
 
 <div class="portfolio-detail-page">
-    <a href="/Default/Index#portfolio" class="back-link">← Portfolyoya Dön</a>
+    <a href="/Default/Index#portfolio" class="back-link">← Back to Portfolio</a>
 
     <div class="detail-layout">
         <div class="detail-info">
             <h1>@Model.ProjectName</h1>
 
-            <span class="detail-meta">
-                @Model.Title • @Model.Category?.CategoryName
-            </span>
+            <span class="detail-meta">@Model.Title • @DisplayCategoryName(Model.Category?.CategoryName)</span>
 
             <p class="detail-desc">
                 @(string.IsNullOrWhiteSpace(Model.Description)
-                    ? "Bu proje için detay açıklaması henüz eklenmedi."
+                    ? "A detailed description for this project has not been added yet."
                     : Model.Description)
             </p>
 
@@ -66,7 +84,7 @@
                 <div class="detail-gallery">
                     @foreach (var image in galleryImages)
                     {
-                        <img src="@image.ImagePath" alt="@Model.ProjectName galeri görseli" />
+                        <img src="@image.ImagePath" alt="@Model.ProjectName gallery image" />
                     }
                 </div>
             }

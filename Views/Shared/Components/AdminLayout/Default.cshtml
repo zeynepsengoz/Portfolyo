@@ -10,15 +10,15 @@
 
 <a asp-controller="Projects" asp-action="Index"
    class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Projects" ? "active" : "")">
-    Projelerim
+    Projects
 </a>
 
 <a asp-controller="SkillNew" asp-action="Index"
    class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "SkillNew" ? "active" : "")">
-    Yeteneklerim
+    Skills
 </a>
 
 <a asp-controller="Experince" asp-action="Index"
    class="menu-item @(ViewContext.RouteData.Values["controller"]?.ToString() == "Experince" ? "active" : "")">
-    Deneyimlerim
+    Experience
 </a>

@@ -3,12 +3,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     @{
-        var pageTitle = (ViewData["Title"] as string) ?? "Portfolyo";
-        var fullTitle = pageTitle + " | Zeynep Şengöz";
-        var siteDescription = "Zeynep Şengöz resmi portfolyo sitesi. Oyun geliştirme, 2D/3D tasarım ve proje çalışmaları.";
+        var pageTitle = (ViewData["Title"] as string) ?? "Portfolio";
+        var fullTitle = pageTitle + " | Zeynep Sengoz";
+        var siteDescription = "Official portfolio of Zeynep Sengoz. Game development, 2D/3D design, and project work.";
         var canonicalUrl = Context.Request.Scheme + "://" + Context.Request.Host + Context.Request.Path;
         var imageUrl = Context.Request.Scheme + "://" + Context.Request.Host + Url.Content("~/images/portfolio/avatar.jpg");
     }
@@ -20,7 +20,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="@siteDescription">
-    <meta name="author" content="Zeynep Şengöz">
+    <meta name="author" content="Zeynep Sengoz">
     <link rel="canonical" href="@canonicalUrl" />
 
     <meta property="og:type" content="website" />
@@ -50,7 +50,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- CUSTOM CSS (EN SON, HER ŞEYİ EZER) -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="~/html/assets/css/custom.css">
 </head>
 
@@ -71,7 +71,7 @@
             </div>
 
             <span class="mobile-brand">
-                <strong class="mobile-mark">ZŞ</strong>
+                <strong class="mobile-mark">ZS</strong>
                 <small class="mobile-role">Game Developer</small>
             </span>
         </a>
@@ -95,7 +95,7 @@
                     <!-- Logo -->
                 <div class="header-brand">
                     <a href="#top" class="logo brand-row">
-                        <span class="brand-mark">ZŞ</span> 
+                        <span class="brand-mark">ZS</span> 
 
 
                         <span class="brand-title">
@@ -113,31 +113,31 @@
 
                         <li class="active">
                             <a asp-controller="Default" asp-action="Index">
-                                <i class="fas fa-home"></i><span>Ana Sayfa</span>
+                                <i class="fas fa-home"></i><span>Home</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#about" class="scrollto">
-                                <i class="fas fa-user"></i><span>Hakkımda</span>
+                                <i class="fas fa-user"></i><span>About</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#skills" class="scrollto">
-                                <i class="fas fa-bolt"></i><span>Yetenekler</span>
+                                <i class="fas fa-bolt"></i><span>Skills</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#portfolio" class="scrollto">
-                                <i class="fas fa-briefcase"></i><span>Portfolyo</span>
+                                <i class="fas fa-briefcase"></i><span>Portfolio</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#contact" class="scrollto">
-                                <i class="fas fa-envelope"></i><span>İletişim</span>
+                                <i class="fas fa-envelope"></i><span>Contact</span>
                             </a>
                         </li>
                     </ul>
@@ -192,7 +192,7 @@
         </div><!-- end .page-wrapper -->
     </div>
 
-    <!-- Libs JS (YOLLARI DÜZELTİLDİ) -->
+    <!-- Libraries JS -->
     <script src="~/html/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="~/html/assets/vendor/popper.js/dist/popper.min.js"></script>
     <script src="~/html/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -213,3 +213,4 @@
     <script src="~/html/assets/js/main.js" asp-append-version="true"></script>
 </body>
 </html>
+

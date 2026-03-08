@@ -6,102 +6,62 @@
 <section class="p-8 bg-[#f6f8fc] min-h-screen">
     <div class="max-w-6xl mx-auto">
 
-        <!-- HEADER -->
         <div class="flex items-start justify-between gap-4">
             <div>
-                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">
-                    Genel Bakış
-                </h1>
-                <p class="mt-2 text-sm text-slate-500">
-                    Genel istatistikler ve hızlı işlemler.
-                </p>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Overview</h1>
+                <p class="mt-2 text-sm text-slate-500">General statistics and quick actions.</p>
             </div>
 
-            <!-- ✅ DOĞRU -->
             <a href="/Projects/ProjectCreate"
                class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:brightness-95">
                 <span class="material-symbols-outlined icon-fill text-[20px]">add</span>
-                Yeni Proje Ekle
+                Add New Project
             </a>
         </div>
 
-        <!-- STAT CARDS -->
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <p class="text-sm font-semibold text-slate-500">Toplam Mesaj</p>
-                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">
-                    @ViewBag.MessageCount
-                </h2>
+                <p class="text-sm font-semibold text-slate-500">Total Messages</p>
+                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">@ViewBag.MessageCount</h2>
             </div>
 
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <p class="text-sm font-semibold text-slate-500">Toplam Proje</p>
-                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">
-                    @ViewBag.ProjectCount
-                </h2>
+                <p class="text-sm font-semibold text-slate-500">Total Projects</p>
+                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">@ViewBag.ProjectCount</h2>
             </div>
 
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <p class="text-sm font-semibold text-slate-500">Toplam Yetenek</p>
-                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">
-                    @ViewBag.SkillCount
-                </h2>
+                <p class="text-sm font-semibold text-slate-500">Total Skills</p>
+                <h2 class="text-3xl font-extrabold mt-2 text-slate-900">@ViewBag.SkillCount</h2>
             </div>
-
         </div>
 
-        <!-- MAIN AREA -->
         <div class="mt-6 grid grid-cols-1 lg:grid-cols-[1.6fr_.9fr] gap-6">
-
-            <!-- SON MESAJLAR -->
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-sm font-extrabold text-slate-900">Son Mesajlar</h3>
-
-                    <!-- ✅ DOĞRU -->
-                    <a href="/AdminMessages/Index"
-                       class="text-sm font-bold text-primary hover:underline">
-                        Tümünü gör
-                    </a>
+                    <h3 class="text-sm font-extrabold text-slate-900">Recent Messages</h3>
+                    <a href="/AdminMessages/Index" class="text-sm font-bold text-primary hover:underline">View all</a>
                 </div>
 
                 <div class="mt-4 space-y-3">
-                    @if(Model != null && Model.Count > 0)
-
+                    @if (Model != null && Model.Count > 0)
                     {
                         foreach (var m in Model)
                         {
                             <a href="/AdminMessages/Index"
-                               class="flex items-center justify-between gap-4
-                          rounded-2xl border border-slate-200
-                          bg-white p-4
-                          hover:border-primary/30 hover:shadow-sm
-                          transition">
+                               class="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-4 hover:border-primary/30 hover:shadow-sm transition">
 
-                                <!-- SOL TARAF -->
                                 <div class="flex items-center gap-3">
-                                    <!-- Icon -->
-                                    <div class="h-10 w-10 rounded-xl grid place-items-center
-                                    bg-primary/10 text-primary
-                                    border border-primary/20">
-                                        <span class="material-symbols-outlined text-[20px]">
-                                            mail
-                                        </span>
+                                    <div class="h-10 w-10 rounded-xl grid place-items-center bg-primary/10 text-primary border border-primary/20">
+                                        <span class="material-symbols-outlined text-[20px]">mail</span>
                                     </div>
 
-                                    <!-- Mesaj içeriği -->
                                     <div>
-                                        <p class="text-sm font-semibold text-slate-900">
-                                            @m.MessageContent
-                                        </p>
-                                        <p class="text-xs text-slate-500">
-                                            @m.Email
-                                        </p>
+                                        <p class="text-sm font-semibold text-slate-900">@m.MessageContent</p>
+                                        <p class="text-xs text-slate-500">@m.Email</p>
                                     </div>
                                 </div>
 
-                                <!-- SAĞ TARAF (Tarih) -->
                                 <span class="text-xs font-medium text-slate-400 whitespace-nowrap">
                                     @m.MessageDate.ToString("dd.MM.yyyy HH:mm")
                                 </span>
@@ -111,78 +71,63 @@
                     else
                     {
                         <div class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-4 text-sm text-slate-500 dark:text-slate-400">
-                            Henüz mesaj yok.
+                            No messages yet.
                         </div>
                     }
                 </div>
-
             </div>
 
-            <!-- SAĞ KOLON -->
             <div class="space-y-6">
-
-                <!-- HIZLI İŞLEMLER -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                    <h3 class="text-sm font-extrabold text-slate-900">Hızlı İşlemler</h3>
+                    <h3 class="text-sm font-extrabold text-slate-900">Quick Actions</h3>
 
                     <div class="mt-4 space-y-3">
-
-                        <!-- PROJELER -->
                         <a href="/Projects/Index"
                            class="flex items-center gap-3 rounded-2xl border border-slate-200 p-3 hover:border-primary/30 hover:shadow-sm transition">
                             <span class="material-symbols-outlined text-primary">edit_square</span>
                             <div>
-                                <p class="text-sm font-extrabold text-slate-900">Projeleri Yönet</p>
-                                <p class="text-xs text-slate-500">Ekle / düzenle / sil</p>
+                                <p class="text-sm font-extrabold text-slate-900">Manage Projects</p>
+                                <p class="text-xs text-slate-500">Add / edit / delete</p>
                             </div>
                         </a>
 
-                        <!--  YETENEKLER -->
                         <a href="/SkillNew/SkillList"
                            class="flex items-center gap-3 rounded-2xl border border-slate-200 p-3 hover:border-primary/30 hover:shadow-sm transition">
                             <span class="material-symbols-outlined text-primary">extension</span>
                             <div>
-                                <p class="text-sm font-extrabold text-slate-900">Yetenekler</p>
-                                <p class="text-xs text-slate-500">Listeyi güncelle</p>
+                                <p class="text-sm font-extrabold text-slate-900">Skills</p>
+                                <p class="text-xs text-slate-500">Update list</p>
                             </div>
                         </a>
 
-                        <!--  HAKKIMDA (PROFİL) -->
                         <a href="/Admin/About"
                            class="flex items-center gap-3 rounded-2xl border border-slate-200 p-3 hover:border-primary/30 hover:shadow-sm transition">
                             <span class="material-symbols-outlined text-primary">badge</span>
                             <div>
-                                <p class="text-sm font-extrabold text-slate-900">Profil Bilgileri</p>
-                                <p class="text-xs text-slate-500">Hakkımda & ana içerikler</p>
+                                <p class="text-sm font-extrabold text-slate-900">Profile Information</p>
+                                <p class="text-xs text-slate-500">About and main content</p>
                             </div>
                         </a>
-
                     </div>
                 </div>
 
-                <!-- ÖZET -->
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-sm font-extrabold text-slate-900">Özet</h3>
-                        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold text-primary">
-                            Bugün
-                        </span>
+                        <h3 class="text-sm font-extrabold text-slate-900">Summary</h3>
+                        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-extrabold text-primary">Today</span>
                     </div>
 
                     <div class="mt-4 grid grid-cols-2 gap-3">
                         <div class="rounded-2xl border border-slate-200 p-4">
-                            <p class="text-xs text-slate-500 font-semibold">Yeni Proje</p>
+                            <p class="text-xs text-slate-500 font-semibold">New Project</p>
                             <p class="mt-2 text-lg font-extrabold text-slate-900">0</p>
                         </div>
                         <div class="rounded-2xl border border-slate-200 p-4">
-                            <p class="text-xs text-slate-500 font-semibold">Yeni Mesaj</p>
-                            <p class="mt-2 text-lg font-extrabold text-slate-900">
-                                @ViewBag.TodayNewMessages
-                            </p>
+                            <p class="text-xs text-slate-500 font-semibold">New Message</p>
+                            <p class="mt-2 text-lg font-extrabold text-slate-900">@ViewBag.TodayNewMessages</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
