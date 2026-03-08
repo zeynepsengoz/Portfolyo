@@ -79,12 +79,15 @@
                     @for (var i = 0; i < galleryImages.Count; i++)
                     {
                         var image = galleryImages[i];
-                        <img src="@image.ImagePath"
-                             alt="@Model.ProjectName gallery image"
-                             class="js-lightbox-image"
-                             data-index="@i" />
+                        <div class="portfolio-gallery-item">
+                            <img src="@image.ImagePath"
+                                 alt="@Model.ProjectName gallery image"
+                                 class="js-lightbox-image"
+                                 data-index="@i" />
+                        </div>
                     }
                 </div>
+                <div id="detail-gallery-pagination" class="detail-gallery-pagination"></div>
             }
             else
             {
@@ -146,6 +149,52 @@
         border-radius: 12px;
     }
 
+    .portfolio-gallery-item {
+        background: #fff;
+        border-radius: 14px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        min-height: 126px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio-gallery-item img {
+        width: 100%;
+        height: 100%;
+        max-height: 110px;
+        object-fit: contain;
+        background: #fff;
+    }
+
+    .detail-gallery-pagination {
+        margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .detail-gallery-page-btn {
+        border: 0;
+        border-radius: 999px;
+        min-width: 34px;
+        height: 34px;
+        padding: 0 12px;
+        font-size: 13px;
+        font-weight: 700;
+        background: rgba(124, 58, 237, 0.14);
+        color: #4b2a8d;
+        cursor: pointer;
+    }
+
+    .detail-gallery-page-btn.active {
+        background: linear-gradient(90deg, #7C3AED, #EC4899);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(124, 58, 237, 0.28);
+    }
+
     .portfolio-lightbox__close {
         position: absolute;
         top: 12px;
@@ -197,6 +246,10 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const images = Array.from(document.querySelectorAll(".js-lightbox-image"));
+        const galleryItems = Array.from(document.querySelectorAll(".portfolio-gallery-item"));
+        const pagination = document.getElementById("detail-gallery-pagination");
+        const itemsPerPage = 6;
+        let currentPage = 1;
         if (!images.length) {
             return;
         }
@@ -208,6 +261,47 @@
         const prevButton = lightbox.querySelector(".portfolio-lightbox__nav--prev");
         const nextButton = lightbox.querySelector(".portfolio-lightbox__nav--next");
         let activeIndex = 0;
+
+        function renderGalleryPagination(totalPages) {
+            if (!pagination) {
+                return;
+            }
+
+            pagination.innerHTML = "";
+            if (totalPages <= 1) {
+                return;
+            }
+
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.textContent = i.toString();
+                btn.className = "detail-gallery-page-btn" + (i === currentPage ? " active" : "");
+                btn.addEventListener("click", function () {
+                    currentPage = i;
+                    applyGalleryPage();
+                });
+                pagination.appendChild(btn);
+            }
+        }
+
+        function applyGalleryPage() {
+            if (!galleryItems.length) {
+                return;
+            }
+
+            const totalPages = Math.max(1, Math.ceil(galleryItems.length / itemsPerPage));
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+
+            galleryItems.forEach(function (item, idx) {
+                const page = Math.floor(idx / itemsPerPage) + 1;
+                item.hidden = page !== currentPage;
+            });
+
+            renderGalleryPagination(totalPages);
+        }
 
         function renderImage() {
             const current = images[activeIndex];
@@ -261,5 +355,7 @@
                 goNext();
             }
         });
+
+        applyGalleryPage();
     });
 </script>
