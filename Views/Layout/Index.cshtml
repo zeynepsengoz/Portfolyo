@@ -211,6 +211,72 @@
 
     <!-- Theme JS -->
     <script src="~/html/assets/js/main.js" asp-append-version="true"></script>
+    <script>
+        (function () {
+            function initFallbackMobileMenu() {
+                if (window.__malatNavReady) {
+                    return;
+                }
+
+                var body = document.body;
+                var toggle = document.getElementById("navigation-toggle");
+                var overlay = document.querySelector(".header-overlay");
+                var navLinks = document.querySelectorAll("#navigation a");
+
+                if (!toggle) {
+                    return;
+                }
+
+                var openClass = "site-header-open";
+
+                function closeMenu() {
+                    body.classList.remove(openClass);
+                    toggle.classList.remove("open");
+                    toggle.setAttribute("aria-expanded", "false");
+                }
+
+                function openMenu() {
+                    body.classList.add(openClass);
+                    toggle.classList.add("open");
+                    toggle.setAttribute("aria-expanded", "true");
+                }
+
+                toggle.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (body.classList.contains(openClass)) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+
+                if (overlay) {
+                    overlay.addEventListener("click", closeMenu);
+                }
+
+                navLinks.forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        if (window.matchMedia("(max-width: 1199.98px)").matches) {
+                            closeMenu();
+                        }
+                    });
+                });
+
+                document.addEventListener("keydown", function (e) {
+                    if (e.key === "Escape") {
+                        closeMenu();
+                    }
+                });
+            }
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", initFallbackMobileMenu);
+            } else {
+                initFallbackMobileMenu();
+            }
+        })();
+    </script>
 </body>
 </html>
 

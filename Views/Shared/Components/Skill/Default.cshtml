@@ -1,23 +1,142 @@
-﻿@model List<Portfolyo.Data.SkillTable>
+@model List<Portfolyo.Data.SkillTable>
 
-<section id="skills" style="padding:10px 0 40px;">
+<section id="skills" class="skills-section">
+    <div class="container">
+        <h2 class="skills-title">Skills</h2>
 
-    <h2 style="text-align:center; margin-bottom:24px;">Skills</h2>
+        <div id="skills-slider" class="skills-slider">
+            <div class="skills-track">
+                @foreach (var item in Model)
+                {
+                    <article class="skill-slide">
+                        <div class="skill-header">
+                            <span class="skill-name">@item.Title</span>
+                            <span class="skill-percent">% @item.Levels</span>
+                        </div>
 
-    <div style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:repeat(2, 1fr); gap:32px;">
-        @foreach (var item in Model)
-        {
-            <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-weight:600;">
-                    <span>@item.Title</span>
-                    <span>% @item.Levels</span>
-                </div>
-
-                <div style="width:100%; height:10px; background:#e5e7eb; border-radius:10px;">
-                    <div style="height:10px; width:@(item.Levels)%; background:#2563eb; border-radius:10px;"></div>
-                </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-fill" style="width:@(item.Levels)%"></div>
+                        </div>
+                    </article>
+                }
             </div>
-        }
-    </div>
+        </div>
 
+        <div id="skills-slider-dots" class="skills-dots" aria-label="Skills slider pagination"></div>
+    </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.getElementById("skills-slider");
+        if (!slider) {
+            return;
+        }
+
+        const track = slider.querySelector(".skills-track");
+        const slides = Array.from(slider.querySelectorAll(".skill-slide"));
+        const dotsContainer = document.getElementById("skills-slider-dots");
+        let activeIndex = 0;
+        let autoplayTimer = null;
+
+        if (slides.length <= 1) {
+            if (dotsContainer) {
+                dotsContainer.innerHTML = "";
+            }
+            return;
+        }
+
+        function isMobile() {
+            return window.matchMedia("(max-width: 767.98px)").matches;
+        }
+
+        function visibleCount() {
+            return isMobile() ? 1 : slides.length;
+        }
+
+        function getPageCount() {
+            return Math.ceil(slides.length / visibleCount());
+        }
+
+        function renderDots() {
+            if (!dotsContainer) {
+                return;
+            }
+
+            const pageCount = getPageCount();
+            dotsContainer.innerHTML = "";
+
+            if (!isMobile() || pageCount <= 1) {
+                return;
+            }
+
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "skills-dot" + (i === activeIndex ? " active" : "");
+                dot.setAttribute("aria-label", "Go to skill page " + (i + 1));
+                dot.addEventListener("click", function () {
+                    activeIndex = i;
+                    updateSlider();
+                    restartAutoplay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function updateSlider() {
+            if (!isMobile()) {
+                track.style.transform = "";
+                activeIndex = 0;
+                renderDots();
+                return;
+            }
+
+            const maxIndex = getPageCount() - 1;
+            if (activeIndex > maxIndex) {
+                activeIndex = 0;
+            }
+
+            const x = activeIndex * 100;
+            track.style.transform = "translate3d(-" + x + "%, 0, 0)";
+            renderDots();
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                window.clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            if (!isMobile() || getPageCount() <= 1) {
+                return;
+            }
+
+            autoplayTimer = window.setInterval(function () {
+                const maxIndex = getPageCount() - 1;
+                activeIndex = activeIndex >= maxIndex ? 0 : activeIndex + 1;
+                updateSlider();
+            }, 2800);
+        }
+
+        function restartAutoplay() {
+            startAutoplay();
+        }
+
+        slider.addEventListener("mouseenter", stopAutoplay);
+        slider.addEventListener("mouseleave", startAutoplay);
+        slider.addEventListener("touchstart", stopAutoplay, { passive: true });
+        slider.addEventListener("touchend", startAutoplay, { passive: true });
+
+        window.addEventListener("resize", function () {
+            updateSlider();
+            restartAutoplay();
+        });
+
+        updateSlider();
+        startAutoplay();
+    });
+</script>

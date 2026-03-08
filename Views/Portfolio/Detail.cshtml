@@ -63,8 +63,8 @@
 
             @if (!string.IsNullOrWhiteSpace(Model.GithubUrl))
             {
-                <p class="mt-3">
-                    <a href="@Model.GithubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                <p class="mt-3 project-detail-link-wrap">
+                    <a href="@Model.GithubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary project-detail-link">
                         <i class="@(IsWebCategory(Model.Category?.CategoryName) ? "fab fa-github" : "fab fa-itch-io")"></i>
                         @(IsWebCategory(Model.Category?.CategoryName) ? " GitHub" : " itch.io")
                     </a>

@@ -123,6 +123,7 @@ License: https://themeforest.net/licenses/standard
 	}
 
 	function malat_navigation() {
+		window.__malatNavReady = true;
 
 		var class_open = 'site-header-open';
 

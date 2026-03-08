@@ -703,3 +703,210 @@
 #portfolio .portfolio-grid .portfolio-card[hidden] {
     display: none !important;
 }
+
+/* =========================
+   PUBLIC UX FIXES (MOBILE + LINKS + SKILLS)
+========================= */
+
+.portfolio-card .portfolio-ext-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 48px);
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.project-detail-link-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.project-detail-link {
+    min-width: 136px;
+    justify-content: center;
+}
+
+.skills-section {
+    padding: 10px 0 40px;
+}
+
+.skills-title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.skills-slider {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.skills-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 36px;
+}
+
+.skill-slide {
+    min-width: 0;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3b2f52;
+}
+
+.skill-percent {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #4a375f;
+}
+
+.skill-progress {
+    width: 100%;
+    height: 14px;
+    border-radius: 999px;
+    background: #ddcff3;
+    overflow: hidden;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
+}
+
+.skills-dots {
+    display: none;
+}
+
+@media (max-width: 1199.98px) {
+    .mobile-logo,
+    .nav-toggle {
+        z-index: 10020;
+    }
+
+    .site-header {
+        z-index: 10010;
+    }
+
+    body.site-header-open .site-header {
+        transform: translate3D(0, 0, 0) !important;
+    }
+
+    body.site-header-open .header-overlay {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .skills-slider {
+        overflow: hidden;
+        padding: 0 6px;
+    }
+
+    .skills-track {
+        display: flex;
+        gap: 0;
+        transition: transform 0.45s ease;
+        will-change: transform;
+    }
+
+    .skill-slide {
+        min-width: 100%;
+        padding: 0 6px;
+    }
+
+    .skills-dots {
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .skills-dot {
+        width: 10px;
+        height: 10px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(76, 52, 117, 0.28);
+        padding: 0;
+    }
+
+    .skills-dot.active {
+        width: 24px;
+        background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
+    }
+}
+
+/* =========================
+   SPACING + SIDEBAR POLISH
+========================= */
+
+#about,
+#skills,
+#portfolio,
+#contact {
+    padding: 4.75rem 0;
+}
+
+.site-header .header-inner {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+}
+
+.site-header .header-brand {
+    margin-bottom: 2.25rem;
+}
+
+.site-header .nav-divider {
+    height: 30px;
+    opacity: 0.24;
+}
+
+.site-header .nav-divider.mb-8 {
+    margin-bottom: 1.25rem !important;
+}
+
+.site-header .nav-divider.my-8 {
+    margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.site-header .site-nav li {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.site-header .site-nav a:not(.btn) {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.site-header .sidebar-social {
+    margin-top: 1.25rem;
+}
+
+@media (max-width: 1199.98px) {
+    #about,
+    #skills,
+    #portfolio,
+    #contact {
+        padding: 3.75rem 0;
+    }
+
+    .site-header .header-inner {
+        padding-top: 2.75rem;
+        padding-bottom: 2.75rem;
+    }
+}
