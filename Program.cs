@@ -5,6 +5,7 @@ using DotNetEnv;
 using Portfolyo.Options;
 using Portfolyo.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.IdentityModel.Tokens;
 using Npgsql;
 using System.Text;
@@ -29,13 +30,6 @@ SetConfigIfNotEmpty(builder.Configuration, "Jwt:Issuer", "JWT_ISSUER");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:Audience", "JWT_AUDIENCE");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:Secret", "JWT_SECRET");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:ExpiresMinutes", "JWT_EXPIRES_MINUTES");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:Host", "SMTP_HOST");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:Port", "SMTP_PORT");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:Username", "SMTP_USERNAME");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:Password", "SMTP_PASSWORD");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:FromEmail", "SMTP_FROM_EMAIL");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:FromName", "SMTP_FROM_NAME");
-SetConfigIfNotEmpty(builder.Configuration, "Smtp:EnableSsl", "SMTP_ENABLE_SSL");
 
 var useSqlServer = string.Equals(
     Environment.GetEnvironmentVariable("USE_SQLSERVER"),
@@ -57,11 +51,19 @@ builder.Services.Configure<AdminAuthOptions>(
 
 builder.Services.Configure<JwtOptions>(
     builder.Configuration.GetSection("Jwt"));
-builder.Services.Configure<SmtpOptions>(
-    builder.Configuration.GetSection("Smtp"));
 
 builder.Services.AddScoped<JwtTokenService>();
-builder.Services.AddScoped<EmailService>();
+
+var dataProtectionKeysPath = Environment.GetEnvironmentVariable("DATA_PROTECTION_KEYS_PATH");
+var dataProtection = builder.Services
+    .AddDataProtection()
+    .SetApplicationName("Portfolyo");
+
+if (!string.IsNullOrWhiteSpace(dataProtectionKeysPath))
+{
+    Directory.CreateDirectory(dataProtectionKeysPath);
+    dataProtection.PersistKeysToFileSystem(new DirectoryInfo(dataProtectionKeysPath));
+}
 
 builder.Services.AddDbContext<portfolyodbContext>(options =>
 {

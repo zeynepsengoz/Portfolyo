@@ -162,6 +162,12 @@
                         <div class="section-title h2 mb-3">
                             <h2 class="mb-0">İletişim</h2>
                         </div>
+                        @if (TempData["ContactSuccess"] != null)
+                        {
+                            <div class="alert alert-success mt-3" role="alert">
+                                @TempData["ContactSuccess"]
+                            </div>
+                        }
                         <p>
                             Benimle iletişime geçmek ister misiniz?
                             Sorularınız için bana mesaj gönderebilirsiniz.
