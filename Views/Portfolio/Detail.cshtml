@@ -40,10 +40,6 @@
         };
     }
 
-    var previewImage = string.IsNullOrWhiteSpace(Model.Image)
-        ? "/images/portfolio/placeholder.png"
-        : Model.Image;
-
     var galleryImages = (Model.ProjectImages ?? new List<ProjectImageTable>())
         .OrderBy(x => x.SortOrder)
         .ThenBy(x => x.ProjectImageId)
@@ -77,8 +73,6 @@
         </div>
 
         <div class="detail-image">
-            <img src="@previewImage" alt="@Model.ProjectName" class="main-image" />
-
             @if (galleryImages.Any())
             {
                 <div class="detail-gallery">
@@ -87,6 +81,10 @@
                         <img src="@image.ImagePath" alt="@Model.ProjectName gallery image" />
                     }
                 </div>
+            }
+            else
+            {
+                <p class="text-muted">No detail images added yet.</p>
             }
         </div>
     </div>

@@ -3,6 +3,9 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var heroDescription = !string.IsNullOrWhiteSpace(Model?.ShortDescription)
+        ? Model.ShortDescription
+        : Model?.Description;
 }
 
 <section class="zh-home">
@@ -14,9 +17,9 @@
 
                 <div class="zh-home__title">@Model?.JobTitle</div>
                 <br />
-                @if (!string.IsNullOrEmpty(Model?.Description))
+                @if (!string.IsNullOrEmpty(heroDescription))
                 {
-                    <p class="zh-home__desc">@Model.Description</p>
+                    <p class="zh-home__desc">@heroDescription</p>
                 }
             </div>
 

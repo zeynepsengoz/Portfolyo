@@ -28,16 +28,25 @@ public class AdminController : Controller
     [HttpPost]
     public IActionResult About(AboutViewModel model)
     {
+        // Keep both fields in sync so Home hero text updates immediately.
+        if (!string.IsNullOrWhiteSpace(model?.About?.ShortDescription))
+        {
+            model.About.Description = model.About.ShortDescription;
+        }
+
         // AboutMeTable (Ad, Ünvan, Foto)
         var about = _context.AboutMeTables.FirstOrDefault();
         if (about == null)
+        {
             _context.AboutMeTables.Add(model.About);
+        }
         else
         {
             about.NameSurname = model.About.NameSurname;
             about.JobTitle = model.About.JobTitle;
             about.ImagePath = model.About.ImagePath;
             about.ShortDescription = model.About.ShortDescription;
+            about.Description = model.About.ShortDescription;
 
         }
 
