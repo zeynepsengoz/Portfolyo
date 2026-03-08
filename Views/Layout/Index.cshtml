@@ -3,10 +3,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <!-- Title -->
-    <title>Home 1 | Malat - Responsive Personal / Portfolio / Resume Template</title>
+    @{
+        var pageTitle = (ViewData["Title"] as string) ?? "Portfolyo";
+    }
+    <title>@pageTitle | Zeynep Şengöz</title>
 
     <!-- Required Meta Tags -->
     <meta charset="utf-8">
