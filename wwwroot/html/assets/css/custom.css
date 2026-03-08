@@ -695,3 +695,7 @@
         color: #ffffff;
         border-color: transparent;
     }
+
+.portfolio-hidden {
+    display: none !important;
+}

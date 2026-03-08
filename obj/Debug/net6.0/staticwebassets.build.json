@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nM/tPj4FSHXlb/zCM7nJ81i82zSZmV/H8iq1dyjWAzI=",
+  "Hash": "9nKdbIChHAhf5IbXt//jEjRB22IP/TE5mJVzerbi2dQ=",
   "Source": "Portfolyo",
   "BasePath": "_content/Portfolyo",
   "Mode": "Default",
@@ -8431,8 +8431,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ejpof6ddrw",
-      "Integrity": "thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=",
+      "Fingerprint": "4rs4n54pv4",
+      "Integrity": "cGpqtKFptjPRO9pjTv5+K1PHLjaKRhL1KKBC9+MJF8o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\assets\\css\\custom.css"
@@ -52395,6 +52395,51 @@
       ]
     },
     {
+      "Route": "html/assets/css/custom.4rs4n54pv4.css",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14514"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cGpqtKFptjPRO9pjTv5+K1PHLjaKRhL1KKBC9+MJF8o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Mar 2026 18:18:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4rs4n54pv4"
+        },
+        {
+          "Name": "label",
+          "Value": "html/assets/css/custom.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cGpqtKFptjPRO9pjTv5+K1PHLjaKRhL1KKBC9+MJF8o="
+        }
+      ]
+    },
+    {
       "Route": "html/assets/css/custom.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
       "Selectors": [],
@@ -52405,7 +52450,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14461"
+          "Value": "14514"
         },
         {
           "Name": "Content-Type",
@@ -52413,11 +52458,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=\""
+          "Value": "\"cGpqtKFptjPRO9pjTv5+K1PHLjaKRhL1KKBC9+MJF8o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 08 Mar 2026 18:02:55 GMT"
+          "Value": "Sun, 08 Mar 2026 18:18:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52427,52 +52472,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg="
-        }
-      ]
-    },
-    {
-      "Route": "html/assets/css/custom.ejpof6ddrw.css",
-      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "14461"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 08 Mar 2026 18:02:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ejpof6ddrw"
-        },
-        {
-          "Name": "label",
-          "Value": "html/assets/css/custom.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg="
+          "Value": "sha256-cGpqtKFptjPRO9pjTv5+K1PHLjaKRhL1KKBC9+MJF8o="
         }
       ]
     },

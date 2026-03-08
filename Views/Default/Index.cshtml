@@ -185,11 +185,11 @@
                   currentPage = 1;
                 }
 
-                items.forEach(item => item.style.display = "none");
+                items.forEach(item => item.classList.add("portfolio-hidden"));
 
                 const start = (currentPage - 1) * perPage;
                 const pageItems = filtered.slice(start, start + perPage);
-                pageItems.forEach(item => item.style.display = "");
+                pageItems.forEach(item => item.classList.remove("portfolio-hidden"));
 
                 renderPagination(totalPages);
               }
