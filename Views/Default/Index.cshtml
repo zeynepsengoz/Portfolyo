@@ -56,7 +56,7 @@
                     <ul class="justify-content-center">
 
                         <li>
-                            <a href="#" class="active" data-filter="*">
+                            <a href="#" class="active" data-filter="all">
                                 <i class="fas fa-border-all me-1"></i> Tümü
                             </a>
                         </li>
@@ -74,7 +74,7 @@
                         {
                             var slug = Slugify(cat);
                             <li>
-                                <a href="#" data-filter=".@slug">@cat</a>
+                                <a href="#" data-filter="@slug">@cat</a>
                             </li>
                         }
 
@@ -129,17 +129,16 @@
                   links.forEach(x => x.classList.remove("active"));
                   this.classList.add("active");
 
-                  const filter = this.getAttribute("data-filter"); 
+                  const filter = (this.getAttribute("data-filter") || "").toLowerCase();
 
                   items.forEach(item => {
-                    if (filter === "*") {
+                    if (filter === "all") {
                       item.style.display = "";
                       return;
                     }
 
-                    const cls = filter.replace(".", ""); 
-                    const itemCategory = item.getAttribute("data-category") || "";
-                    item.style.display = itemCategory === cls ? "" : "none";
+                    const itemCategory = ((item.getAttribute("data-category")) || "").toLowerCase();
+                    item.style.display = itemCategory === filter ? "" : "none";
                   });
                 });
               });
