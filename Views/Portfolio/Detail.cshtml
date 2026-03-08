@@ -76,9 +76,13 @@
             @if (galleryImages.Any())
             {
                 <div class="detail-gallery">
-                    @foreach (var image in galleryImages)
+                    @for (var i = 0; i < galleryImages.Count; i++)
                     {
-                        <img src="@image.ImagePath" alt="@Model.ProjectName gallery image" />
+                        var image = galleryImages[i];
+                        <img src="@image.ImagePath"
+                             alt="@Model.ProjectName gallery image"
+                             class="js-lightbox-image"
+                             data-index="@i" />
                     }
                 </div>
             }
@@ -89,3 +93,173 @@
         </div>
     </div>
 </div>
+
+<div id="portfolio-lightbox" class="portfolio-lightbox" hidden>
+    <div class="portfolio-lightbox__backdrop" data-close="true"></div>
+    <div class="portfolio-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Image gallery">
+        <button type="button" class="portfolio-lightbox__close" aria-label="Close gallery">×</button>
+        <button type="button" class="portfolio-lightbox__nav portfolio-lightbox__nav--prev" aria-label="Previous image">‹</button>
+        <img id="portfolio-lightbox-image" src="" alt="Project gallery image" class="portfolio-lightbox__image" />
+        <button type="button" class="portfolio-lightbox__nav portfolio-lightbox__nav--next" aria-label="Next image">›</button>
+    </div>
+</div>
+
+<style>
+    .portfolio-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio-lightbox[hidden] {
+        display: none;
+    }
+
+    .portfolio-lightbox__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(9, 8, 18, 0.78);
+        backdrop-filter: blur(3px);
+    }
+
+    .portfolio-lightbox__dialog {
+        position: relative;
+        width: min(92vw, 1100px);
+        max-height: 90vh;
+        border-radius: 18px;
+        background: #120f1f;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        padding: 46px 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio-lightbox__image {
+        max-width: 100%;
+        max-height: calc(90vh - 92px);
+        object-fit: contain;
+        border-radius: 12px;
+    }
+
+    .portfolio-lightbox__close {
+        position: absolute;
+        top: 12px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 25px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .portfolio-lightbox__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+    }
+
+    .portfolio-lightbox__nav--prev {
+        left: 10px;
+    }
+
+    .portfolio-lightbox__nav--next {
+        right: 10px;
+    }
+
+    @@media (max-width: 768px) {
+        .portfolio-lightbox__dialog {
+            padding: 36px 40px;
+            width: 95vw;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = Array.from(document.querySelectorAll(".js-lightbox-image"));
+        if (!images.length) {
+            return;
+        }
+
+        const lightbox = document.getElementById("portfolio-lightbox");
+        const backdrop = lightbox.querySelector(".portfolio-lightbox__backdrop");
+        const lightboxImage = document.getElementById("portfolio-lightbox-image");
+        const closeButton = lightbox.querySelector(".portfolio-lightbox__close");
+        const prevButton = lightbox.querySelector(".portfolio-lightbox__nav--prev");
+        const nextButton = lightbox.querySelector(".portfolio-lightbox__nav--next");
+        let activeIndex = 0;
+
+        function renderImage() {
+            const current = images[activeIndex];
+            lightboxImage.src = current.src;
+            lightboxImage.alt = current.alt || "Project gallery image";
+        }
+
+        function openLightbox(index) {
+            activeIndex = index;
+            renderImage();
+            lightbox.hidden = false;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightbox.hidden = true;
+            document.body.style.overflow = "";
+        }
+
+        function goPrev() {
+            activeIndex = (activeIndex - 1 + images.length) % images.length;
+            renderImage();
+        }
+
+        function goNext() {
+            activeIndex = (activeIndex + 1) % images.length;
+            renderImage();
+        }
+
+        images.forEach(function (img, index) {
+            img.addEventListener("click", function () {
+                openLightbox(index);
+            });
+        });
+
+        backdrop.addEventListener("click", closeLightbox);
+        closeButton.addEventListener("click", closeLightbox);
+        prevButton.addEventListener("click", goPrev);
+        nextButton.addEventListener("click", goNext);
+
+        document.addEventListener("keydown", function (e) {
+            if (lightbox.hidden) {
+                return;
+            }
+
+            if (e.key === "Escape") {
+                closeLightbox();
+            } else if (e.key === "ArrowLeft") {
+                goPrev();
+            } else if (e.key === "ArrowRight") {
+                goNext();
+            }
+        });
+    });
+</script>
