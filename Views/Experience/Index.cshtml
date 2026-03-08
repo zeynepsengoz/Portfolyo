@@ -1,59 +1,55 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Deneyimler";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Burası deneyimler sayfası</h1>
+<section class="p-8 bg-[#f6f8fc] min-h-screen">
+    <div class="max-w-6xl mx-auto">
 
-<div class="container"> 
-    <table class = "table table-bordered">
-            <thead>
-            @* Sütunlar gelecek --> deneyimID,title,tarih *@
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tight text-slate-900">Deneyimler</h1>
+                <p class="mt-2 text-sm text-slate-500">
+                    Çalışma/ajans/iş deneyimlerini burada yönetebilirsin.
+                </p>
+            </div>
 
-            <tr> 
-                <th>ExperinceID</th>
-                <th>Title</th>
-                <th>Level</th>
-                <th>Created Date</th>
-                <th>Güncelle</th>
-                <th>Sil</th>
-            </tr>
+            <span class="rounded-full bg-primary/10 px-4 py-2 text-xs font-extrabold text-primary border border-primary/20">
+                Şimdilik Pasif
+            </span>
+        </div>
 
-        </thead>
+        <div class="mt-6 bg-white rounded-2xl p-10 shadow-sm border border-slate-200">
+            <div class="flex flex-col items-center text-center gap-3">
+                <div class="h-14 w-14 rounded-2xl grid place-items-center bg-primary/10 text-primary border border-primary/20">
+                    <span class="material-symbols-outlined icon-fill text-[28px]">work</span>
+                </div>
 
-        <tbody>
-            @* 1- deneme - 01.01.2022
-            2- deneme2 - 02.02.2022
+                <h2 class="text-lg font-extrabold text-slate-900">Henüz deneyim eklenmedi</h2>
+                <p class="max-w-md text-sm text-slate-500">
+                    Şu an bu bölümü kullanmıyorsun. Hazır olduğunda deneyimlerini ekleyip
+                    ana sitede “Deneyimler” kısmında gösterebilirsin.
+                </p>
 
- *@
-           <tr>
-               <td>3</td>
-               <td>C#</td>
-               <td>85</td>
-               <td>01.01.2020</td> 
-               <td><a href = "/Experience/UpdateExperience/" class= "btn btn-success">Güncelle</a></td>
-               <td><a href = "/Experience/DeleteExperience/" class= "btn btn-danger">Sil</a></td>
-           </tr>
-            <tr>
-                <td>4</td>
-                <td>C++</td>
-                <td>60</td>
-                <td>02.02.2025</td>
-                <td><a href="/Experience/UpdateExperience/" class="btn btn-success">Güncelle</a></td>
-                <td><a href="/Experience/DeleteExperience/" class="btn btn-danger">Sil</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>C++</td>
-                <td>60</td>
-                <td>02.02.2025</td>
-                <td><a href="/Experience/UpdateExperience/" class="btn btn-success">Güncelle</a></td>
-                <td><a href="/Experience/DeleteExperience/" class="btn btn-danger">Sil</a></td>
-            </tr>
+                <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                    <a href="/Dashboard/Index"
+                       class="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:brightness-95">
+                        <span class="material-symbols-outlined icon-fill text-[20px]">dashboard</span>
+                        Dashboard’a dön
+                    </a>
 
-        </tbody>
-    </table>
-    <a href="/Experience/CreateExperience/" class="btn btn-primary">Yeni Deneyim Ekle</a> 
-</div>
+                    <button type="button"
+                            disabled
+                            class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-5 py-3
+           text-sm font-extrabold text-slate-400 border border-slate-200
+           cursor-not-allowed">
+                        <span class="material-symbols-outlined text-[20px]">add</span>
+                        Ekle (Yakında)
+                    </button>
 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

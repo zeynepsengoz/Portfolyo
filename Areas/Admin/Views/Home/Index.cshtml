@@ -1,0 +1,20 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Panel</title>
+</head>
+<body>
+
+    <h2>Admin Panel</h2>
+
+    <p>Hoş geldin @User.Identity?.Name</p>
+
+    <form method="post" action="/admin/auth/logout">
+        @Html.AntiForgeryToken()
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Giriş</title>
+
+    <style>
+        :root {
+            /* Portfolyo tema: mor/pembe */
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --bg: #0b1020;
+            --text: #eef1ff;
+            --muted: rgba(238,241,255,.72);
+            --line: rgba(255,255,255,.12);
+            --shadow: 0 18px 60px rgba(0,0,0,.48);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            color: var(--text);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            /* ana sitene benzer yumuşak mor/pembe arka plan */
+            background: radial-gradient(900px 520px at 10% 10%, rgba(139,92,246,.40), transparent 55%), radial-gradient(760px 460px at 90% 18%, rgba(236,72,153,.26), transparent 55%), radial-gradient(900px 620px at 50% 115%, rgba(139,92,246,.18), transparent 55%), var(--bg);
+        }
+
+        .wrap {
+            width: min(980px, 100%);
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .brand {
+            background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .brand::before {
+                content: "";
+                position: absolute;
+                inset: -2px;
+                background: radial-gradient(520px 220px at 20% 20%, rgba(139,92,246,.38), transparent 55%), radial-gradient(520px 220px at 80% 30%, rgba(236,72,153,.28), transparent 55%);
+                filter: blur(10px);
+                opacity: .9;
+                pointer-events: none;
+            }
+
+            .brand > * {
+                position: relative;
+            }
+
+        .logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-weight: 900;
+            letter-spacing: .5px;
+            color: white;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            box-shadow: 0 14px 35px rgba(139,92,246,.18);
+        }
+
+        .brand h1 {
+            margin: 16px 0 8px;
+            font-size: 34px;
+            line-height: 1.15;
+        }
+
+        .brand p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 46ch;
+        }
+
+        .bullets {
+            margin-top: 18px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .bullet {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.03);
+            border-radius: 14px;
+        }
+
+        /* yuvarlaklar: tema mor/pembe */
+        .dot {
+            margin-top: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            flex: 0 0 auto;
+        }
+
+            .dot.dot-purple {
+                background: var(--purple);
+                box-shadow: 0 0 0 6px rgba(139,92,246,.18);
+            }
+
+            .dot.dot-pink {
+                background: var(--pink);
+                box-shadow: 0 0 0 6px rgba(236,72,153,.18);
+            }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.055));
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 22px;
+            display: grid;
+            align-content: center;
+        }
+
+            .card h2 {
+                margin: 0 0 6px;
+                font-size: 22px;
+            }
+
+            .card .sub {
+                margin: 0 0 16px;
+                color: var(--muted);
+                font-size: 14px;
+            }
+
+        .error {
+            margin: 0 0 14px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(236,72,153,.35);
+            background: rgba(236,72,153,.12);
+            color: #ffe1ee;
+            font-size: 14px;
+        }
+
+        form {
+            display: grid;
+            gap: 12px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(0,0,0,.18);
+            color: var(--text);
+            outline: none;
+        }
+
+            .field input:focus {
+                border-color: rgba(139,92,246,.70);
+                box-shadow: 0 0 0 4px rgba(139,92,246,.16);
+            }
+
+        .actions {
+            display: grid;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        /* buton: tema mor/pembe */
+        .btn {
+            border: 0;
+            cursor: pointer;
+            padding: 12px 14px;
+            border-radius: 12px;
+            font-weight: 800;
+            color: white;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            box-shadow: 0 16px 40px rgba(139,92,246,.18);
+        }
+
+            .btn:hover {
+                filter: brightness(1.04);
+            }
+
+        .mini {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+            .mini a {
+                color: rgba(238,241,255,.90);
+                text-decoration: none;
+                border-bottom: 1px dashed rgba(238,241,255,.35);
+            }
+
+                .mini a:hover {
+                    border-bottom-color: rgba(238,241,255,.85);
+                }
+
+      
+            grid-template-columns: 1fr;
+        }
+
+        .brand {
+            display: none;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <section class="brand" aria-hidden="true">
+            <div class="logo">ZŞ</div>
+            <h1>Portfolyo Admin</h1>
+            <p>Yönetim paneline giriş yaparak içeriklerini hızlıca güncelleyebilirsin.</p>
+
+            <div class="bullets">
+                <div class="bullet">
+                    <span class="dot dot-purple"></span>
+                    <div>
+                        <b>Güvenli giriş</b>
+                        <div style="color:var(--muted); font-size:13px;">JWT + HttpOnly cookie</div>
+                    </div>
+                </div>
+
+                <div class="bullet">
+                    <span class="dot dot-pink"></span>
+                    <div>
+                        <b>Hızlı yönetim</b>
+                        <div style="color:var(--muted); font-size:13px;">Projeler, yetenekler, mesajlar</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Admin Giriş</h2>
+            <p class="sub">Kullanıcı adını ve şifreni gir.</p>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error">@ViewBag.Error</div>
+            }
+
+            <form method="post" action="/admin/auth/login">
+                @Html.AntiForgeryToken()
+
+                <div class="field">
+                    <label>Username</label>
+                    <input name="username" autocomplete="username" />
+                </div>
+
+                <div class="field">
+                    <label>Password</label>
+                    <input name="password" type="password" autocomplete="current-password" />
+                </div>
+
+                <div class="actions">
+                    <button class="btn" type="submit">Giriş Yap</button>
+
+                    <div class="mini">
+                        <span>© @DateTime.Now.Year Portfolyo</span>
+
+                        <!-- Public sayfanın route'una göre değiştir:
+                             Senin ekranda /Default açılıyordu, o yüzden böyle bıraktım -->
+                        <a href="/Default">Ana siteye dön</a>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>

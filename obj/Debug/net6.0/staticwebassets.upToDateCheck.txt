@@ -856,6 +856,7 @@ wwwroot\html\white-nav-home-1-slideshow-background.html
 wwwroot\html\white-nav-home-1-slideshow-zoom-background.html
 wwwroot\html\white-nav-home-1-video-background.html
 wwwroot\images\kapi.png
+wwwroot\images\portfolio\avatar.jpg
 wwwroot\images\portfolio\blender.jpg
 wwwroot\images\portfolio\Bulut.png
 wwwroot\images\portfolio\EvOdaRender01.jpg
@@ -869,7 +870,12 @@ wwwroot\images\portfolio\mousedash.png
 wwwroot\images\portfolio\peynir.png
 wwwroot\images\portfolio\pixel-art.png
 wwwroot\images\portfolio\TapinakRender06.jpg
+wwwroot\images\portfolio\tasarim.jpg
 wwwroot\images\portfolio\toprak_yapisi.png
+wwwroot\images\portfolio\web.png
+wwwroot\images\portfolio\web2.png
+wwwroot\images\portfolio\web3.png
+wwwroot\images\portfolio\webb1.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

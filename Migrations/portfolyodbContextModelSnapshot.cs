@@ -65,16 +65,13 @@ namespace Portfolyo.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Interests")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LongDescription")
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AboutInfoId");
 
@@ -84,10 +81,13 @@ namespace Portfolyo.Migrations
             modelBuilder.Entity("Portfolyo.Data.AboutMe2Table", b =>
                 {
                     b.Property<int>("DetailId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("DetailID");
 
                     b.Property<int?>("AboutId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("AboutID");
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
@@ -110,13 +110,13 @@ namespace Portfolyo.Migrations
                 {
                     b.Property<int>("AboutId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("AboutID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutId"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagePath")
                         .HasMaxLength(300)
@@ -130,6 +130,10 @@ namespace Portfolyo.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("ShortDescription")
+                        .HasMaxLength(600)
+                        .HasColumnType("nvarchar(600)");
+
                     b.HasKey("AboutId");
 
                     b.ToTable("AboutMeTable", (string)null);
@@ -139,7 +143,8 @@ namespace Portfolyo.Migrations
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
@@ -156,18 +161,25 @@ namespace Portfolyo.Migrations
                 {
                     b.Property<int>("HomeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("homeID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HomeId"), 1L, 1);
 
                     b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
 
                     b.Property<string>("NameSurname")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nchar(10)")
+                        .IsFixedLength();
 
                     b.HasKey("HomeId");
 
@@ -196,19 +208,21 @@ namespace Portfolyo.Migrations
 
                     b.HasKey("MessageId");
 
-                    b.ToTable("MessageTable", (string)null);
+                    b.ToTable("MessagesTable");
                 });
 
             modelBuilder.Entity("Portfolyo.Data.ProjectsTable", b =>
                 {
                     b.Property<int>("ProjectId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ProjectID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectId"), 1L, 1);
 
                     b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("CategoryID");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -239,7 +253,8 @@ namespace Portfolyo.Migrations
                 {
                     b.Property<int>("ExperinceId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ExperinceID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExperinceId"), 1L, 1);
 
@@ -255,16 +270,18 @@ namespace Portfolyo.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("ExperinceId");
+                    b.HasKey("ExperinceId")
+                        .HasName("PK_Experinces Table");
 
-                    b.ToTable("ServicesTable", (string)null);
+                    b.ToTable("Services Table", (string)null);
                 });
 
             modelBuilder.Entity("Portfolyo.Data.SkillTable", b =>
                 {
                     b.Property<int>("SkilId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("SkilID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SkilId"), 1L, 1);
 
@@ -286,10 +303,8 @@ namespace Portfolyo.Migrations
             modelBuilder.Entity("Portfolyo.Data.TestimonialTable", b =>
                 {
                     b.Property<int>("TestimonialId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TestimonialId"), 1L, 1);
+                        .HasColumnType("int")
+                        .HasColumnName("TestimonialID");
 
                     b.Property<string>("Comment")
                         .HasMaxLength(400)
@@ -315,13 +330,38 @@ namespace Portfolyo.Migrations
                     b.ToTable("TestimonialTable", (string)null);
                 });
 
+            modelBuilder.Entity("Portfolyo.Models.AdminUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdminUsers");
+                });
+
             modelBuilder.Entity("Portfolyo.Data.AboutMe2Table", b =>
                 {
                     b.HasOne("Portfolyo.Data.AboutMeTable", "Detail")
                         .WithOne("AboutMe2Table")
                         .HasForeignKey("Portfolyo.Data.AboutMe2Table", "DetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("FK_AboutMe2Table_AboutMeTable");
 
                     b.Navigation("Detail");
                 });

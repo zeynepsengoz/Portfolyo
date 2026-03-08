@@ -1,0 +1,41 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Register</title>
+</head>
+<body>
+
+    <h2>Admin Register (Setup)</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <p style="color:red">@ViewBag.Error</p>
+    }
+
+    <form method="post" action="/admin/auth/register">
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label>Admin Key</label>
+            <input name="adminKey" />
+        </div>
+
+        <div>
+            <label>Username</label>
+            <input name="username" />
+        </div>
+
+        <div>
+            <label>Password</label>
+            <input name="password" type="password" />
+        </div>
+
+        <button type="submit">Create Admin</button>
+    </form>
+
+    <p><a href="/admin/auth/login">Back to Login</a></p>
+
+</body>
+</html>

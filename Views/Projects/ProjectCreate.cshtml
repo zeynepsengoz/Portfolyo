@@ -1,48 +1,4 @@
-﻿@*  @model Portfolyo.Data.ProjectsTable
-@{
-    ViewData["Title"] = "ProjectCreate";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
-}
-
-<h1>ProjectCreate</h1>
-
-<form method="post">
-    <label>
-            Proje Adı
-    </label>
-    <input type="text" class="form-control" name="ProjectName" />
-
-    <label>
-        Proje Başlığı
-    </label>
-    <input type="text" class="form-control" name="Title" />
-
-    <label>
-        Proje Resmi
-    </label>
-    <input type="text" class="form-control" name="Image" />
-
-    <label>
-        Proje Kategorisi
-    </label>
-    
-    <select> class="form-control" name"CategoryId"> 
-        <option value="">Kategoriyi Seçiniz</option>
-
-      
-
-        @foreach (var item in ViewBag.Category)
-        {
-           <option value="@item.Value">@item.Text</option>
-        }
-
-    </select>
-
-    
-
-    <button type="submit" class="btn btn-success">Ekle</button>
-</form>
-  *@
+﻿
 
 @model Portfolyo.Data.ProjectsTable
 @{

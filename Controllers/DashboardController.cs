@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PortfolyoDbContext;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Portfolyo.Controllers
 {
+    [Authorize(Policy = "AdminOnly")]
     public class DashboardController : Controller
     {
         private readonly portfolyodbContext _portfolyodbContext;
@@ -27,12 +29,25 @@ namespace Portfolyo.Controllers
             ViewBag.SkillCount =   _portfolyodbContext.SkillTables.Count();
 
 
+            // Son 5 mesaj
+            var lastMessages = _portfolyodbContext.MessageTables
+                .OrderByDescending(x => x.MessageDate)
+                .Take(5)
+                .ToList();
 
-            // Task
-            // 1- En çok kategoriye sahip proje
-            // 2- Yetenekler tablosunda en yüksek yüzdeye sahip yetenek
+            // Bugün gelenler (Özet kartı)
+            var today = DateTime.Today;
+            ViewBag.TodayNewMessages = _portfolyodbContext.MessageTables.Count(x => x.MessageDate >= today);
 
-            return View();
+            // Projede CreatedDate yoksa bu satırı şimdilik 0 bırakacağız (aşağıda anlattım)
+            ViewBag.TodayNewProjects = 0;
+
+            return View(lastMessages);
+
+
+
+
+
         }
     }
 }

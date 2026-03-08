@@ -258,3 +258,8 @@ C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\refint\Portfolyo.dll
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\Portfolyo.pdb
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\Portfolyo.genruntimeconfig.cache
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\ref\Portfolyo.dll
+C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\Portfolyo.sourcelink.json
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\DotNetEnv.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Sprache.dll

@@ -1,91 +1,42 @@
-﻿
-   
-/* =========================
-   ANA LAYOUT
-========================= */
+﻿ANA LAYOUT ========================= */
+
+
+
 .app-layout {
     display: flex;
     min-height: 100vh;
 }
 
-/* =========================
-   SOL SIDEBAR
-========================= */
-.sidebar {
-    width: 240px;
-    background: #1f2933;
-    color: #fff;
-    padding: 40px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-}
+/* ========================= SAĞ İÇERİK ========================= */
 
-.sidebar-logo {
-    text-align: center;
-    margin-bottom: 40px;
-}
 
-    .sidebar-logo h4 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
 
-.logo-letter {
-    font-size: 64px;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.12);
-}
-
-/* =========================
-   SIDEBAR MENU
-========================= */
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-    .sidebar-menu a {
-        color: #cbd5e1;
-        text-decoration: none;
-        font-size: 15px;
-        padding: 8px 12px;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-    }
-
-        .sidebar-menu a:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
-        }
-
-/* =========================
-   SAĞ İÇERİK
-========================= */
 .content {
     margin-left: 240px;
     width: calc(100% - 240px);
     padding: 80px 80px;
 }
 
-/* =========================
-   ORTAK KONTEYNER
-   (HOME / ABOUT / SKILLS / PORTFOLIO)
-========================= */
+/* ========================= ORTAK KONTEYNER (HOME / ABOUT / SKILLS / PORTFOLIO) ========================= */
+
+
+
 .page-container {
     max-width: 900px; /* 🔥 TEK REFERANS – SKILLS İLE AYNI */
+
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* =========================
-   HOME – HERO (FINAL, TEMİZ)
-========================= */
+/* ========================= HOME – HERO (FINAL, TEMİZ) ========================= */
+
+
+
 .zh-home {
     padding: 80px 0 40px;
 }
+
+
 
 .zh-home__wrap {
     display: flex;
@@ -94,60 +45,96 @@
 }
 
 /* SOL YAZI */
+
+
+
 .zh-home__left {
     flex: 1;
     text-align: left;
 }
 
+/* Ad Soyad */
+
+
+
 .zh-home__name {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 0 0 6px 0;
-    color: #333;
+    color: #2B1E34;
 }
+
+/* Game Developer */
+
+
 
 .zh-home__title {
     font-size: 56px;
     font-weight: 800;
     line-height: 1.05;
-    margin: 0 0 16px 0;
-    color: #111;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, #7C3AED, #EC4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 24px rgba(124,58,237,0.25);
 }
+
+/* Açıklama */
+
+
 
 .zh-home__desc {
     margin: 0;
     max-width: 520px;
     font-size: 15px;
     line-height: 1.7;
-    color: #555;
+    color: #56405F;
 }
 
-/* SAĞ FOTO */
+/* Profil halkası = Game Developer ile birebir aynı gradient */
+
+
+
 .zh-home__right {
-    flex-shrink: 0;
+    display: inline-flex;
+    padding: 6px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #7C3AED, #EC4899);
+    box-shadow: 0 18px 45px rgba(124,58,237,0.28);
 }
+
+/* Foto eski ayar bozulmasın */
+
+
 
 .zh-home__avatar {
     width: 220px;
     height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid #e5e7eb;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
     object-position: top;
+    border: none;
+    display: block;
+    background: #fff;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.14);
 }
 
-/* =========================
-   ABOUT (DOKUNULMADI)
-========================= */
+/* ========================= ABOUT (DOKUNULMADI) ========================= */
+
+
+
 #about {
     padding: 80px 0 40px;
 }
+
+
 
     #about .section-title {
         text-align: center;
         margin-bottom: 48px;
     }
+
+
 
         #about .section-title h2 {
             font-size: 40px;
@@ -155,23 +142,31 @@
             margin: 0;
         }
 
+
+
     #about .about-layout {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 48px;
     }
 
+
+
     #about .about-text {
         font-size: 15px;
         line-height: 1.8;
-        color: #333;
+        color: #56405F;
         max-width: 520px;
     }
+
+
 
     #about .about-right {
         border-left: 1px solid #e5e7eb;
         padding-left: 28px;
     }
+
+
 
     #about .about-info {
         list-style: none;
@@ -179,36 +174,49 @@
         margin: 0;
     }
 
+
+
         #about .about-info li {
             font-size: 14px;
             margin-bottom: 10px;
         }
 
+
+
     #about .about-education {
         margin-top: 32px;
     }
+
+
 
         #about .about-education h4 {
             font-size: 16px;
             margin-bottom: 12px;
         }
 
-/* =========================
-   SKILLS (DOKUNULMADI)
-========================= */
+/* ========================= SKILLS (DOKUNULMADI) ========================= */
+
+
+
 #skills {
     padding: 80px 0 40px;
 }
+
+
 
     #skills .section-title {
         text-align: center;
         margin-bottom: 48px;
     }
 
+
+
         #skills .section-title h2 {
             font-size: 40px;
             font-weight: 700;
         }
+
+
 
     #skills .skills-grid {
         display: grid;
@@ -216,16 +224,22 @@
         gap: 32px;
     }
 
+
+
     #skills .skill-header {
         display: flex;
         justify-content: space-between;
         margin-bottom: 6px;
     }
 
+
+
     #skills .skill-title {
         font-size: 15px;
         font-weight: 600;
     }
+
+
 
     #skills .skill-percent {
         font-size: 14px;
@@ -233,13 +247,17 @@
         color: #2563eb;
     }
 
+
+
     #skills .skill-bar {
         width: 100%;
         height: 8px;
-        background: #e5e7eb;
+        background: rgba(124, 58, 237, 0.12);
         border-radius: 999px;
         overflow: hidden;
     }
+
+
 
     #skills .skill-bar-fill {
         height: 100%;
@@ -247,30 +265,79 @@
         border-radius: 999px;
     }
 
-/* =========================
-   PORTFOLIO (DOKUNULMADI)
-========================= */
+/* ========================= PORTFOLIO (DOKUNULMADI) ========================= */
+
 #portfolio {
     padding: 80px 0 40px;
 }
 
-    #portfolio .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 300px);
-        gap: 48px;
-        justify-content: center;
+    /* SADECE PORTFOLIO container'ı */
+    #portfolio .container {
+        max-width: 1100px !important;
+        margin: 0 auto;
+        padding: 0 24px !important; /* padding-left:100px yok */
     }
 
+    /* ✅ GRID YOK — FLEX */
+    #portfolio .portfolio-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 34px; /* 🔥 kartlar arası boşluk */
+        justify-content: center; /* 2. görsel gibi ortalı */
+        align-items: flex-start;
+    }
+
+    /* ✅ 3 sütun: (container - 2*gap) / 3 */
+    #portfolio .portfolio-card {
+        flex: 0 0 calc((100% - (34px * 2)) / 3);
+        max-width: 280px; /* boylar aynı kalsın */
+        width: 100%;
+        margin-left: 120px;
+    }
+
+/* KART – SADECE RENK DEĞİŞTİ */
 .portfolio-card {
     border-radius: 16px;
     overflow: hidden;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background: #F6F2FB;
+    border: 1px solid rgba(124,58,237,0.16);
     text-decoration: none;
     color: inherit;
     transition: transform .3s ease, box-shadow .3s ease;
 }
+/* Isotope absolute layout'u kapat -> gap çalışsın */
+#portfolio .portfolio-grid.isotope-container {
+    position: relative !important;
+    height: auto !important; /* isotope bazen height kilitler */
+}
 
+/* Kartları tekrar akışa al */
+#portfolio .portfolio-card.isotope-item {
+    position: static !important; /* 🔥 absolute'ı iptal */
+    left: auto !important;
+    top: auto !important;
+    transform: none !important; /* isotope translate bırakabilir */
+}
+
+/* Flex düzenin (gap artık çalışır) */
+#portfolio .portfolio-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 34px !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
+#portfolio .portfolio-card {
+    flex: 0 0 calc((100% - (34px * 2)) / 3) !important;
+    max-width: 280px !important;
+    width: 100% !important;
+    margin: 0 !important; /* margin-left falan kalmasın */
+}
+
+
+
+    /* HOVER AYNEN KALDI */
     .portfolio-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -294,22 +361,85 @@
     .portfolio-body h4 {
         font-size: 16px;
         margin-bottom: 6px;
+        color: #2B1E34;
     }
 
     .portfolio-body p {
         font-size: 14px;
-        color: #374151;
+        color: #56405F;
     }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 992px) {
+/* ========================= PORTFOLIO FILTER – FINAL (ÇİZGİ YOK + PASİF FLAT) ========================= */
+
+.portfolio-filter {
+    margin-top: 24px;
+}
+
+    /* list */
+    .portfolio-filter ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* ❌ eski theme çizgilerini tamamen kapat */
+    .portfolio-filter a::after,
+    .portfolio-filter a::before,
+    .portfolio-filter li::after,
+    .portfolio-filter li::before {
+        content: none !important;
+        display: none !important;
+    }
+
+    .portfolio-filter a {
+        border: none !important;
+        outline: none !important;
+        text-decoration: none !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 500;
+        background: rgba(124,58,237,0.08);
+        color: #3A2F4D;
+        box-shadow: inset 0 0 0 1px rgba(124,58,237,0.18);
+        transition: all .25s ease;
+    }
+
+        /* hover */
+        .portfolio-filter a:hover {
+            color: #7C3AED;
+            background: rgba(124,58,237,0.12);
+            box-shadow: inset 0 0 0 1px rgba(124,58,237,0.30);
+        }
+
+        /* ✅ aktif = Game Developer ile birebir gradient */
+        .portfolio-filter a.active {
+            background: linear-gradient(90deg, #7C3AED, #EC4899) !important;
+            color: #fff !important;
+            box-shadow: 0 10px 26px rgba(124,58,237,0.35) !important;
+        }
+        }
+
+/* ========================= RESPONSIVE ========================= */
+
+
+
+/*@media (max-width: 992px) {
+
     .sidebar {
         position: relative;
         width: 100%;
         height: auto;
     }
+
+
 
     .content {
         margin-left: 0;
@@ -317,18 +447,26 @@
         padding: 40px 20px;
     }
 
+
+
     .zh-home__wrap {
         flex-direction: column;
         text-align: center;
     }
 
+
+
     .zh-home__left {
         max-width: 100%;
     }
 
+
+
     #about .about-layout {
         grid-template-columns: 1fr;
     }
+
+
 
     #about .about-right {
         border-left: none;
@@ -336,23 +474,43 @@
         margin-top: 24px;
     }
 
+
+
     #skills .skills-grid {
         grid-template-columns: 1fr;
     }
 
-    #portfolio .portfolio-grid {
-        grid-template-columns: 1fr;
+
+
+    @media (max-width: 992px) {
+
+        #portfolio .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
-}
-/* =========================
-   ABOUT – SON DÜZELTME
-========================= */
+
+
+
+    @media (max-width: 576px) {
+
+        #portfolio .portfolio-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}*/
+
+/* ========================= ABOUT – SON DÜZELTME ========================= */
+
+
 
 .about-section {
     padding: 80px 0 40px;
 }
 
 /* Skills ile aynı hiza */
+
+
+
 .about-wrapper {
     max-width: 900px;
     margin: 0 auto;
@@ -360,6 +518,9 @@
 }
 
 /* Başlık */
+
+
+
 .about-title {
     font-size: 40px;
     font-weight: 700;
@@ -368,6 +529,9 @@
 }
 
 /* İÇ YAPI: SOL + SAĞ */
+
+
+
 .about-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -376,18 +540,26 @@
 }
 
 /* SOL PARAGRAF */
+
+
+
 .about-left p {
     margin: 0;
     font-size: 16px;
     line-height: 1.8;
-    color: #333;
+    color: #56405F;
 }
 
 /* SAĞ BİLGİLER */
+
+
+
 .about-right {
     border-left: 1px solid #e5e7eb;
     padding-left: 24px;
 }
+
+
 
 .about-info {
     list-style: none;
@@ -395,37 +567,50 @@
     margin: 0 0 24px 0;
 }
 
+
+
     .about-info li {
         font-size: 14px;
         margin-bottom: 10px;
     }
+
+
 
 .about-education h3 {
     font-size: 18px;
     margin-bottom: 12px;
 }
 
-/* =========================
-   MOBİL
-========================= */
-@media (max-width: 768px) {
+/* ========================= MOBİL ========================= */
+
+
+
+/*@media (max-width: 768px) {
+
     .about-grid {
         grid-template-columns: 1fr;
     }
+
+
 
     .about-right {
         border-left: none;
         padding-left: 0;
         margin-top: 24px;
     }
-}
+}*/
+
 /* Hakkımda başlığı ortala */
+
+
+
 .about-title {
     text-align: center;
 }
-/* =========================
-   PORTFOLIO DETAIL PAGE
-========================= */
+
+/* ========================= PORTFOLIO DETAIL PAGE ========================= */
+
+
 
 .portfolio-detail-page {
     max-width: 1100px;
@@ -434,6 +619,9 @@
 }
 
 /* GERİ DÖN */
+
+
+
 .back-link {
     display: inline-block;
     margin-bottom: 24px;
@@ -443,8 +631,12 @@
 }
 
 /* ANA YAN YANA DÜZEN */
+
+
+
 .detail-layout {
     display: flex; /* 🔴 KRİTİK */
+
     gap: 48px;
     background: #f9fafb;
     padding: 48px;
@@ -453,15 +645,22 @@
 }
 
 /* SOL TARAF */
+
+
+
 .detail-info {
     flex: 1.2;
 }
+
+
 
     .detail-info h1 {
         font-size: 32px;
         font-weight: 800;
         margin-bottom: 8px;
     }
+
+
 
 .detail-meta {
     display: block;
@@ -470,6 +669,8 @@
     margin-bottom: 16px;
 }
 
+
+
 .detail-desc {
     font-size: 15px;
     line-height: 1.8;
@@ -477,25 +678,42 @@
     margin-bottom: 24px;
 }
 
+
+
 .detail-section h3 {
     font-size: 18px;
     margin-bottom: 12px;
 }
 
+
+
 .detail-section ul {
     padding-left: 18px;
 }
+
+
 
 .detail-section li {
     margin-bottom: 8px;
     font-size: 14px;
 }
 
+
+
+.detail-card, .portfolio-detail-page .detail-layout {
+    background: #F7F2FF;
+}
+
 /* SAĞ TARAF */
+
+
+
 .detail-image {
     flex: 1;
     text-align: center;
 }
+
+
 
     .detail-image .main-image {
         width: 100%;
@@ -506,9 +724,14 @@
     }
 
 /* DEMO */
+
+
+
 .image-actions {
     margin-top: 20px;
 }
+
+
 
 .demo-label {
     display: block;
@@ -517,46 +740,78 @@
 }
 
 /* GALERİLER */
-.detail-gallery,
-.pixel-gallery {
+
+
+
+.detail-gallery, .pixel-gallery {
     display: grid;
     gap: 12px;
     margin-top: 16px;
 }
 
+
+
 .detail-gallery {
     grid-template-columns: repeat(2, 1fr);
 }
+
+
 
 .pixel-gallery {
     grid-template-columns: repeat(3, 1fr);
 }
 
-    .detail-gallery img,
-    .pixel-gallery img {
+
+
+    .detail-gallery img, .pixel-gallery img {
         width: 100%;
         border-radius: 12px;
     }
 
 /* =========================
-   MOBİL
+   WEB PROJECT SHOWCASE
 ========================= */
-@media (max-width: 992px) {
+
+.web-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+}
+
+    .web-showcase img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+        transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+        .web-showcase img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+        }
+/* ========================= MOBİL ========================= */
+
+
+
+/*@media (max-width: 992px) {
+
     .detail-layout {
         flex-direction: column;
         text-align: center;
     }
 
+
+
     .detail-info {
         text-align: left;
     }
-}
-/* =========================
-   PORTFOLIO DETAIL – FIX
-   (BLENDER / 3D TASARIMLAR)
-========================= */
+*/}
 
-/* Ana layout genişliği */
+/* ========================= PORTFOLIO DETAIL – FIX (BLENDER / 3D TASARIMLAR) ========================= */ /* Ana layout genişliği */
+
+
+
 .detail-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -565,11 +820,17 @@
 }
 
 /* Sağ kolon (görseller) */
+
+
+
 .detail-image {
     width: 100%;
 }
 
     /* ÜSTTEKİ BÜYÜK GÖRSEL */
+
+
+
     .detail-image .main-image {
         width: 100%;
         border-radius: 18px;
@@ -578,13 +839,20 @@
     }
 
 /* ALTTAKİ 3 GÖRSEL */
+
+
+
 .detail-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 🔥 yan yana 3 */
+
     gap: 16px;
 }
 
     /* Küçük görseller */
+
+
+
     .detail-gallery img {
         width: 100%;
         height: 120px;
@@ -593,13 +861,1105 @@
     }
 
 /* MOBİL */
+
+
+
 @media (max-width: 992px) {
+
     .detail-layout {
         grid-template-columns: 1fr;
     }
+
+
 
     .detail-gallery {
         grid-template-columns: 1fr 1fr;
     }
 }
 
+/* SAYFANIN SAĞ / ANA ALANI */
+
+
+
+.page-content {
+    position: relative;
+    background-image: url("/images/portfolio/tasarim.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* ========================= GLOBAL THEME OVERRIDE ========================= */
+
+
+
+body {
+    background: #F3E8FF !important; /* lila */
+
+    color: #56405F !important; /* genel yazı rengi (siyah yerine) */
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient( 90deg, #2B1E34, /* koyu mor-gri (siyaha yakın ama değil) */ #4A3A63, /* yumuşak mor */ #6B4EFF /* Game Developer’daki morun sakin hali */ );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* SKILLS – inline background'u ez */
+
+
+
+#skills div[style*="background:#2563eb"], #skills div[style*="background: #2563eb"], #skills div[style*="background:#2563eb;"], #skills div[style*="background: #2563eb;"] {
+    background: linear-gradient(90deg, #7C3AED, #EC4899) !important;
+}
+
+/* SKILLS boş bar (inline background:#e5e7eb) override */
+
+
+
+#skills div[style*="background:#e5e7eb"], #skills div[style*="background: #e5e7eb"], #skills div[style*="background:#e5e7eb;"], #skills div[style*="background: #e5e7eb;"] {
+    background: rgba(124, 58, 237, 0.12) !important;
+}
+
+/* ========================= CONTACT – GENEL ALAN ========================= */
+
+
+
+#contact {
+    background: transparent;
+    padding: 100px 0;
+}
+
+    /* Başlık */
+
+
+
+    #contact .section-title h2 {
+        color: #4b3b66;
+    }
+
+
+
+    #contact p {
+        color: #5b4b73;
+    }
+
+    /* ========================= ÜST BİLGİ KARTLARI (Telefon / Konum / Mail) ========================= */
+
+
+
+    #contact .feature-block {
+        background: rgba(124,58,237,0.08);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(124,58,237,0.18);
+        border-radius: 20px;
+        padding: 26px 20px;
+        transition: all .3s ease;
+    }
+
+
+
+        #contact .feature-block:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(124,58,237,0.25);
+        }
+
+    /* ikon rengi */
+
+
+
+    #contact .feature-icon i {
+        color: #7c3aed;
+    }
+
+    /* ========================= ALT FORM PANELİ (CAM / GLASS LOOK) ========================= */
+
+
+
+    #contact .contact-form {
+        margin-top: 50px;
+        background: rgba(124,58,237,0.08);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(124,58,237,0.22);
+        border-radius: 28px;
+        padding: 50px 46px;
+        box-shadow: 0 30px 80px rgba(124,58,237,0.18);
+    }
+
+    /* ========================= INPUT & TEXTAREA ========================= */
+
+
+
+    #contact .form-control {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(124,58,237,0.25);
+        border-radius: 14px;
+        padding: 14px 18px;
+        color: #3a2f4d;
+        box-shadow: none;
+    }
+
+
+
+        #contact .form-control::placeholder {
+            color: rgba(58,47,77,0.6);
+        }
+
+
+
+        #contact .form-control:focus {
+            outline: none;
+            background: rgba(255,255,255,0.18);
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
+        }
+
+    /* textarea biraz daha yumuşak */
+
+
+
+    #contact textarea.form-control {
+        min-height: 180px;
+    }
+
+    /* ========================= GÖNDER BUTONU ========================= */
+
+
+
+    #contact button.btn {
+        margin-top: 20px;
+        padding: 14px 36px;
+        border-radius: 999px;
+        border: none;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, #7c3aed, #ec4899);
+        box-shadow: 0 18px 40px rgba(124,58,237,0.45);
+        transition: all .3s ease;
+    }
+
+
+
+        #contact button.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 26px 60px rgba(124,58,237,0.6);
+        }
+
+/* ========================= MOBİL DÜZEN ========================= */
+
+
+/*
+@media (max-width: 768px) {
+
+    #contact .contact-form {
+        padding: 36px 24px;
+    }
+}*/
+
+/* ========================= CONTACT – KARTLARI TAM KAPAT (ÜST 3 + FORM PANEL) En altta dursun ========================= */ /* ÜSTTEKİ 3 KARTI KART YAPAN HER ŞEYİ SIFIRLA */
+
+
+
+#contact .feature-block, #contact .feature-block * {
+    box-shadow: none !important;
+}
+
+
+
+#contact .feature-block {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+    /* Bazen kart görünümü .feature-block içindeki div'e veriliyor */
+
+
+
+    #contact .feature-block > div {
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+/* ÜSTTEKİ 3 KARTI SATIR GİBİ YAP (isteğe bağlı daha sade durur) */
+
+
+
+#contact .row.mb-8 .col-md-4 {
+    display: flex;
+    justify-content: center;
+}
+
+/* FORMUN ARKASINDAKİ BÜYÜK PANELİ KALDIR (senin projede bazen .contact-form değil, onun dışındaki wrapper kart oluyor) */
+
+
+
+#contact .contact-form, #contact .contact-form form, #contact .contact-form .form-row, #contact .contact-form .form-row > * {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Eğer formu saran ekstra bir "panel" varsa (genelde template'lerde olur) */
+
+
+
+#contact .row.mb-8 + .contact-form, #contact .row.mb-8 ~ .contact-form {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* INPUTLAR KALSIN: sadece kendisi görünsün */
+
+
+
+#contact .form-control {
+    background: rgba(255,255,255,0.55) !important;
+    border: 1px solid rgba(124,58,237,0.22) !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+}
+
+/* TEXTAREA çevresindeki ekstra pembe/mor çerçeve gibi bir şey varsa sıfırla */
+
+
+
+#contact textarea.form-control {
+    outline: none !important;
+}
+
+
+
+textarea {
+    resize: none;
+}
+
+
+
+.site-footer {
+    background: transparent;
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+
+
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 24px;
+}
+
+
+
+    .footer-socials a {
+        width: 52px;
+        height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 22px;
+        color: #6d4aff;
+        background: rgba(124, 58, 237, 0.12);
+        box-shadow: inset 0 0 0 1px rgba(124, 58, 237, 0.25);
+        transition: all 0.3s ease;
+    }
+
+
+
+        .footer-socials a:hover {
+            color: #fff;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            box-shadow: 0 12px 30px rgba(124,58,237,0.35);
+            transform: translateY(-3px);
+        }
+
+
+
+.footer-text {
+    font-size: 14px;
+    color: #4b3b63;
+    margin-bottom: 6px;
+}
+
+
+
+.footer-copy {
+    font-size: 13px;
+    color: #7a6a95;
+}
+
+/* ====== SOL MENÜ (SMOKY) – yumuşatılmış + geçiş + aktif daha net ====== */
+
+
+
+.site-header .header-inner { /* düz duvar gibi durmasın diye hafif iç gradient */
+
+    background: linear-gradient(180deg, rgba(74,58,96,0.92) 0%, rgba(43,27,58,0.88) 100% ) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* içerikle daha yumuşak ayrım */
+
+    border-right: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 8px 0 30px rgba(30,10,50,0.18);
+}
+
+/* overlay kapalı kalsın */
+
+
+
+.site-header .overlay .overlay-inner, .header-overlay .overlay-inner {
+    background: transparent !important;
+    opacity: 1 !important;
+}
+
+/* divider + sosyal ikonlar kapalı */
+
+
+
+.site-header .nav-divider, .nav-divider, .site-header .btn.btn-icon {
+    display: none !important;
+}
+
+/* logo / isim */
+
+
+
+.site-header .logo span, .mobile-logo span {
+    color: #fff !important;
+    font-weight: 800;
+    letter-spacing: .3px;
+}
+
+/* menü linkleri */
+
+
+
+.site-nav #navigation {
+    padding-left: 0;
+    margin: 0;
+}
+
+
+
+.site-header .site-nav #navigation li a {
+    position: relative;
+    display: block;
+    color: rgba(255,255,255,0.86) !important;
+    padding: 11px 16px; /* biraz daha buton hissi */
+
+    margin: 8px 0;
+    border-radius: 14px;
+    font-weight: 650;
+    text-decoration: none !important;
+    transition: background .2s ease, transform .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+    /* hover */
+
+
+
+    .site-header .site-nav #navigation li a:hover {
+        background: rgba(255,255,255,0.10);
+        transform: translateX(3px);
+        color: #fff !important;
+    }
+
+    /* aktif menü: daha clean + sol çizgi + hafif glow */
+
+
+
+    .site-header .site-nav #navigation li a.active {
+        background: rgba(255,255,255,0.14); /* gradient yerine daha premium */
+
+        color: #fff !important;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+    }
+
+
+
+        .site-header .site-nav #navigation li a.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 4px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #6d4cff, #ff4fc3);
+        }
+
+/* ========================= SIDEBAR – BRAND + SOSYAL DÜZELTME ========================= */
+
+
+
+.site-header .brand-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+}
+
+
+
+.site-header .brand-title {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.05 !important;
+}
+
+
+
+.site-header .brand-game {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+
+.site-header .brand-dev {
+    font-size: 14px;
+    font-weight: 700;
+    opacity: .85;
+}
+
+/* Menü ikon-yazı arası */
+
+
+
+.site-header .site-nav #navigation li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Sosyalleri baloncuk gibi yap + alta düzgün oturt */
+
+
+
+.site-header .sidebar-social {
+    margin-top: 14px;
+}
+
+
+
+.site-header .social-bubbles {
+    display: flex;
+    gap: 14px;
+    justify-content: flex-start; /* sola hizalı */
+}
+
+
+
+.site-header .social-bubble {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+}
+
+/* =========================================================
+   SIDEBAR FINAL: BRAND + MENU + SOCIAL
+   - Hepsi aynı merkez hizasında
+   - Menü aralıkları ideal
+   - Sosyal hover = ZŞ gradient
+========================================================= */
+
+.site-header .header-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* her şeyi aynı merkez çizgisine al */
+    justify-content: flex-start !important;
+    overflow: hidden !important; /* sağda scrollbar taşmasını azaltır */
+}
+
+/* ---------- BRAND (ZŞ + Game Developer) ---------- */
+.site-header .logo {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.site-header .brand-row {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* ortada */
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 18px 0 20px !important;
+    margin: 0 !important;
+}
+
+.site-header .brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #7C3AED, #EC4899);
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: .5px;
+    box-shadow: 0 14px 30px rgba(124,58,237,.25);
+    flex: 0 0 46px;
+}
+
+.site-header .brand-title {
+    display: flex !important;
+    flex-direction: column !important;
+    line-height: 1.05 !important;
+    text-align: left !important;
+}
+
+.site-header .brand-game {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+}
+
+.site-header .brand-dev {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: rgba(255,255,255,.86) !important;
+}
+
+/* ---------- MENU (ZŞ + sosyal ile aynı hizada) ---------- */
+.site-header .site-nav {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* menü bloğu da ortada */
+    margin-top: 6px !important;
+}
+
+.site-nav #navigation {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* linkler ortada toplanır */
+    gap: 10px !important; /* ✅ aralık IDEAL (çok açılmasın) */
+}
+
+/* Her satır ortada */
+.site-header .site-nav #navigation li {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+    /* Link: kart yok, sabit genişlik ile hizalı ve temiz */
+    .site-header .site-nav #navigation li a {
+        position: relative !important;
+        width: 260px !important; /* ✅ hepsi aynı hizada (ZŞ+sosyal merkezli) */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* ikon + yazı aynı çizgide */
+
+        gap: 12px !important;
+        padding: 10px 12px !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        text-decoration: none !important;
+        color: rgba(255,255,255,.90) !important;
+        font-weight: 700 !important;
+    }
+
+        /* Hover: sadece küçük vurgu (kart gibi değil) */
+        .site-header .site-nav #navigation li a:hover {
+            color: #fff !important;
+        }
+
+        /* Aktif: sol çizgi (gradient) */
+        .site-header .site-nav #navigation li a.active {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+            .site-header .site-nav #navigation li a.active::before {
+                content: "";
+                position: absolute;
+                left: -12px;
+                top: 8px;
+                bottom: 8px;
+                width: 4px;
+                border-radius: 10px;
+                background: linear-gradient(180deg, #6d4cff, #ff4fc3);
+            }
+
+/* ---------- SOCIAL (ortada + hover ZŞ gradient) ---------- */
+.site-header .sidebar-social {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 18px !important; /* menüyle ideal boşluk */
+    padding: 10px 0 18px !important;
+}
+
+/* önceki display:none varsa geri aç */
+.site-header .btn.btn-icon {
+    display: inline-flex !important;
+}
+
+.site-header .sidebar-social .list-inline {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+
+.site-header .sidebar-social .list-inline-item {
+    margin: 0 !important;
+}
+
+/* ikon balon */
+.site-header .sidebar-social a.btn.btn-icon {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255,255,255,.10) !important;
+    border: 1px solid rgba(255,255,255,.20) !important;
+    color: rgba(255,255,255,.92) !important;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+    /* Hover = ZŞ ile aynı */
+    .site-header .sidebar-social a.btn.btn-icon:hover,
+    .site-header .sidebar-social a.btn.btn-icon:focus-visible {
+        background: linear-gradient(135deg, #7C3AED, #EC4899) !important;
+        border-color: transparent !important;
+        color: #fff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(124,58,237,.28);
+    }
+
+    .site-header .sidebar-social a.btn.btn-icon:active {
+        transform: translateY(0) scale(.98);
+        box-shadow: 0 10px 22px rgba(124,58,237,.22);
+    }
+
+#contact .container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+}
+/* PORTFOLIO tekrar ortalı olsun */
+#portfolio .portfolio-grid {
+    justify-content: center !important;
+}
+
+.site-header .site-nav #navigation li a.active::before {
+    display: none !important;
+}
+
+/* =========================================
+   LİLA SECTION BOŞLUKLARI – EŞİTLE
+   ========================================= */
+
+.zh-home,
+#about,
+#skills,
+#portfolio,
+#contact {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(124,58,237,0.4);
+    border-radius: 20px;
+}
+/* =========================
+   RESPONSIVE (mobile-first)
+   ========================= */
+
+/* GENEL: içerik padding mobilde küçülsün */
+@media (max-width: 768px) {
+    .content {
+        padding: 42px 18px !important;
+    }
+
+    .page-container,
+    #about .container,
+    #skills .container,
+    #portfolio .container,
+    #contact .container {
+        padding: 0 14px !important;
+    }
+}
+
+/* =========================
+   HOME: foto girişin ALTINDA
+   ========================= */
+.zh-home__wrap {
+    display: flex;
+    flex-direction: column; /* sağ (foto) aşağıya */
+    gap: 22px;
+    text-align: center;
+}
+
+.zh-home__left {
+    text-align: center;
+}
+
+.zh-home__desc {
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .zh-home__wrap {
+        flex-direction: row;
+        align-items: center;
+        gap: 64px;
+        text-align: left;
+    }
+
+    .zh-home__left {
+        text-align: left;
+    }
+
+    .zh-home__desc {
+        margin: 0;
+    }
+}
+
+/* =========================
+   ABOUT: paragraf > info > eğitim
+   ========================= */
+#about .about-layout,
+.about-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+}
+
+#about .about-right,
+.about-right {
+    border-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.about-education {
+    margin-top: 10px;
+}
+
+/* desktop’ta yine yan yana */
+@media (min-width: 992px) {
+    #about .about-layout,
+    .about-grid {
+        flex-direction: row !important;
+        align-items: flex-start;
+        gap: 48px !important;
+    }
+
+    #about .about-text {
+        flex: 1;
+    }
+
+    #about .about-right,
+    .about-right {
+        flex: .9;
+        border-left: 1px solid #e5e7eb !important;
+        padding-left: 24px !important;
+    }
+}
+
+/* =========================
+   SKILLS: mobilde tek kolon + barlar taşmasın
+   ========================= */
+#skills .skills-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+}
+
+#skills .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}
+
+#skills .skill-title {
+    max-width: 70%;
+    word-break: break-word;
+}
+
+#skills .skill-percent {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+/* md+ : 2 kolon */
+@media (min-width: 768px) {
+    #skills .skills-grid {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 26px !important;
+    }
+
+        #skills .skills-grid > * {
+            flex: 0 0 calc(50% - 13px);
+        }
+}
+
+/* =========================
+   PORTFOLIO: mobilde kartlar ALT ALTA
+   ========================= */
+#portfolio .portfolio-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+}
+
+#portfolio .portfolio-card {
+    width: 100% !important;
+    max-width: 520px !important; /* çok büyümesin, ama sabit değil */
+    margin: 0 auto !important; /* ortada */
+    flex: none !important;
+}
+
+/* md: 2 kolon, lg: 3 kolon istersen aç */
+@media (min-width: 768px) {
+    #portfolio .portfolio-grid {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+    }
+
+    #portfolio .portfolio-card {
+        flex: 0 0 calc(50% - 17px) !important;
+        max-width: 340px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #portfolio .portfolio-card {
+        flex: 0 0 calc(33.333% - 23px) !important;
+        max-width: 320px !important;
+    }
+}
+
+/* =========================
+   PORTFOLIO DETAIL – MOBILE
+   Resimler EN SONDA
+   ========================= */
+
+@media (max-width: 991px) {
+
+    .detail-layout,
+    .portfolio-detail-page .detail-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+    }
+
+    /* Yazı ÜSTTE */
+    .detail-info {
+        order: 1 !important;
+        text-align: left;
+    }
+
+    /* Görseller EN SONDA */
+    .detail-image {
+        order: 3 !important;
+        width: 100% !important;
+        text-align: center;
+    }
+
+        /* Büyük görsel */
+        .detail-image .main-image {
+            width: 100% !important;
+            height: auto !important;
+            margin-top: 10px;
+        }
+
+    /* Galeri */
+    .detail-gallery,
+    .pixel-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+}
+/* =========================
+   3D DETAIL – MOBILE ALT ALTA
+   ========================= */
+
+@media (max-width: 991px) {
+
+    .detail-gallery {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+    }
+
+        .detail-gallery img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 16px !important;
+        }
+}
+/* =========================
+   DETAIL IMAGE HOVER / TAP EFFECT
+   ========================= */
+
+.detail-image img,
+.detail-gallery img,
+.pixel-gallery img {
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: pointer;
+}
+
+    /* Desktop hover */
+    .detail-image img:hover,
+    .detail-gallery img:hover,
+    .pixel-gallery img:hover {
+        transform: scale(1.06);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    }
+
+    /* Mobile dokunma efekti */
+    .detail-image img:active,
+    .detail-gallery img:active,
+    .pixel-gallery img:active {
+        transform: scale(1.04);
+    }
+
+/* =========================
+   ABOUT – TABLET YANA GEÇİŞ
+   ========================= */
+
+/* Tablet aralığı */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    #about .about-layout,
+    .about-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        gap: 40px !important;
+    }
+
+    /* Sol taraf (paragraf) */
+    #about .about-text,
+    .about-left {
+        flex: 1.2;
+    }
+
+    /* Sağ taraf (yaş + eğitim) */
+    #about .about-right,
+    .about-right {
+        flex: 1;
+        border-left: 1px solid #e5e7eb !important;
+        padding-left: 20px !important;
+        text-align: left !important;
+    }
+}
+/* =========================================
+   PORTFOLIO – HER CİHAZDA EŞİT KART BOYU ✅
+   (1 kolon mobile, 2 kolon tablet, 3 kolon pc)
+========================================= */
+
+#portfolio .portfolio-grid {
+    display: grid !important;
+    gap: 34px !important;
+    align-items: stretch !important;
+}
+
+/* Mobile: 1 kolon */
+@media (max-width: 767px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Tablet: 2 kolon */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* PC: 3 kolon */
+@media (min-width: 1200px) {
+    #portfolio .portfolio-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Kart yapısı: hepsi aynı yükseklik */
+#portfolio .portfolio-card {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+/* Görsel alanı her kartta sabit */
+#portfolio .portfolio-image {
+    height: 220px !important;
+    flex: 0 0 220px !important;
+    overflow: hidden;
+}
+
+    #portfolio .portfolio-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+/* Body eşitlemeyi yapan asıl kısım */
+#portfolio .portfolio-body {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+    /* (İstersen) açıklama çok uzarsa kart şişmesin */
+    #portfolio .portfolio-body p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }

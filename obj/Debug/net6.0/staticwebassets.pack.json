@@ -3457,6 +3457,10 @@
       "PackagePath": "staticwebassets\\images\\portfolio\\TapinakRender06.jpg"
     },
     {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\avatar.jpg",
+      "PackagePath": "staticwebassets\\images\\portfolio\\avatar.jpg"
+    },
+    {
       "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\blender.jpg",
       "PackagePath": "staticwebassets\\images\\portfolio\\blender.jpg"
     },
@@ -3489,8 +3493,28 @@
       "PackagePath": "staticwebassets\\images\\portfolio\\pixel-art.png"
     },
     {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\tasarim.jpg",
+      "PackagePath": "staticwebassets\\images\\portfolio\\tasarim.jpg"
+    },
+    {
       "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\toprak_yapisi.png",
       "PackagePath": "staticwebassets\\images\\portfolio\\toprak_yapisi.png"
+    },
+    {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web.png",
+      "PackagePath": "staticwebassets\\images\\portfolio\\web.png"
+    },
+    {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web2.png",
+      "PackagePath": "staticwebassets\\images\\portfolio\\web2.png"
+    },
+    {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web3.png",
+      "PackagePath": "staticwebassets\\images\\portfolio\\web3.png"
+    },
+    {
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\webb1.png",
+      "PackagePath": "staticwebassets\\images\\portfolio\\webb1.png"
     },
     {
       "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\js\\site.js",

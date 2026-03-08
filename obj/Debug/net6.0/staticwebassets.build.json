@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ii8beE9Lta/iqiwNcOGs4bq6HOi0ffFOwOeZGUPhqBs=",
+  "Hash": "EZGEtVrFjmnhQKf0Ft1+HzwtKZKi273scUPhltClypY=",
   "Source": "Portfolyo",
   "BasePath": "_content/Portfolyo",
   "Mode": "Default",
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zjg87h9svv",
-      "Integrity": "MR+w7Lo25dDk8dnMmwBA9pkKyCvVBZjb9cGcFOyAqPY=",
+      "Fingerprint": "x2r4q4ussw",
+      "Integrity": "GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -8410,8 +8410,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "98z7om1wk5",
-      "Integrity": "Ge5lJ6mnE3t/uq9rId6b1RuLHLT2VpuBA2Rrv1MORHE=",
+      "Fingerprint": "vi0ry8fc9l",
+      "Integrity": "Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\assets\\css\\custom.css"
@@ -18077,6 +18077,27 @@
       "OriginalItemSpec": "wwwroot\\images\\kapi.png"
     },
     {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\avatar.jpg",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/avatar#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wb2t0azome",
+      "Integrity": "9LZNQsyziNqy2y84U/KxVuvMikV9y/Axn/0cGJ4LdXg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\avatar.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\blender.jpg",
       "SourceId": "Portfolyo",
       "SourceType": "Discovered",
@@ -18350,6 +18371,27 @@
       "OriginalItemSpec": "wwwroot\\images\\portfolio\\TapinakRender06.jpg"
     },
     {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\tasarim.jpg",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/tasarim#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wlwj4uac95",
+      "Integrity": "1IdCTzDFENtZdwcoGc7aGAzbUbZPHRdGFTZsOLCtfJE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\tasarim.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\toprak_yapisi.png",
       "SourceId": "Portfolyo",
       "SourceType": "Discovered",
@@ -18369,6 +18411,90 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\portfolio\\toprak_yapisi.png"
+    },
+    {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web.png",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/web#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xxjzglwnbq",
+      "Integrity": "tZMP2dTo+JxxTshjGXfH4fIZ5AYFxH3Z2gjgYB8m/kg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\web.png"
+    },
+    {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web2.png",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/web2#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "polve015zr",
+      "Integrity": "iZ1ySPJAJ99mkqo5/gfueh8LZtb6m/M5xJoPBn0Z+gE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\web2.png"
+    },
+    {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web3.png",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/web3#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vpvbi8o7ir",
+      "Integrity": "UydmUs1FqKMvLARipgIiHIJ4vKPNi4L3wKIkLJ+irZo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\web3.png"
+    },
+    {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\webb1.png",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "images/portfolio/webb1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jceritm9yd",
+      "Integrity": "nfho58VwDQmf8hFbiSxAe4tcfDMtH1uDm3rRmxHQ7W0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\portfolio\\webb1.png"
     },
     {
       "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\js\\site.js",
@@ -19704,7 +19830,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11232"
+          "Value": "41430"
         },
         {
           "Name": "Content-Type",
@@ -19712,11 +19838,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MR+w7Lo25dDk8dnMmwBA9pkKyCvVBZjb9cGcFOyAqPY=\""
+          "Value": "\"GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 Jan 2026 23:18:50 GMT"
+          "Value": "Sun, 15 Feb 2026 14:38:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19726,12 +19852,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MR+w7Lo25dDk8dnMmwBA9pkKyCvVBZjb9cGcFOyAqPY="
+          "Value": "sha256-GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ="
         }
       ]
     },
     {
-      "Route": "css/site.zjg87h9svv.css",
+      "Route": "css/site.x2r4q4ussw.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -19741,7 +19867,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11232"
+          "Value": "41430"
         },
         {
           "Name": "Content-Type",
@@ -19749,11 +19875,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MR+w7Lo25dDk8dnMmwBA9pkKyCvVBZjb9cGcFOyAqPY=\""
+          "Value": "\"GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 Jan 2026 23:18:50 GMT"
+          "Value": "Sun, 15 Feb 2026 14:38:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19763,7 +19889,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zjg87h9svv"
+          "Value": "x2r4q4ussw"
         },
         {
           "Name": "label",
@@ -19771,7 +19897,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MR+w7Lo25dDk8dnMmwBA9pkKyCvVBZjb9cGcFOyAqPY="
+          "Value": "sha256-GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ="
         }
       ]
     },
@@ -52166,51 +52292,6 @@
       ]
     },
     {
-      "Route": "html/assets/css/custom.98z7om1wk5.css",
-      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12655"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Ge5lJ6mnE3t/uq9rId6b1RuLHLT2VpuBA2Rrv1MORHE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 11 Jan 2026 21:05:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "98z7om1wk5"
-        },
-        {
-          "Name": "label",
-          "Value": "html/assets/css/custom.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Ge5lJ6mnE3t/uq9rId6b1RuLHLT2VpuBA2Rrv1MORHE="
-        }
-      ]
-    },
-    {
       "Route": "html/assets/css/custom.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
       "Selectors": [],
@@ -52221,7 +52302,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12655"
+          "Value": "13510"
         },
         {
           "Name": "Content-Type",
@@ -52229,11 +52310,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ge5lJ6mnE3t/uq9rId6b1RuLHLT2VpuBA2Rrv1MORHE=\""
+          "Value": "\"Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 11 Jan 2026 21:05:30 GMT"
+          "Value": "Sun, 08 Feb 2026 13:10:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52243,7 +52324,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Ge5lJ6mnE3t/uq9rId6b1RuLHLT2VpuBA2Rrv1MORHE="
+          "Value": "sha256-Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE="
+        }
+      ]
+    },
+    {
+      "Route": "html/assets/css/custom.vi0ry8fc9l.css",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Feb 2026 13:10:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vi0ry8fc9l"
+        },
+        {
+          "Name": "label",
+          "Value": "html/assets/css/custom.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE="
         }
       ]
     },
@@ -60470,7 +60596,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Dec 2025 17:47:48 GMT"
+          "Value": "Sun, 08 Feb 2026 12:44:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -60507,7 +60633,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Dec 2025 17:47:48 GMT"
+          "Value": "Sun, 08 Feb 2026 12:44:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -89968,6 +90094,88 @@
       ]
     },
     {
+      "Route": "images/portfolio/avatar.jpg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\avatar.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65911"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9LZNQsyziNqy2y84U/KxVuvMikV9y/Axn/0cGJ4LdXg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Feb 2026 21:36:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9LZNQsyziNqy2y84U/KxVuvMikV9y/Axn/0cGJ4LdXg="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/avatar.wb2t0azome.jpg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\avatar.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65911"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9LZNQsyziNqy2y84U/KxVuvMikV9y/Axn/0cGJ4LdXg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Feb 2026 21:36:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wb2t0azome"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/avatar.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9LZNQsyziNqy2y84U/KxVuvMikV9y/Axn/0cGJ4LdXg="
+        }
+      ]
+    },
+    {
       "Route": "images/portfolio/blender.jpg",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\blender.jpg",
       "Selectors": [],
@@ -91034,6 +91242,88 @@
       ]
     },
     {
+      "Route": "images/portfolio/tasarim.jpg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\tasarim.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22062"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1IdCTzDFENtZdwcoGc7aGAzbUbZPHRdGFTZsOLCtfJE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Feb 2026 11:58:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1IdCTzDFENtZdwcoGc7aGAzbUbZPHRdGFTZsOLCtfJE="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/tasarim.wlwj4uac95.jpg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\tasarim.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22062"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1IdCTzDFENtZdwcoGc7aGAzbUbZPHRdGFTZsOLCtfJE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 06 Feb 2026 11:58:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wlwj4uac95"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/tasarim.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1IdCTzDFENtZdwcoGc7aGAzbUbZPHRdGFTZsOLCtfJE="
+        }
+      ]
+    },
+    {
       "Route": "images/portfolio/toprak_yapisi.15s51an7op.png",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\toprak_yapisi.png",
       "Selectors": [],
@@ -91112,6 +91402,334 @@
         {
           "Name": "integrity",
           "Value": "sha256-tVYygGIDI5R5DgPF7vCrZSxHtmpalLwYYeI1STTVIGI="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "81679"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZMP2dTo+JxxTshjGXfH4fIZ5AYFxH3Z2gjgYB8m/kg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 14:19:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZMP2dTo+JxxTshjGXfH4fIZ5AYFxH3Z2gjgYB8m/kg="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web.xxjzglwnbq.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "81679"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZMP2dTo+JxxTshjGXfH4fIZ5AYFxH3Z2gjgYB8m/kg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 14:19:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xxjzglwnbq"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/web.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZMP2dTo+JxxTshjGXfH4fIZ5AYFxH3Z2gjgYB8m/kg="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web2.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "327911"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iZ1ySPJAJ99mkqo5/gfueh8LZtb6m/M5xJoPBn0Z+gE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:53:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iZ1ySPJAJ99mkqo5/gfueh8LZtb6m/M5xJoPBn0Z+gE="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web2.polve015zr.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "327911"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iZ1ySPJAJ99mkqo5/gfueh8LZtb6m/M5xJoPBn0Z+gE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:53:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "polve015zr"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/web2.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iZ1ySPJAJ99mkqo5/gfueh8LZtb6m/M5xJoPBn0Z+gE="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web3.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143098"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UydmUs1FqKMvLARipgIiHIJ4vKPNi4L3wKIkLJ+irZo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:53:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UydmUs1FqKMvLARipgIiHIJ4vKPNi4L3wKIkLJ+irZo="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/web3.vpvbi8o7ir.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\web3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "143098"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UydmUs1FqKMvLARipgIiHIJ4vKPNi4L3wKIkLJ+irZo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:53:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vpvbi8o7ir"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/web3.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UydmUs1FqKMvLARipgIiHIJ4vKPNi4L3wKIkLJ+irZo="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/webb1.jceritm9yd.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\webb1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "414322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nfho58VwDQmf8hFbiSxAe4tcfDMtH1uDm3rRmxHQ7W0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:52:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jceritm9yd"
+        },
+        {
+          "Name": "label",
+          "Value": "images/portfolio/webb1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nfho58VwDQmf8hFbiSxAe4tcfDMtH1uDm3rRmxHQ7W0="
+        }
+      ]
+    },
+    {
+      "Route": "images/portfolio/webb1.png",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\images\\portfolio\\webb1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "414322"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nfho58VwDQmf8hFbiSxAe4tcfDMtH1uDm3rRmxHQ7W0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Feb 2026 13:52:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nfho58VwDQmf8hFbiSxAe4tcfDMtH1uDm3rRmxHQ7W0="
         }
       ]
     },

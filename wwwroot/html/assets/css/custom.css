@@ -611,3 +611,39 @@
 }*/
 
 
+/* =========================
+   SIDEBAR FINAL (overlay çakışmasız)
+========================= */
+
+/* Sidebar ana zemin */
+.sidebar {
+    background: #3B3355 !important;
+    color: #f5f3ff !important;
+}
+
+    /* Template'in koyuluk veren katmanı: SAKLAMA, MOR YAP + OPAK YAP */
+    .sidebar .overlay-inner,
+    .sidebar .overlay-inner.bg-dark {
+        background: #3B3355 !important;
+        opacity: 1 !important;
+    }
+
+    /* opacity class'ı sidebar içinde etkisiz */
+    .sidebar .opacity-85 {
+        opacity: 1 !important;
+    }
+
+/* Menü renkleri */
+.sidebar-menu a {
+    color: #e9d5ff;
+}
+
+    .sidebar-menu a:hover {
+        background: rgba(233,213,255,0.18);
+        color: #fff;
+    }
+
+    .sidebar-menu a.active {
+        background: linear-gradient(90deg,#a78bfa,#6366f1);
+        color: #fff;
+    }

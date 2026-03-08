@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Portfolyo.Data;
+using Portfolyo.Models;
 
 namespace PortfolyoDbContext
 {
@@ -28,6 +29,7 @@ namespace PortfolyoDbContext
         public virtual DbSet<MessageTable> MessageTables { get; set; }
         public virtual DbSet<EducationTable> EducationTables { get; set; }
         public DbSet<AboutInfoTable> AboutInfoTables { get; set; }
+ 
 
 
 
