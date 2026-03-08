@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Portfolyo.Data;
 using PortfolyoDbContext;
+using System.Text;
 
 namespace Portfolyo.Controllers
 {
@@ -256,6 +257,8 @@ namespace Portfolyo.Controllers
 
         private void PopulateCategorySelectList()
         {
+            EnsureDefaultProjectCategories();
+
             ViewBag.Category = _portfolyodbContext.CategoryTables
                 .Select(x => new SelectListItem
                 {
@@ -263,6 +266,72 @@ namespace Portfolyo.Controllers
                     Value = x.CategoryId.ToString()
                 })
                 .ToList();
+        }
+
+        private void EnsureDefaultProjectCategories()
+        {
+            var defaults = new[]
+            {
+                "Web",
+                "Oyun",
+                "Blender",
+                "Pixel Art",
+                "Character Design"
+            };
+
+            var existingNormalized = _portfolyodbContext.CategoryTables
+                .Select(x => x.CategoryName)
+                .AsEnumerable()
+                .Select(NormalizeCategoryKey)
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+            var hasChanges = false;
+            foreach (var category in defaults)
+            {
+                if (existingNormalized.Contains(NormalizeCategoryKey(category)))
+                {
+                    continue;
+                }
+
+                _portfolyodbContext.CategoryTables.Add(new CategoryTable
+                {
+                    CategoryName = category
+                });
+                hasChanges = true;
+            }
+
+            if (hasChanges)
+            {
+                _portfolyodbContext.SaveChanges();
+            }
+        }
+
+        private static string NormalizeCategoryKey(string? value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return string.Empty;
+            }
+
+            var normalized = value.Trim().ToLowerInvariant()
+                .Replace("ı", "i")
+                .Replace("ş", "s")
+                .Replace("ğ", "g")
+                .Replace("ü", "u")
+                .Replace("ö", "o")
+                .Replace("ç", "c");
+
+            var sb = new StringBuilder(normalized.Length);
+            foreach (var ch in normalized)
+            {
+                if (char.IsLetterOrDigit(ch))
+                {
+                    sb.Append(ch);
+                }
+            }
+
+            return sb.ToString();
         }
 
         private int GetNextDisplayOrder()
@@ -346,3 +415,4 @@ namespace Portfolyo.Controllers
         }
     }
 }
+

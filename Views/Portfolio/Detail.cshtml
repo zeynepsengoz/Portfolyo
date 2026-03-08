@@ -15,7 +15,14 @@
             .Replace("ğ", "g")
             .Replace("ü", "u")
             .Replace("ö", "o")
-            .Replace("ç", "c");
+            .Replace("ç", "c")
+            .Replace(" ", "")
+            .Replace("-", "")
+            .Replace(".", "")
+            .Replace("/", "")
+            .Replace("&", "")
+            .Replace("(", "")
+            .Replace(")", "");
 
         return normalized.Contains("web");
     }
@@ -28,7 +35,14 @@
             .Replace("ğ", "g")
             .Replace("ü", "u")
             .Replace("ö", "o")
-            .Replace("ç", "c");
+            .Replace("ç", "c")
+            .Replace(" ", "")
+            .Replace("-", "")
+            .Replace(".", "")
+            .Replace("/", "")
+            .Replace("&", "")
+            .Replace("(", "")
+            .Replace(")", "");
 
         return normalized switch
         {
@@ -36,6 +50,7 @@
             "web" => "Web",
             "blender" => "Blender",
             "pixelart" => "Pixel Art",
+            "characterdesign" => "Character Design",
             _ => categoryName ?? string.Empty
         };
     }

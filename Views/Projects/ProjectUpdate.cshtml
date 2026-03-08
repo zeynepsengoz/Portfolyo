@@ -42,7 +42,7 @@
             <div>
                 <label id="project-link-label" class="block text-sm font-semibold text-slate-700 mb-1">GitHub Link (Optional)</label>
                 <input asp-for="GithubUrl" id="project-link-input" class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
-                <p id="project-link-help" class="text-xs text-slate-500 mt-2">For web projects add a GitHub link; for design/game projects add an itch.io link.</p>
+                <p id="project-link-help" class="text-xs text-slate-500 mt-2">For web projects add a GitHub link; for game/design/character design projects add an itch.io link.</p>
             </div>
 
             <div>
@@ -109,7 +109,8 @@
                 .replace("ğ", "g")
                 .replace("ü", "u")
                 .replace("ö", "o")
-                .replace("ç", "c");
+                .replace("ç", "c")
+                .replace(/[^a-z0-9]/g, "");
         }
 
         function localizeCategoryOptions() {
@@ -117,7 +118,8 @@
                 "oyun": "Game",
                 "web": "Web",
                 "blender": "Blender",
-                "pixelart": "Pixel Art"
+                "pixelart": "Pixel Art",
+                "characterdesign": "Character Design"
             };
 
             Array.from(categorySelect.options).forEach(function (option) {
@@ -138,7 +140,7 @@
                 : "https://username.itch.io/game-name";
             linkHelp.textContent = isWeb
                 ? "This project is in the web category: you can add a GitHub link."
-                : "This project is in the design/game category: you can add an itch.io link.";
+                : "This project is in the game/design/character design category: you can add an itch.io link.";
         }
 
         localizeCategoryOptions();

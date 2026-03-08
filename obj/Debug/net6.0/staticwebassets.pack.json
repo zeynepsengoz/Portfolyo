@@ -3753,8 +3753,8 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\screen.png",
-      "PackagePath": "staticwebassets\\screen.png"
+      "Id": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\screen1.png",
+      "PackagePath": "staticwebassets\\screen1.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Portfolyo.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

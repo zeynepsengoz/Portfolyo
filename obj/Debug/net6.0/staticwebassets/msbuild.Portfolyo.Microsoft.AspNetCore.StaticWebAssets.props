@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jj8tct2v8m</Fingerprint>
-      <Integrity>gS9L5oIAwDPTdKyWfI9aLS0+QMY/mGnfKQLJz1x3jZ8=</Integrity>
+      <Fingerprint>7ag4vmcpa1</Fingerprint>
+      <Integrity>kT1B34PDe3TVKgeMwDve6/F+VUphaytAaPNP9XAxIPU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -7176,8 +7176,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>po59s7zlgq</Fingerprint>
-      <Integrity>CQ1xKVGXh802DudaOAbh4JpGIs9MwNoxJ1otBDO2Bqs=</Integrity>
+      <Fingerprint>5mczioumcv</Fingerprint>
+      <Integrity>nTzrfGklP4NiW2X3BPJeNq5CSruNw6oq/eR9yY5BkLY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\assets\css\custom.css'))</OriginalItemSpec>
@@ -7266,8 +7266,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9mea7499hh</Fingerprint>
-      <Integrity>gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes=</Integrity>
+      <Fingerprint>c2by6hf0ln</Fingerprint>
+      <Integrity>fPkl8Sy0BqmXZyRbB/e4DY8AEtpUty0FcKmQ1t4biOk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\assets\js\main.js'))</OriginalItemSpec>
@@ -16884,23 +16884,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Portfolyo.pgsvi4b0vh.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\screen.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\screen1.png'))">
       <SourceType>Package</SourceType>
       <SourceId>Portfolyo</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Portfolyo</BasePath>
-      <RelativePath>screen.png</RelativePath>
+      <RelativePath>screen1.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bf3hx7n7al</Fingerprint>
-      <Integrity>aWcv9BZVfy+VthbmenOAhkyaC1ivBSGCye3atUW2TXU=</Integrity>
+      <Fingerprint>ajmth06mmr</Fingerprint>
+      <Integrity>Vqj+xl539Zlb1FAxh3Ywm5IwNH2DGM5wg3YYhsROMpM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\screen.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\screen1.png'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>
