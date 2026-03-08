@@ -32,6 +32,15 @@
 
         return text;
     }
+
+    bool IsWebCategory(string? categoryName)
+    {
+        var slug = Slugify(categoryName ?? string.Empty);
+        return slug.Contains("web");
+    }
+
+    string ExternalLinkLabel(string? categoryName) => IsWebCategory(categoryName) ? "GitHub" : "itch.io";
+    string ExternalLinkIcon(string? categoryName) => IsWebCategory(categoryName) ? "fab fa-github" : "fab fa-itch-io";
 }
 
 @await Component.InvokeAsync("Home")
@@ -52,7 +61,7 @@
                 </div>
 
                 <!-- FİLTRELER -->
-                <nav class="portfolio-filter isotope-filter">
+                <nav class="portfolio-filter">
                     <ul class="justify-content-center">
 
                         <li>
@@ -86,7 +95,7 @@
         
 
         <!-- KARTLAR -->
-        <div class="portfolio-grid isotope-container">
+        <div class="portfolio-grid">
 
             @foreach (var item in Model)
             {
@@ -96,30 +105,94 @@
 
                 var catSlug = Slugify(item.Category?.CategoryName ?? "");
 
-                <a href="/Portfolio/Detail/@item.ProjectId"
-                   class="portfolio-card isotope-item @catSlug"
-                   data-category="@catSlug">
+                <article class="portfolio-card @catSlug"
+                         data-category="@catSlug">
 
                     <!-- ÜST: RESİM -->
-                    <div class="portfolio-image">
-                        <img src="@imgPath" alt="@item.ProjectName" />
-                    </div>
+                    <a href="/Portfolio/Detail/@item.ProjectId" class="portfolio-main-link">
+                        <div class="portfolio-image">
+                            <img src="@imgPath" alt="@item.ProjectName" />
+                        </div>
 
-                    <!-- ALT: YAZI -->
-                    <div class="portfolio-body">
-                        <h4>@item.ProjectName</h4>
-                        <p>@item.Title • @item.Category?.CategoryName</p>
-                    </div>
+                        <!-- ALT: YAZI -->
+                        <div class="portfolio-body">
+                            <h4>@item.ProjectName</h4>
+                            <p>@(string.IsNullOrWhiteSpace(item.Description) ? item.Title : item.Description) • @item.Category?.CategoryName</p>
+                        </div>
+                    </a>
 
-                </a>
+                    @if (!string.IsNullOrWhiteSpace(item.GithubUrl))
+                    {
+                        <a href="@item.GithubUrl"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="portfolio-ext-link">
+                            <i class="@ExternalLinkIcon(item.Category?.CategoryName)"></i>
+                            @ExternalLinkLabel(item.Category?.CategoryName)
+                        </a>
+                    }
+
+                </article>
             }
         </div>
+
+        <div id="portfolio-pagination" class="portfolio-pagination mt-4"></div>
 
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
               const links = document.querySelectorAll(".portfolio-filter a[data-filter]");
               const items = document.querySelectorAll(".portfolio-grid .portfolio-card");
+              const pager = document.getElementById("portfolio-pagination");
+              const perPage = 6;
+              let currentFilter = "all";
+              let currentPage = 1;
+
+              function getFilteredItems() {
+                return Array.from(items).filter(item => {
+                  if (currentFilter === "all") return true;
+                  const itemCategory = ((item.getAttribute("data-category")) || "").toLowerCase();
+                  return itemCategory === currentFilter;
+                });
+              }
+
+              function renderPagination(totalPages) {
+                if (!pager) return;
+                pager.innerHTML = "";
+                if (totalPages <= 1) return;
+
+                for (let i = 1; i <= totalPages; i++) {
+                  const btn = document.createElement("button");
+                  btn.type = "button";
+                  btn.textContent = i.toString();
+                  btn.className = "portfolio-page-btn" + (i === currentPage ? " active" : "");
+                  btn.addEventListener("click", function () {
+                    currentPage = i;
+                    applyFilterAndPagination();
+                    const portfolioSection = document.getElementById("portfolio");
+                    if (portfolioSection) {
+                      portfolioSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                  });
+                  pager.appendChild(btn);
+                }
+              }
+
+              function applyFilterAndPagination() {
+                const filtered = getFilteredItems();
+                const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
+                if (currentPage > totalPages) {
+                  currentPage = 1;
+                }
+
+                items.forEach(item => item.style.display = "none");
+
+                const start = (currentPage - 1) * perPage;
+                const pageItems = filtered.slice(start, start + perPage);
+                pageItems.forEach(item => item.style.display = "");
+
+                renderPagination(totalPages);
+              }
 
               links.forEach(link => {
                 link.addEventListener("click", function (e) {
@@ -129,19 +202,13 @@
                   links.forEach(x => x.classList.remove("active"));
                   this.classList.add("active");
 
-                  const filter = (this.getAttribute("data-filter") || "").toLowerCase();
-
-                  items.forEach(item => {
-                    if (filter === "all") {
-                      item.style.display = "";
-                      return;
-                    }
-
-                    const itemCategory = ((item.getAttribute("data-category")) || "").toLowerCase();
-                    item.style.display = itemCategory === filter ? "" : "none";
-                  });
+                  currentFilter = (this.getAttribute("data-filter") || "").toLowerCase();
+                  currentPage = 1;
+                  applyFilterAndPagination();
                 });
               });
+
+              applyFilterAndPagination();
             });
         </script>
 

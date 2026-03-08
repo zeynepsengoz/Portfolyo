@@ -1,6 +1,4 @@
-﻿
-
-@model Portfolyo.Data.ProjectsTable
+﻿@model Portfolyo.Data.ProjectsTable
 
 @{
     ViewData["Title"] = "ProjectUpdate";
@@ -8,90 +6,126 @@
 }
 
 <div class="min-h-screen bg-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
+        <h1 class="text-2xl font-bold text-slate-900 mb-1">Projeyi Düzenle</h1>
+        <p class="text-slate-500 mb-4">Mevcut proje bilgilerini, görsellerini ve galerisini güncelleyebilirsin.</p>
 
-    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
-
-        <!-- BAŞLIK -->
-        <h1 class="text-2xl font-bold text-slate-900 mb-1">
-            Projeyi Düzenle
-        </h1>
-        <p class="text-slate-500 mb-4">
-            Mevcut proje bilgilerini güncelleyebilirsin.
-        </p>
-
-        <a asp-action="Index"
-           asp-controller="Projects"
-           class="text-indigo-600 text-sm font-medium inline-block mb-6">
+        <a asp-action="Index" asp-controller="Projects" class="text-indigo-600 text-sm font-medium inline-block mb-6">
             ← Projelere Dön
         </a>
 
-        <!-- FORM -->
-        <form asp-action="ProjectUpdate" method="post" class="space-y-5">
-
-            <!-- ID (GİZLİ) -->
+        <form asp-action="ProjectUpdate" method="post" enctype="multipart/form-data" class="space-y-5">
             <input type="hidden" asp-for="ProjectId" />
 
-            <!-- PROJE ADI -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Proje Adı
-                </label>
-                <input asp-for="ProjectName"
-                       class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900
-                              focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Proje Adı</label>
+                <input asp-for="ProjectName" class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
             </div>
 
-            <!-- BAŞLIK -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Proje Başlığı
-                </label>
-                <input asp-for="Title"
-                       class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900
-                              focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Proje Başlığı</label>
+                <input asp-for="Title" class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
             </div>
 
-            <!-- GÖRSEL -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Proje Görseli (URL)
-                </label>
-                <input asp-for="Image"
-                       class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900
-                              focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Proje Açıklaması</label>
+                <textarea asp-for="Description" rows="4" class="w-full rounded-2xl border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
             </div>
 
-            <!-- KATEGORİ -->
             <div>
-                <label class="block text-sm font-semibold text-slate-700 mb-1">
-                    Proje Kategorisi
-                </label>
-                <select asp-for="CategoryId"
-                        asp-items="ViewBag.Category"
-                        class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900
-                               focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                <label class="block text-sm font-semibold text-slate-700 mb-1">Proje Kategorisi</label>
+                <select asp-for="CategoryId" id="project-category-select" asp-items="ViewBag.Category" class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                     <option value="">Kategori Seçiniz</option>
                 </select>
             </div>
 
-            <!-- BUTONLAR -->
-            <div class="flex justify-end gap-3 pt-4 border-t">
-                <a asp-action="Index"
-                   class="px-5 py-2 rounded-full bg-slate-100 text-slate-700 font-medium">
-                    Vazgeç
-                </a>
-
-                <button type="submit"
-                        class="inline-flex items-center justify-center
-               rounded-full bg-blue-600 hover:bg-blue-700
-               px-6 py-2 text-sm font-semibold text-white
-               shadow-md transition">
-                    Kaydet
-                </button>
-
+            <div>
+                <label id="project-link-label" class="block text-sm font-semibold text-slate-700 mb-1">GitHub Linki (Opsiyonel)</label>
+                <input asp-for="GithubUrl" id="project-link-input" class="w-full rounded-full border border-slate-300 px-4 py-2 text-slate-900 focus:ring-2 focus:ring-indigo-500 focus:outline-none" />
+                <p id="project-link-help" class="text-xs text-slate-500 mt-2">Web projelerinde GitHub, tasarım/oyun projelerinde itch.io linki ekleyebilirsin.</p>
             </div>
 
-        </form>
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Kart Önizleme Görseli</label>
+                @if (!string.IsNullOrWhiteSpace(Model.Image))
+                {
+                    <img src="@Model.Image" class="w-40 h-24 object-cover rounded-lg border border-slate-200 mb-3" />
+                }
+                <input type="file" name="previewImageFile" accept=".jpg,.jpeg,.png,.webp,.gif" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
+            </div>
 
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">Detay Galeri</label>
+                @if (Model.ProjectImages != null && Model.ProjectImages.Any())
+                {
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+                        @foreach (var image in Model.ProjectImages.OrderBy(x => x.SortOrder).ThenBy(x => x.ProjectImageId))
+                        {
+                            <label class="border border-slate-200 rounded-lg p-2 block">
+                                <img src="@image.ImagePath" class="w-full h-24 object-cover rounded-md mb-2" />
+                                <span class="text-xs text-slate-600 flex items-center gap-1">
+                                    <input type="checkbox" name="removeImageIds" value="@image.ProjectImageId" /> Sil
+                                </span>
+                            </label>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-xs text-slate-500 mb-3">Henüz galeri görseli yok.</p>
+                }
+
+                <input type="file" name="detailImageFiles" multiple accept=".jpg,.jpeg,.png,.webp,.gif" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
+                <p class="text-xs text-slate-500 mt-2">Yeni görseller mevcut galeriye eklenir.</p>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-4 border-t">
+                <a asp-action="Index" class="px-5 py-2 rounded-full bg-slate-100 text-slate-700 font-medium">Vazgeç</a>
+
+                <button type="submit" class="inline-flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-2 text-sm font-semibold text-white shadow-md transition">
+                    Kaydet
+                </button>
+            </div>
+        </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var categorySelect = document.getElementById("project-category-select");
+        var linkLabel = document.getElementById("project-link-label");
+        var linkInput = document.getElementById("project-link-input");
+        var linkHelp = document.getElementById("project-link-help");
+
+        if (!categorySelect || !linkLabel || !linkInput || !linkHelp) {
+            return;
+        }
+
+        function normalize(text) {
+            return (text || "")
+                .toLowerCase()
+                .replace("ı", "i")
+                .replace("ş", "s")
+                .replace("ğ", "g")
+                .replace("ü", "u")
+                .replace("ö", "o")
+                .replace("ç", "c");
+        }
+
+        function updateProjectLinkUI() {
+            var selectedText = categorySelect.options[categorySelect.selectedIndex]?.text || "";
+            var isWeb = normalize(selectedText).indexOf("web") !== -1;
+
+            linkLabel.textContent = isWeb ? "GitHub Linki (Opsiyonel)" : "itch.io Linki (Opsiyonel)";
+            linkInput.placeholder = isWeb
+                ? "https://github.com/kullanici/proje"
+                : "https://kullanici.itch.io/oyun-adi";
+            linkHelp.textContent = isWeb
+                ? "Bu proje web kategorisinde: GitHub linki ekleyebilirsin."
+                : "Bu proje tasarım/oyun kategorisinde: itch.io linki ekleyebilirsin.";
+        }
+
+        categorySelect.addEventListener("change", updateProjectLinkUI);
+        updateProjectLinkUI();
+    });
+</script>

@@ -1963,3 +1963,28 @@ textarea {
         -webkit-line-clamp: 3;
         overflow: hidden;
     }
+
+#portfolio .portfolio-main-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+#portfolio .portfolio-ext-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 24px 20px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f3ecff;
+    color: #6c2bd9;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#portfolio .portfolio-ext-link:hover {
+    background: #e9dcff;
+    color: #5421aa;
+}

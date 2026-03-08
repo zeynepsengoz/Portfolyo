@@ -647,3 +647,51 @@
         background: linear-gradient(90deg,#a78bfa,#6366f1);
         color: #fff;
     }
+.portfolio-main-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.portfolio-ext-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 24px 20px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #f3ecff;
+    color: #6c2bd9;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    .portfolio-ext-link:hover {
+        background: #e9dcff;
+        color: #5421aa;
+    }
+
+.portfolio-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.portfolio-page-btn {
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid #c9b3f7;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #5c2fae;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .portfolio-page-btn.active {
+        background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
+        color: #ffffff;
+        border-color: transparent;
+    }

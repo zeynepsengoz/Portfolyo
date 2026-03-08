@@ -23,6 +23,7 @@ namespace PortfolyoDbContext
         public virtual DbSet<CategoryTable> CategoryTables { get; set; } = null!;
         public virtual DbSet<HomePage> HomePages { get; set; } = null!;
         public virtual DbSet<ProjectsTable> ProjectsTables { get; set; } = null!;
+        public virtual DbSet<ProjectImageTable> ProjectImageTables { get; set; } = null!;
         public virtual DbSet<ServicesTable> ServicesTables { get; set; } = null!;
         public virtual DbSet<SkillTable> SkillTables { get; set; } = null!;
         public virtual DbSet<TestimonialTable> TestimonialTables { get; set; } = null!;
@@ -134,6 +135,21 @@ namespace PortfolyoDbContext
                 entity.Property(e => e.ProjectName).HasMaxLength(200);
 
                 entity.Property(e => e.Title).HasMaxLength(200);
+
+                entity.Property(e => e.DisplayOrder).HasDefaultValue(0);
+
+                entity.HasMany(d => d.ProjectImages)
+                    .WithOne(p => p.Project)
+                    .HasForeignKey(d => d.ProjectId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<ProjectImageTable>(entity =>
+            {
+                entity.HasKey(e => e.ProjectImageId);
+                entity.ToTable("ProjectImages");
+                entity.Property(e => e.ImagePath).HasMaxLength(500);
+                entity.Property(e => e.SortOrder).HasDefaultValue(0);
             });
 
             modelBuilder.Entity<ServicesTable>(entity =>

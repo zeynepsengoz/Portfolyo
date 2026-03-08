@@ -1,20 +1,14 @@
-﻿
-
-@model Portfolyo.Data.ProjectsTable
+﻿@model Portfolyo.Data.ProjectsTable
 @{
     ViewData["Title"] = "Yeni Proje Ekle";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <div class="min-h-screen bg-white flex items-center justify-center px-4">
-    <div class="w-full max-w-xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
-
-        <!-- ÜST -->
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-md border border-slate-200 p-8">
         <div class="mb-6">
             <h1 class="text-2xl font-bold text-slate-900">Yeni Proje Ekle</h1>
-            <p class="text-slate-500 text-sm mt-1">
-                Portföyüne yeni bir proje ekleyebilirsin.
-            </p>
+            <p class="text-slate-500 text-sm mt-1">Kart görseli ve detay galerisi bu ekrandan yüklenir.</p>
 
             <a asp-controller="Projects"
                asp-action="Index"
@@ -23,62 +17,63 @@
             </a>
         </div>
 
-        <!-- FORM -->
-        <form method="post" class="space-y-5">
-
-            <!-- Proje Adı -->
+        <form method="post" enctype="multipart/form-data" class="space-y-5">
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">
-                    Proje Adı
-                </label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Adı</label>
                 <input asp-for="ProjectName"
                        placeholder="Örn: Portfolio Website"
-                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
-                              text-slate-900 placeholder-slate-400
-                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
             </div>
 
-            <!-- Başlık -->
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">
-                    Proje Başlığı
-                </label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Başlığı</label>
                 <input asp-for="Title"
-                       placeholder="Kısa açıklama / başlık"
-                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
-                              text-slate-900 placeholder-slate-400
-                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+                       placeholder="Kısa başlık"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
             </div>
 
-            <!-- Görsel -->
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">
-                    Proje Görseli (URL)
-                </label>
-                <input asp-for="Image"
-                       placeholder="https://..."
-                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5
-                              text-slate-900 placeholder-slate-400
-                              focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Açıklaması</label>
+                <textarea asp-for="Description"
+                          rows="4"
+                          placeholder="Projeyi kısa ve net şekilde anlat..."
+                          class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"></textarea>
             </div>
 
-            <!-- Kategori -->
             <div>
-                <label class="block text-sm font-medium text-slate-800 mb-1">
-                    Proje Kategorisi
-                </label>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Proje Kategorisi</label>
                 <select asp-for="CategoryId"
+                        id="project-category-select"
                         asp-items="ViewBag.Category"
-                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5
-                               text-slate-900 bg-white
-                               focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
+                        class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none">
                     <option value="">Kategori Seçiniz</option>
                 </select>
             </div>
 
+            <div>
+                <label id="project-link-label" class="block text-sm font-medium text-slate-800 mb-1">GitHub Linki (Opsiyonel)</label>
+                <input asp-for="GithubUrl"
+                       id="project-link-input"
+                       placeholder="https://github.com/kullanici/proje"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none" />
+                <p id="project-link-help" class="text-xs text-slate-500 mt-2">Web projelerinde GitHub, tasarım/oyun projelerinde itch.io linki ekleyebilirsin.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Kart Önizleme Görseli</label>
+                <input type="file" name="previewImageFile" accept=".jpg,.jpeg,.png,.webp,.gif"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-800 mb-1">Detay Galeri Görselleri</label>
+                <input type="file" name="detailImageFiles" multiple accept=".jpg,.jpeg,.png,.webp,.gif"
+                       class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
+                <p class="text-xs text-slate-500 mt-2">Birden fazla görsel seçebilirsin.</p>
+            </div>
+
             <hr class="my-6">
 
-            <!-- BUTONLAR -->
             <div class="flex justify-end gap-3">
                 <a asp-controller="Projects"
                    asp-action="Index"
@@ -91,7 +86,46 @@
                     Kaydet
                 </button>
             </div>
-
         </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var categorySelect = document.getElementById("project-category-select");
+        var linkLabel = document.getElementById("project-link-label");
+        var linkInput = document.getElementById("project-link-input");
+        var linkHelp = document.getElementById("project-link-help");
+
+        if (!categorySelect || !linkLabel || !linkInput || !linkHelp) {
+            return;
+        }
+
+        function normalize(text) {
+            return (text || "")
+                .toLowerCase()
+                .replace("ı", "i")
+                .replace("ş", "s")
+                .replace("ğ", "g")
+                .replace("ü", "u")
+                .replace("ö", "o")
+                .replace("ç", "c");
+        }
+
+        function updateProjectLinkUI() {
+            var selectedText = categorySelect.options[categorySelect.selectedIndex]?.text || "";
+            var isWeb = normalize(selectedText).indexOf("web") !== -1;
+
+            linkLabel.textContent = isWeb ? "GitHub Linki (Opsiyonel)" : "itch.io Linki (Opsiyonel)";
+            linkInput.placeholder = isWeb
+                ? "https://github.com/kullanici/proje"
+                : "https://kullanici.itch.io/oyun-adi";
+            linkHelp.textContent = isWeb
+                ? "Bu proje web kategorisinde: GitHub linki ekleyebilirsin."
+                : "Bu proje tasarım/oyun kategorisinde: itch.io linki ekleyebilirsin.";
+        }
+
+        categorySelect.addEventListener("change", updateProjectLinkUI);
+        updateProjectLinkUI();
+    });
+</script>

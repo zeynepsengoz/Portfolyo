@@ -416,8 +416,16 @@ License: https://themeforest.net/licenses/standard
 
 	// [6. Masonry]
 	function malat_masonryLayout() {
-		if ($('.isotope-container').length > 0) {
-			var $isotopeContainer = $('.isotope-container');
+		if (typeof $.fn.isotope !== 'function') {
+			return true;
+		}
+
+		var $isotopeContainer = $('.isotope-container');
+		if ($isotopeContainer.length < 1) {
+			return true;
+		}
+
+		if ($isotopeContainer.length > 0) {
 			var $columnWidth = $isotopeContainer.data('column-width');
 
 			if($columnWidth == null){
@@ -446,7 +454,12 @@ License: https://themeforest.net/licenses/standard
 		}
 
 		$('nav.isotope-filter ul a').on('click', function() {
-			var selector = $(this).attr('data-filter');
+			var selector = ($(this).attr('data-filter') || '').trim();
+			if (selector === '' || selector.toLowerCase() === 'all') {
+				selector = '*';
+			} else if (selector.charAt(0) !== '.' && selector.charAt(0) !== '#') {
+				selector = '[data-category=\"' + selector.toLowerCase() + '\"]';
+			}
 			$isotopeContainer.isotope({ filter: selector });
 			$('nav.isotope-filter ul a').removeClass('active');
 			$(this).addClass('active');

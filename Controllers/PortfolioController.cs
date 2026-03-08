@@ -17,6 +17,7 @@ public class PortfolioController : Controller
     {
         var project = _context.ProjectsTables
             .Include(x => x.Category)
+            .Include(x => x.ProjectImages)
             .FirstOrDefault(x => x.ProjectId == id);
 
         if (project == null)

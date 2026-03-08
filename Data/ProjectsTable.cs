@@ -12,8 +12,10 @@ namespace Portfolyo.Data
 
         public string? Description { get; set; }
         public string? GithubUrl { get; set; }
+        public int DisplayOrder { get; set; }
 
         public int? CategoryId { get; set; }
         public virtual CategoryTable? Category { get; set; }
+        public virtual ICollection<ProjectImageTable> ProjectImages { get; set; } = new List<ProjectImageTable>();
     }
 }

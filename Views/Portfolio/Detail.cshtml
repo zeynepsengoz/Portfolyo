@@ -1,18 +1,40 @@
 ﻿@using Portfolyo.Data
 @model ProjectsTable
 
-<div class="portfolio-detail-page">
+@{
+    bool IsWebCategory(string? categoryName)
+    {
+        if (string.IsNullOrWhiteSpace(categoryName))
+        {
+            return false;
+        }
 
-    <!-- GERİ DÖN -->
-    <a href="/Default/Index#portfolio" class="back-link">
-        ← Portfolyoya Dön
-    </a>
+        var normalized = categoryName.Trim().ToLowerInvariant()
+            .Replace("ı", "i")
+            .Replace("ş", "s")
+            .Replace("ğ", "g")
+            .Replace("ü", "u")
+            .Replace("ö", "o")
+            .Replace("ç", "c");
+
+        return normalized.Contains("web");
+    }
+
+    var previewImage = string.IsNullOrWhiteSpace(Model.Image)
+        ? "/images/portfolio/placeholder.png"
+        : Model.Image;
+
+    var galleryImages = (Model.ProjectImages ?? new List<ProjectImageTable>())
+        .OrderBy(x => x.SortOrder)
+        .ThenBy(x => x.ProjectImageId)
+        .ToList();
+}
+
+<div class="portfolio-detail-page">
+    <a href="/Default/Index#portfolio" class="back-link">← Portfolyoya Dön</a>
 
     <div class="detail-layout">
-
-        <!-- SOL TARAF -->
         <div class="detail-info">
-
             <h1>@Model.ProjectName</h1>
 
             <span class="detail-meta">
@@ -20,83 +42,34 @@
             </span>
 
             <p class="detail-desc">
-                ASP.NET Core ile geliştirilen kişisel portfolyo web sitesi.
-                Admin panel ve proje detay sayfaları içerir.
+                @(string.IsNullOrWhiteSpace(Model.Description)
+                    ? "Bu proje için detay açıklaması henüz eklenmedi."
+                    : Model.Description)
             </p>
 
-            <div class="detail-section">
-                <h3>Bu Projede Neler Yaptım?</h3>
-                <ul>
-                    <li>ASP.NET Core MVC mimarisi kuruldu</li>
-                    <li>Admin panel (ekle–düzenle–sil) geliştirildi</li>
-                    <li>Responsive portfolyo ve detay sayfaları tasarlandı</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- SAĞ: GÖRSELLER -->
-        <div class="detail-image">
-
-            @* 2D OYUN *@
-            @if (Model.ProjectId == 2)
+            @if (!string.IsNullOrWhiteSpace(Model.GithubUrl))
             {
-                <img src="/images/portfolio/game-2d.png" alt="@Model.ProjectName" class="main-image" />
-
-                <div class="image-actions">
-                    <span class="demo-label">Oyunu denemek ister misin?</span>
-                    <a href="https://etigong.itch.io/mouse-dash-cute-pixel-platformer-game"
-                       target="_blank" rel="noopener"
-                       class="btn btn-outline-secondary">
-                        Demo
+                <p class="mt-3">
+                    <a href="@Model.GithubUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                        <i class="@(IsWebCategory(Model.Category?.CategoryName) ? "fab fa-github" : "fab fa-itch-io")"></i>
+                        @(IsWebCategory(Model.Category?.CategoryName) ? " GitHub" : " itch.io")
                     </a>
-                </div>
+                </p>
             }
+        </div>
 
-            @* 3D TASARIM *@
-            else if (Model.ProjectId == 3)
+        <div class="detail-image">
+            <img src="@previewImage" alt="@Model.ProjectName" class="main-image" />
+
+            @if (galleryImages.Any())
             {
-                <img src="/images/portfolio/blender.jpg" alt="@Model.ProjectName" class="main-image" />
-
                 <div class="detail-gallery">
-                    <img src="/images/portfolio/TapinakRender06.jpg" alt="Tapınak Render" />
-                    <img src="/images/portfolio/MahzenOdaRender05.jpg" alt="Mahzen Oda Render" />
-                    <img src="/images/portfolio/EvOdaRender01.jpg" alt="Ev Oda Render" />
+                    @foreach (var image in galleryImages)
+                    {
+                        <img src="@image.ImagePath" alt="@Model.ProjectName galeri görseli" />
+                    }
                 </div>
             }
-
-            @* PIXEL ART *@
-            else if (Model.ProjectId == 5)
-            {
-                <div class="pixel-gallery">
-                    <img src="/images/portfolio/kedi.png" alt="Pixel Art Kedi" />
-                    <img src="/images/portfolio/fare.png" alt="Pixel Art Fare" />
-                    <img src="/images/portfolio/Bulut.png" alt="Pixel Art Bulut" />
-                    <img src="/images/portfolio/kapi.png" alt="Pixel Art Kapı" />
-                    <img src="/images/portfolio/peynir.png" alt="Pixel Art Peynir" />
-                    <img src="/images/portfolio/toprak_yapisi.png" alt="Pixel Art Toprak" />
-                </div>
-            }
-
-            @* WEB PROJESİ (SADECE 6) *@
-            else if (Model.ProjectId == 6)
-            {
-                <div class="web-showcase">
-                    <img src="/images/portfolio/webb1.png" alt="Portfolyo Ana Sayfa" class="main-image" />
-                    <img src="/images/portfolio/web3.png" alt="Admin Panel" class="main-image" />
-                </div>
-            }
-
-            @* DİĞERLERİ *@
-            else
-            {
-                <img src="/images/portfolio/placeholder.png" alt="@Model.ProjectName" class="main-image" />
-            }
-
         </div>
-
-        </div>
-
     </div>
-
 </div>

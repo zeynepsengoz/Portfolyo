@@ -32,6 +32,9 @@ namespace Portfolyo.Controllers
         {
             var projects = _context.ProjectsTables
                 .Include(x => x.Category)
+                .Include(x => x.ProjectImages)
+                .OrderBy(x => x.DisplayOrder)
+                .ThenBy(x => x.ProjectId)
                 .ToList();
 
             return View(projects);

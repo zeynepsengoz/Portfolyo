@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DVL6V5Mrv95f/5oT9bXknYu+DNvTD2n6MNE3deYm0OM=",
+  "Hash": "nM/tPj4FSHXlb/zCM7nJ81i82zSZmV/H8iq1dyjWAzI=",
   "Source": "Portfolyo",
   "BasePath": "_content/Portfolyo",
   "Mode": "Default",
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "x2r4q4ussw",
-      "Integrity": "GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=",
+      "Fingerprint": "4dv1yu1uyf",
+      "Integrity": "CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -8396,6 +8396,27 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\favicon.svg",
+      "SourceId": "Portfolyo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\",
+      "BasePath": "_content/Portfolyo",
+      "RelativePath": "favicon#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nsdoj5dxpd",
+      "Integrity": "KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.svg"
+    },
+    {
       "Identity": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
       "SourceId": "Portfolyo",
       "SourceType": "Discovered",
@@ -8410,8 +8431,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vi0ry8fc9l",
-      "Integrity": "Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=",
+      "Fingerprint": "ejpof6ddrw",
+      "Integrity": "thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\assets\\css\\custom.css"
@@ -8515,8 +8536,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5rxlp6v23j",
-      "Integrity": "32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw=",
+      "Fingerprint": "9mea7499hh",
+      "Integrity": "gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\assets\\js\\main.js"
@@ -19820,6 +19841,51 @@
       ]
     },
     {
+      "Route": "css/site.4dv1yu1uyf.css",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41907"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Mar 2026 17:52:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4dv1yu1uyf"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -19830,7 +19896,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41430"
+          "Value": "41907"
         },
         {
           "Name": "Content-Type",
@@ -19838,11 +19904,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=\""
+          "Value": "\"CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 15 Feb 2026 14:38:31 GMT"
+          "Value": "Sun, 08 Mar 2026 17:52:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -19852,52 +19918,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.x2r4q4ussw.css",
-      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "41430"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 15 Feb 2026 14:38:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "x2r4q4ussw"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ="
+          "Value": "sha256-CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8="
         }
       ]
     },
@@ -52292,6 +52313,88 @@
       ]
     },
     {
+      "Route": "favicon.nsdoj5dxpd.svg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\favicon.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Mar 2026 15:15:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nsdoj5dxpd"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.svg",
+      "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\favicon.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "405"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Mar 2026 15:15:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk="
+        }
+      ]
+    },
+    {
       "Route": "html/assets/css/custom.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
       "Selectors": [],
@@ -52302,7 +52405,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "13510"
+          "Value": "14461"
         },
         {
           "Name": "Content-Type",
@@ -52310,11 +52413,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=\""
+          "Value": "\"thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 08 Feb 2026 13:10:40 GMT"
+          "Value": "Sun, 08 Mar 2026 18:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52324,12 +52427,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE="
+          "Value": "sha256-thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg="
         }
       ]
     },
     {
-      "Route": "html/assets/css/custom.vi0ry8fc9l.css",
+      "Route": "html/assets/css/custom.ejpof6ddrw.css",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\css\\custom.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -52339,7 +52442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "13510"
+          "Value": "14461"
         },
         {
           "Name": "Content-Type",
@@ -52347,11 +52450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=\""
+          "Value": "\"thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 08 Feb 2026 13:10:40 GMT"
+          "Value": "Sun, 08 Mar 2026 18:02:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52361,7 +52464,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vi0ry8fc9l"
+          "Value": "ejpof6ddrw"
         },
         {
           "Name": "label",
@@ -52369,7 +52472,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE="
+          "Value": "sha256-thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg="
         }
       ]
     },
@@ -52702,7 +52805,7 @@
       ]
     },
     {
-      "Route": "html/assets/js/main.5rxlp6v23j.js",
+      "Route": "html/assets/js/main.9mea7499hh.js",
       "AssetFile": "C:\\Users\\Zeynep\\source\\repos\\Portfolyo\\wwwroot\\html\\assets\\js\\main.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -52712,7 +52815,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16614"
+          "Value": "17164"
         },
         {
           "Name": "Content-Type",
@@ -52720,11 +52823,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw=\""
+          "Value": "\"gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Dec 2025 17:47:47 GMT"
+          "Value": "Sun, 08 Mar 2026 17:42:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52734,7 +52837,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5rxlp6v23j"
+          "Value": "9mea7499hh"
         },
         {
           "Name": "label",
@@ -52742,7 +52845,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw="
+          "Value": "sha256-gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes="
         }
       ]
     },
@@ -52757,7 +52860,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "16614"
+          "Value": "17164"
         },
         {
           "Name": "Content-Type",
@@ -52765,11 +52868,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw=\""
+          "Value": "\"gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 13 Dec 2025 17:47:47 GMT"
+          "Value": "Sun, 08 Mar 2026 17:42:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -52779,7 +52882,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw="
+          "Value": "sha256-gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes="
         }
       ]
     },

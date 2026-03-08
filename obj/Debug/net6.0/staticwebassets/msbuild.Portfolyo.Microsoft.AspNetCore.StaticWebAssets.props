@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x2r4q4ussw</Fingerprint>
-      <Integrity>GSxHHF6Xn7MU8xMMyPER5B0aLFK4tDTABX8Tg5/XnBQ=</Integrity>
+      <Fingerprint>4dv1yu1uyf</Fingerprint>
+      <Integrity>CH/wgtl66LEa5QNOCrEH+kYtPTv1msHjOkPTitcBZ/8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -7146,6 +7146,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.svg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Portfolyo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Portfolyo</BasePath>
+      <RelativePath>favicon.svg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>nsdoj5dxpd</Fingerprint>
+      <Integrity>KW07XjG2HGS3iTEswfh9SNera4uxoLxgvdZaIKBZ3Wk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.svg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\assets\css\custom.css'))">
       <SourceType>Package</SourceType>
       <SourceId>Portfolyo</SourceId>
@@ -7158,8 +7176,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vi0ry8fc9l</Fingerprint>
-      <Integrity>Z61JGAA2kftR/bzHMWprIYThxZwWrt816pow4EZurUE=</Integrity>
+      <Fingerprint>ejpof6ddrw</Fingerprint>
+      <Integrity>thFm7g1U7ozyOejPSQ1BItEUfQkiO5sjSGRvWOQ0kNg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\assets\css\custom.css'))</OriginalItemSpec>
@@ -7248,8 +7266,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5rxlp6v23j</Fingerprint>
-      <Integrity>32CxQOlnwvut6KCnp5220eJqHaywqjyeLODA9fd5Haw=</Integrity>
+      <Fingerprint>9mea7499hh</Fingerprint>
+      <Integrity>gS9imUWFbg5IA2octd34feoqG6eZHz9ZpPR57oenZes=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\html\assets\js\main.js'))</OriginalItemSpec>

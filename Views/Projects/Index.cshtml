@@ -3,43 +3,52 @@
 @{
     ViewData["Title"] = "Projelerim";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+
+    bool IsWebCategory(string? categoryName)
+    {
+        if (string.IsNullOrWhiteSpace(categoryName))
+        {
+            return false;
+        }
+
+        var normalized = categoryName.Trim().ToLowerInvariant()
+            .Replace("ı", "i")
+            .Replace("ş", "s")
+            .Replace("ğ", "g")
+            .Replace("ü", "u")
+            .Replace("ö", "o")
+            .Replace("ç", "c");
+
+        return normalized.Contains("web");
+    }
 }
 
 <div class="p-6 bg-background-light min-h-screen">
-    <div class="max-w-6xl mx-auto">
-
-        <!-- HEADER -->
+    <div class="max-w-7xl mx-auto">
         <div class="flex items-center justify-between mb-8">
             <div>
-                <h1 class="text-2xl font-bold text-slate-900">
-                    Projelerim
-                </h1>
-                <p class="text-sm text-slate-500 mt-1">
-                    Sistemde yer alan tüm projeleri buradan yönetebilirsin.
-                </p>
+                <h1 class="text-2xl font-bold text-slate-900">Projelerim</h1>
+                <p class="text-sm text-slate-500 mt-1">Sıralama, görsel ve linkler dahil tüm proje alanlarını buradan yönetebilirsin.</p>
             </div>
 
-            <!-- YENİ PROJE EKLE -->
             <a href="/Projects/ProjectCreate"
-               class="inline-flex items-center gap-2 rounded-full
-                      bg-blue-600 hover:bg-blue-700
-                      px-5 py-2.5 text-sm font-semibold text-white
-                      shadow-md transition">
+               class="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition">
                 <span class="material-symbols-outlined text-base">add</span>
                 Yeni Proje Ekle
             </a>
         </div>
 
-        <!-- TABLE CARD -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-
             <table class="w-full text-left">
                 <thead>
                     <tr class="bg-slate-50 border-b border-slate-200">
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">#</th>
+                        <th class="px-4 py-4 text-xs font-semibold text-slate-500 uppercase">Sıra</th>
                         <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Proje Adı</th>
                         <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Başlık</th>
-                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Görsel</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Açıklama</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Proje Linki</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Kart Görseli</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Galeri</th>
                         <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase">Kategori</th>
                         <th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase text-right">İşlemler</th>
                     </tr>
@@ -49,28 +58,31 @@
                     @foreach (var item in Model)
                     {
                         <tr class="hover:bg-blue-50/40 transition">
-
-                            <!-- ID -->
-                            <td class="px-6 py-4 text-sm text-slate-400">
-                                @item.ProjectId
+                            <td class="px-4 py-4 text-sm text-slate-500">
+                                <div class="flex items-center gap-2">
+                                    <span class="min-w-[24px] text-center font-semibold">@item.DisplayOrder</span>
+                                    <div class="flex flex-col gap-1">
+                                        <form method="post" action="/Projects/MoveUp/@item.ProjectId">
+                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">↑</button>
+                                        </form>
+                                        <form method="post" action="/Projects/MoveDown/@item.ProjectId">
+                                            <button class="text-xs px-2 py-1 rounded bg-slate-100 hover:bg-slate-200" type="submit">↓</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
 
-                            <!-- PROJE ADI -->
-                            <td class="px-6 py-4 text-sm font-semibold text-slate-800">
-                                @item.ProjectName
-                            </td>
+                            <td class="px-6 py-4 text-sm font-semibold text-slate-800">@item.ProjectName</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">@item.Title</td>
+                            <td class="px-6 py-4 text-sm text-slate-600 max-w-[320px] truncate" title="@item.Description">@item.Description</td>
 
-                            <!-- BAŞLIK -->
-                            <td class="px-6 py-4 text-sm text-slate-600">
-                                @item.Title
-                            </td>
-
-                            <!-- GÖRSEL -->
-                            <td class="px-6 py-4">
-                                @if (!string.IsNullOrEmpty(item.Image))
+                            <td class="px-6 py-4 text-sm text-slate-600 max-w-[250px] truncate" title="@item.GithubUrl">
+                                @if (!string.IsNullOrWhiteSpace(item.GithubUrl))
                                 {
-                                    <img src="@item.Image"
-                                         class="w-20 h-12 object-cover rounded-lg border border-slate-200" />
+                                    <a href="@item.GithubUrl" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+                                        <i class="@(IsWebCategory(item.Category?.CategoryName) ? "fab fa-github" : "fab fa-itch-io") mr-1"></i>
+                                        @item.GithubUrl
+                                    </a>
                                 }
                                 else
                                 {
@@ -78,43 +90,45 @@
                                 }
                             </td>
 
-                            <!-- KATEGORİ -->
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold
-                                                 bg-blue-50 text-blue-600">
-                                    @item.Category?.CategoryName
-                                </span>
+                                @if (!string.IsNullOrWhiteSpace(item.Image))
+                                {
+                                    <img src="@item.Image" class="w-20 h-12 object-cover rounded-lg border border-slate-200" />
+                                }
+                                else
+                                {
+                                    <span class="text-xs text-slate-400 italic">Yok</span>
+                                }
                             </td>
 
-                            <!-- İŞLEMLER -->
+                            <td class="px-6 py-4 text-sm text-slate-600">
+                                @(item.ProjectImages?.Count ?? 0) görsel
+                            </td>
+
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600">@item.Category?.CategoryName</span>
+                            </td>
+
                             <td class="px-6 py-4 text-right">
                                 <div class="flex justify-end gap-2">
-
                                     <a href="/Projects/ProjectUpdate/@item.ProjectId"
-                                       class="inline-flex items-center gap-1 rounded-full
-                                                  bg-amber-50 text-amber-600 px-4 py-1.5
-                                                  text-xs font-medium hover:bg-amber-100 transition">
+                                       class="inline-flex items-center gap-1 rounded-full bg-amber-50 text-amber-600 px-4 py-1.5 text-xs font-medium hover:bg-amber-100 transition">
                                         <span class="material-symbols-outlined text-sm">edit</span>
                                         Düzenle
                                     </a>
 
                                     <a href="/Projects/ProjectDelete/@item.ProjectId"
                                        onclick="return confirm('Silmek istediğine emin misin?')"
-                                       class="inline-flex items-center gap-1 rounded-full
-                                                  bg-red-50 text-red-600 px-4 py-1.5
-                                                  text-xs font-medium hover:bg-red-100 transition">
+                                       class="inline-flex items-center gap-1 rounded-full bg-red-50 text-red-600 px-4 py-1.5 text-xs font-medium hover:bg-red-100 transition">
                                         <span class="material-symbols-outlined text-sm">delete</span>
                                         Sil
                                     </a>
-
                                 </div>
                             </td>
-
                         </tr>
                     }
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
