@@ -2,7 +2,7 @@
 
 A full-stack personal portfolio web app built with **ASP.NET Core MVC (.NET 6)** and **PostgreSQL**.
 
-![Public portfolio preview](./wwwroot/screen.png)
+![Public portfolio preview](./wwwroot/screen1.png)
 
 ## Features
 
