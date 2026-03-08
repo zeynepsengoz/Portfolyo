@@ -1,0 +1,12 @@
+.git
+.github
+.vs
+bin
+obj
+node_modules
+*.user
+*.suo
+*.swp
+.env
+.env.*
+!.env.example
