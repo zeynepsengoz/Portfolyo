@@ -7,6 +7,31 @@
 @{
     ViewData["Title"] = "Ana Sayfa";
     Layout = "~/Views/Layout/Index.cshtml";
+
+    string Slugify(string text)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return string.Empty;
+
+        text = text.Trim().ToLowerInvariant();
+
+        text = text.Replace("ı", "i")
+                   .Replace("ş", "s")
+                   .Replace("ğ", "g")
+                   .Replace("ü", "u")
+                   .Replace("ö", "o")
+                   .Replace("ç", "c");
+
+        text = text.Replace(" ", "")
+                   .Replace("-", "")
+                   .Replace(".", "")
+                   .Replace("/", "")
+                   .Replace("&", "")
+                   .Replace("(", "")
+                   .Replace(")", "");
+
+        return text;
+    }
 }
 
 @await Component.InvokeAsync("Home")
@@ -43,37 +68,6 @@
                             .Where(x => !string.IsNullOrWhiteSpace(x))
                             .Distinct()
                             .ToList();
-
-                            // Slug fonksiyonu: boşluk/türkçe karakter vb. güvenli hale getirir
-                            string Slugify(string text)
-                            {
-                                text = text.Trim().ToLower();
-
-                                // Türkçe karakter dönüşümü
-                                text = text.Replace("ı", "i")
-                                .Replace("İ", "i")
-                                .Replace("ş", "s")
-                                .Replace("Ş", "s")
-                                .Replace("ğ", "g")
-                                .Replace("Ğ", "g")
-                                .Replace("ü", "u")
-                                .Replace("Ü", "u")
-                                .Replace("ö", "o")
-                                .Replace("Ö", "o")
-                                .Replace("ç", "c")
-                                .Replace("Ç", "c");
-
-                                // Boşluk ve bazı işaretleri kaldır
-                                text = text.Replace(" ", "")
-                                .Replace("-", "")
-                                .Replace(".", "")
-                                .Replace("/", "")
-                                .Replace("&", "")
-                                .Replace("(", "")
-                                .Replace(")", "");
-
-                                return text;
-                            }
                         }
 
                         @foreach (var cat in categories)
@@ -100,12 +94,11 @@
                 ? "/images/portfolio/placeholder.png"
                 : item.Image;
 
-                var catClass = (item.Category?.CategoryName ?? "")
-                .Replace(" ", "")
-                .ToLower();
+                var catSlug = Slugify(item.Category?.CategoryName ?? "");
 
                 <a href="/Portfolio/Detail/@item.ProjectId"
-                   class="portfolio-card isotope-item @catClass">
+                   class="portfolio-card isotope-item @catSlug"
+                   data-category="@catSlug">
 
                     <!-- ÜST: RESİM -->
                     <div class="portfolio-image">
@@ -145,7 +138,8 @@
                     }
 
                     const cls = filter.replace(".", ""); 
-                    item.style.display = item.classList.contains(cls) ? "" : "none";
+                    const itemCategory = item.getAttribute("data-category") || "";
+                    item.style.display = itemCategory === cls ? "" : "none";
                   });
                 });
               });
