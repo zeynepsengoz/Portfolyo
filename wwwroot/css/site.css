@@ -1589,8 +1589,12 @@ textarea {
 #skills,
 #portfolio,
 #contact {
-    padding-top: 100px !important;
-    padding-bottom: 100px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+}
+
+.zh-home {
+    padding-bottom: 34px !important;
 }
 
 ::-webkit-scrollbar {
@@ -1613,6 +1617,19 @@ textarea {
 @media (max-width: 768px) {
     .content {
         padding: 42px 18px !important;
+    }
+
+    .zh-home,
+    #about,
+    #skills,
+    #portfolio,
+    #contact {
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
+    }
+
+    .zh-home {
+        padding-bottom: 26px !important;
     }
 
     .page-container,

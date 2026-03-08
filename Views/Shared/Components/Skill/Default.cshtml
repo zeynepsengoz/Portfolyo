@@ -1,4 +1,12 @@
 @model List<Portfolyo.Data.SkillTable>
+@{
+    const int GroupSize = 5;
+    var groupedSkills = Model
+        .Select((item, index) => new { item, index })
+        .GroupBy(x => x.index / GroupSize)
+        .Select(g => g.Select(x => x.item).ToList())
+        .ToList();
+}
 
 <section id="skills" class="skills-section">
     <div class="container">
@@ -6,18 +14,23 @@
 
         <div id="skills-slider" class="skills-slider">
             <div class="skills-track">
-                @foreach (var item in Model)
+                @foreach (var group in groupedSkills)
                 {
-                    <article class="skill-slide">
-                        <div class="skill-header">
-                            <span class="skill-name">@item.Title</span>
-                            <span class="skill-percent">% @item.Levels</span>
-                        </div>
+                    <div class="skills-page">
+                        @foreach (var item in group)
+                        {
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">@item.Title</span>
+                                    <span class="skill-percent">% @item.Levels</span>
+                                </div>
 
-                        <div class="skill-progress">
-                            <div class="skill-progress-fill" style="width:@(item.Levels)%"></div>
-                        </div>
-                    </article>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-fill" style="width:@(item.Levels)%"></div>
+                                </div>
+                            </article>
+                        }
+                    </div>
                 }
             </div>
         </div>
@@ -34,12 +47,12 @@
         }
 
         const track = slider.querySelector(".skills-track");
-        const slides = Array.from(slider.querySelectorAll(".skill-slide"));
+        const pages = Array.from(slider.querySelectorAll(".skills-page"));
         const dotsContainer = document.getElementById("skills-slider-dots");
         let activeIndex = 0;
         let autoplayTimer = null;
 
-        if (slides.length <= 1) {
+        if (pages.length <= 1) {
             if (dotsContainer) {
                 dotsContainer.innerHTML = "";
             }
@@ -50,12 +63,8 @@
             return window.matchMedia("(max-width: 767.98px)").matches;
         }
 
-        function visibleCount() {
-            return isMobile() ? 1 : slides.length;
-        }
-
         function getPageCount() {
-            return Math.ceil(slides.length / visibleCount());
+            return pages.length;
         }
 
         function renderDots() {

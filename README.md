@@ -99,13 +99,6 @@ Default local URLs:
 | `DATABASE_URL` | Yes* | PostgreSQL connection URL (Render format) |
 | `DefaultConnection` | Yes* | Alternative PostgreSQL connection string |
 | `PORT` | Optional | Hosting platform port override |
-| `SMTP_HOST` | Optional | SMTP host (if email sending is enabled) |
-| `SMTP_PORT` | Optional | SMTP port |
-| `SMTP_USERNAME` | Optional | SMTP username |
-| `SMTP_PASSWORD` | Optional | SMTP password |
-| `SMTP_FROM_EMAIL` | Optional | Sender address |
-| `SMTP_FROM_NAME` | Optional | Sender display name |
-| `SMTP_ENABLE_SSL` | Optional | SSL/TLS on SMTP (`true/false`) |
 | `DATA_PROTECTION_KEYS_PATH` | Optional | Persistent key path to avoid auth/antiforgery issues after redeploy |
 
 `*` Provide either `DATABASE_URL` or `DefaultConnection`.

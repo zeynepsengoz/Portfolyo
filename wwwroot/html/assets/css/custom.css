@@ -747,7 +747,11 @@
     gap: 28px 36px;
 }
 
-.skill-slide {
+.skills-page {
+    display: contents;
+}
+
+.skill-item {
     min-width: 0;
 }
 
@@ -760,14 +764,14 @@
 }
 
 .skill-name {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: #3b2f52;
 }
 
 .skill-percent {
-    font-size: 1.7rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     color: #4a375f;
 }
 
@@ -822,9 +826,14 @@
         will-change: transform;
     }
 
-    .skill-slide {
+    .skills-page {
+        display: block;
         min-width: 100%;
         padding: 0 6px;
+    }
+
+    .skill-item + .skill-item {
+        margin-top: 24px;
     }
 
     .skills-dots {
@@ -908,5 +917,34 @@
     .site-header .header-inner {
         padding-top: 2.75rem;
         padding-bottom: 2.75rem;
+    }
+}
+
+/* If another stylesheet enforces larger section paddings, keep compact spacing. */
+.zh-home,
+#about,
+#skills,
+#portfolio,
+#contact {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+}
+
+.zh-home {
+    padding-bottom: 34px !important;
+}
+
+@media (max-width: 768px) {
+    .zh-home,
+    #about,
+    #skills,
+    #portfolio,
+    #contact {
+        padding-top: 42px !important;
+        padding-bottom: 42px !important;
+    }
+
+    .zh-home {
+        padding-bottom: 26px !important;
     }
 }
