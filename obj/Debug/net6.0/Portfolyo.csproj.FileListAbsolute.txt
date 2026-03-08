@@ -251,7 +251,6 @@ C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\staticwebassets\msbuild.
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Portfolyo.props
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Portfolyo.props
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\staticwebassets.upToDateCheck.txt
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\Portfolyo.csproj.Up2Date
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\Portfolyo.dll
 C:\Users\Zeynep\source\repos\Portfolyo\obj\Debug\net6.0\refint\Portfolyo.dll
@@ -263,3 +262,5 @@ C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\BCrypt.Net-Next.dll
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\DotNetEnv.dll
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Sprache.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Npgsql.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

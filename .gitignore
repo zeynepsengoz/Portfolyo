@@ -27,6 +27,9 @@ obj/
 # =========================
 appsettings.Development.json
 appsettings.*.json.user
+.env
+.env.*
+!.env.example
 
 # =========================
 # Entity Framework

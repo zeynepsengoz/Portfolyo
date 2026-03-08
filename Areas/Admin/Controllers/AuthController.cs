@@ -38,7 +38,9 @@ public class AuthController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(string username, string password)
     {
-        var admin = await _db.AdminUsers.FirstOrDefaultAsync(x => x.Username == username);
+        var normalizedUsername = (username ?? string.Empty).Trim().ToLower();
+        var admin = await _db.AdminUsers
+            .FirstOrDefaultAsync(x => x.Username.ToLower() == normalizedUsername);
 
         if (admin == null || !BCrypt.Net.BCrypt.Verify(password, admin.PasswordHash))
         {
@@ -72,10 +74,13 @@ public class AuthController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(string adminKey, string username, string password)
     {
+        var normalizedAdminKey = (adminKey ?? string.Empty).Trim();
+        var normalizedUsername = (username ?? string.Empty).Trim();
+
         if (await _db.AdminUsers.AnyAsync())
             return NotFound();
 
-        if (string.IsNullOrWhiteSpace(_adminAuth.Key) || adminKey != _adminAuth.Key)
+        if (string.IsNullOrWhiteSpace(_adminAuth.Key) || normalizedAdminKey != _adminAuth.Key.Trim())
         {
             ViewBag.Error = "Admin Key hatalı.";
             return View();
@@ -87,7 +92,7 @@ public class AuthController : Controller
             return View();
         }
 
-        if (await _db.AdminUsers.AnyAsync(x => x.Username == username))
+        if (await _db.AdminUsers.AnyAsync(x => x.Username.ToLower() == normalizedUsername.ToLower()))
         {
             ViewBag.Error = "Bu kullanıcı adı zaten var.";
             return View();
@@ -97,7 +102,7 @@ public class AuthController : Controller
 
         _db.AdminUsers.Add(new AdminUser
         {
-            Username = username,
+            Username = normalizedUsername,
             PasswordHash = hash,
             CreatedAtUtc = DateTime.UtcNow
         });
@@ -111,6 +116,55 @@ public class AuthController : Controller
     public IActionResult Logout()
     {
         Response.Cookies.Delete("admin_token");
+        return Redirect("/admin/auth/login");
+    }
+
+    [HttpGet("forgot-password")]
+    public IActionResult ForgotPassword() => View();
+
+    [HttpPost("forgot-password")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ForgotPassword(string adminKey, string username, string newPassword, string newPasswordConfirm)
+    {
+        var normalizedAdminKey = (adminKey ?? string.Empty).Trim();
+        var normalizedUsername = (username ?? string.Empty).Trim().ToLower();
+
+        if (string.IsNullOrWhiteSpace(_adminAuth.Key) || normalizedAdminKey != _adminAuth.Key.Trim())
+        {
+            ViewBag.Error = "Admin Key hatalı.";
+            return View();
+        }
+
+        if (string.IsNullOrWhiteSpace(normalizedUsername) || string.IsNullOrWhiteSpace(newPassword))
+        {
+            ViewBag.Error = "Kullanıcı adı ve yeni şifre zorunludur.";
+            return View();
+        }
+
+        if (newPassword.Length < 6)
+        {
+            ViewBag.Error = "Yeni şifre en az 6 karakter olmalı.";
+            return View();
+        }
+
+        if (!string.Equals(newPassword, newPasswordConfirm, StringComparison.Ordinal))
+        {
+            ViewBag.Error = "Yeni şifreler eşleşmiyor.";
+            return View();
+        }
+
+        var admin = await _db.AdminUsers
+            .FirstOrDefaultAsync(x => x.Username.ToLower() == normalizedUsername);
+        if (admin == null)
+        {
+            ViewBag.Error = "Kullanıcı bulunamadı.";
+            return View();
+        }
+
+        admin.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+        await _db.SaveChangesAsync();
+
+        TempData["Success"] = "Şifre başarıyla güncellendi. Yeni şifreyle giriş yapabilirsin.";
         return Redirect("/admin/auth/login");
     }
 }

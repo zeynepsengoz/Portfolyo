@@ -274,6 +274,12 @@
             {
                 <div class="error">@ViewBag.Error</div>
             }
+            @if (TempData["Success"] != null)
+            {
+                <div class="error" style="border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.14); color: #dcffe8;">
+                    @TempData["Success"]
+                </div>
+            }
 
             <form method="post" action="/admin/auth/login">
                 @Html.AntiForgeryToken()
@@ -297,6 +303,9 @@
                         <!-- Public sayfanın route'una göre değiştir:
                              Senin ekranda /Default açılıyordu, o yüzden böyle bıraktım -->
                         <a href="/Default">Ana siteye dön</a>
+                    </div>
+                    <div class="mini" style="justify-content:flex-end;">
+                        <a href="/admin/auth/forgot-password">Şifremi unuttum</a>
                     </div>
                 </div>
             </form>
