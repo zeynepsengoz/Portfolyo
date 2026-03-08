@@ -7,16 +7,32 @@
 <head>
     @{
         var pageTitle = (ViewData["Title"] as string) ?? "Portfolyo";
+        var fullTitle = pageTitle + " | Zeynep Şengöz";
+        var siteDescription = "Zeynep Şengöz resmi portfolyo sitesi. Oyun geliştirme, 2D/3D tasarım ve proje çalışmaları.";
+        var canonicalUrl = Context.Request.Scheme + "://" + Context.Request.Host + Context.Request.Path;
+        var imageUrl = Context.Request.Scheme + "://" + Context.Request.Host + Url.Content("~/images/portfolio/avatar.jpg");
     }
-    <title>@pageTitle | Zeynep Şengöz</title>
+    <title>@fullTitle</title>
     <link rel="icon" type="image/svg+xml" href="@Url.Content("~/favicon.svg?v=3")" />
     <link rel="shortcut icon" type="image/svg+xml" href="@Url.Content("~/favicon.svg?v=3")" />
 
     <!-- Required Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Personal Portfolio HTML Template based on Bootstrap by Erilisdesign">
-    <meta name="author" content="Erilisdesign.com">
+    <meta name="description" content="@siteDescription">
+    <meta name="author" content="Zeynep Şengöz">
+    <link rel="canonical" href="@canonicalUrl" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@fullTitle" />
+    <meta property="og:description" content="@siteDescription" />
+    <meta property="og:url" content="@canonicalUrl" />
+    <meta property="og:image" content="@imageUrl" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@fullTitle" />
+    <meta name="twitter:description" content="@siteDescription" />
+    <meta name="twitter:image" content="@imageUrl" />
 
     <!-- Base CSS -->
     <link rel="stylesheet" href="~/html/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
