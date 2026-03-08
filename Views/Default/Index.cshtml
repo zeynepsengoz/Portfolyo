@@ -162,10 +162,14 @@
                         <div class="section-title h2 mb-3">
                             <h2 class="mb-0">İletişim</h2>
                         </div>
-                        @if (TempData["ContactSuccess"] != null)
+                        @{
+                            var contactSuccess = TempData["ContactSuccess"] as string;
+                            var sentFromQuery = string.Equals(Context.Request.Query["sent"], "1", StringComparison.Ordinal);
+                        }
+                        @if (sentFromQuery || !string.IsNullOrWhiteSpace(contactSuccess))
                         {
                             <div class="alert alert-success mt-3" role="alert">
-                                @TempData["ContactSuccess"]
+                                @(contactSuccess ?? "Mesajınız gönderildi. Teşekkürler, en kısa sürede dönüş yapacağım.")
                             </div>
                         }
                         <p>

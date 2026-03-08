@@ -22,7 +22,7 @@ namespace Portfolyo.Controllers
             await _context.SaveChangesAsync();
 
             TempData["ContactSuccess"] = "Mesajınız iletildi. Teşekkürler, en kısa sürede dönüş yapacağım.";
-            return RedirectToAction("Index", "Default");
+            return Redirect("/Default/Index?sent=1#contact");
         }
     }
 }
