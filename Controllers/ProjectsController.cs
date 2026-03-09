@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Portfolyo.Data;
+using Portfolyo.Services;
 using PortfolyoDbContext;
 using System.Text;
 
@@ -10,12 +11,14 @@ namespace Portfolyo.Controllers
     public class ProjectsController : Controller
     {
         private readonly portfolyodbContext _portfolyodbContext;
-        private readonly IWebHostEnvironment _environment;
+        private readonly IProjectImageStorageService _imageStorageService;
 
-        public ProjectsController(portfolyodbContext portfolyodbcontext, IWebHostEnvironment environment)
+        public ProjectsController(
+            portfolyodbContext portfolyodbcontext,
+            IProjectImageStorageService imageStorageService)
         {
             _portfolyodbContext = portfolyodbcontext;
-            _environment = environment;
+            _imageStorageService = imageStorageService;
         }
 
         public IActionResult Index()
@@ -38,17 +41,12 @@ namespace Portfolyo.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProjectCreate(
+        public async Task<IActionResult> ProjectCreate(
             ProjectsTable projectsTable,
             IFormFile? previewImageFile,
             List<IFormFile>? detailImageFiles)
         {
             projectsTable.GithubUrl = NormalizeOptionalUrl(projectsTable.GithubUrl);
-
-            if (previewImageFile != null)
-            {
-                projectsTable.Image = SaveUploadedImage(previewImageFile, "project-previews");
-            }
 
             if (!ModelState.IsValid)
             {
@@ -56,17 +54,22 @@ namespace Portfolyo.Controllers
                 return View(projectsTable);
             }
 
+            if (previewImageFile != null)
+            {
+                projectsTable.Image = await _imageStorageService.SaveUploadedImageAsync(previewImageFile, "project-previews");
+            }
+
             projectsTable.DisplayOrder = GetNextDisplayOrder();
 
             _portfolyodbContext.ProjectsTables.Add(projectsTable);
-            _portfolyodbContext.SaveChanges();
+            await _portfolyodbContext.SaveChangesAsync();
 
             if (detailImageFiles != null && detailImageFiles.Count > 0)
             {
                 var sort = 1;
                 foreach (var imageFile in detailImageFiles)
                 {
-                    var imagePath = SaveUploadedImage(imageFile, "project-gallery");
+                    var imagePath = await _imageStorageService.SaveUploadedImageAsync(imageFile, "project-gallery");
                     if (string.IsNullOrWhiteSpace(imagePath))
                     {
                         continue;
@@ -80,7 +83,7 @@ namespace Portfolyo.Controllers
                     });
                 }
 
-                _portfolyodbContext.SaveChanges();
+                await _portfolyodbContext.SaveChangesAsync();
             }
 
             return RedirectToAction("Index");
@@ -103,7 +106,7 @@ namespace Portfolyo.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProjectUpdate(
+        public async Task<IActionResult> ProjectUpdate(
             ProjectsTable projectsTable,
             IFormFile? previewImageFile,
             List<IFormFile>? detailImageFiles,
@@ -138,8 +141,12 @@ namespace Portfolyo.Controllers
 
             if (previewImageFile != null)
             {
-                DeleteUploadedImage(existingProject.Image);
-                existingProject.Image = SaveUploadedImage(previewImageFile, "project-previews");
+                var newPreviewPath = await _imageStorageService.SaveUploadedImageAsync(previewImageFile, "project-previews");
+                if (!string.IsNullOrWhiteSpace(newPreviewPath))
+                {
+                    await _imageStorageService.DeleteUploadedImageAsync(existingProject.Image);
+                    existingProject.Image = newPreviewPath;
+                }
             }
 
             if (removeImageIds != null && removeImageIds.Count > 0)
@@ -150,7 +157,7 @@ namespace Portfolyo.Controllers
 
                 foreach (var image in imagesToRemove)
                 {
-                    DeleteUploadedImage(image.ImagePath);
+                    await _imageStorageService.DeleteUploadedImageAsync(image.ImagePath);
                     _portfolyodbContext.ProjectImageTables.Remove(image);
                 }
             }
@@ -163,7 +170,7 @@ namespace Portfolyo.Controllers
 
                 foreach (var imageFile in detailImageFiles)
                 {
-                    var imagePath = SaveUploadedImage(imageFile, "project-gallery");
+                    var imagePath = await _imageStorageService.SaveUploadedImageAsync(imageFile, "project-gallery");
                     if (string.IsNullOrWhiteSpace(imagePath))
                     {
                         continue;
@@ -178,12 +185,12 @@ namespace Portfolyo.Controllers
                 }
             }
 
-            _portfolyodbContext.SaveChanges();
+            await _portfolyodbContext.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult ProjectDelete(int id)
+        public async Task<IActionResult> ProjectDelete(int id)
         {
             var project = _portfolyodbContext.ProjectsTables
                 .Include(x => x.ProjectImages)
@@ -194,14 +201,14 @@ namespace Portfolyo.Controllers
                 return RedirectToAction("Index");
             }
 
-            DeleteUploadedImage(project.Image);
+            await _imageStorageService.DeleteUploadedImageAsync(project.Image);
             foreach (var image in project.ProjectImages)
             {
-                DeleteUploadedImage(image.ImagePath);
+                await _imageStorageService.DeleteUploadedImageAsync(image.ImagePath);
             }
 
             _portfolyodbContext.ProjectsTables.Remove(project);
-            _portfolyodbContext.SaveChanges();
+            await _portfolyodbContext.SaveChangesAsync();
             NormalizeProjectOrder();
 
             return RedirectToAction("Index");
@@ -366,53 +373,6 @@ namespace Portfolyo.Controllers
             return value.Trim();
         }
 
-        private string? SaveUploadedImage(IFormFile file, string folderName)
-        {
-            if (file == null || file.Length == 0)
-            {
-                return null;
-            }
-
-            var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp", ".gif" };
-
-            if (!allowedExtensions.Contains(extension))
-            {
-                return null;
-            }
-
-            var uploadsRoot = Path.Combine(_environment.WebRootPath, "uploads", folderName);
-            Directory.CreateDirectory(uploadsRoot);
-
-            var fileName = $"{Guid.NewGuid():N}{extension}";
-            var filePath = Path.Combine(uploadsRoot, fileName);
-
-            using var stream = new FileStream(filePath, FileMode.Create);
-            file.CopyTo(stream);
-
-            return $"/uploads/{folderName}/{fileName}";
-        }
-
-        private void DeleteUploadedImage(string? relativePath)
-        {
-            if (string.IsNullOrWhiteSpace(relativePath))
-            {
-                return;
-            }
-
-            if (!relativePath.StartsWith("/uploads/", StringComparison.OrdinalIgnoreCase))
-            {
-                return;
-            }
-
-            var trimmed = relativePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
-            var fullPath = Path.Combine(_environment.WebRootPath, trimmed);
-
-            if (System.IO.File.Exists(fullPath))
-            {
-                System.IO.File.Delete(fullPath);
-            }
-        }
     }
 }
 

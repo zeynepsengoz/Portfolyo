@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Views/Layout/Index.cshtml";
+    var fallbackImage = "/images/portfolio/placeholder.png";
 
     string Slugify(string text)
     {
@@ -51,6 +52,7 @@
 
     string ExternalLinkLabel(string? categoryName) => IsWebCategory(categoryName) ? "GitHub" : "itch.io";
     string ExternalLinkIcon(string? categoryName) => IsWebCategory(categoryName) ? "fab fa-github" : "fab fa-itch-io";
+    string ResolvePreviewImage(string? value) => Portfolyo.Services.ImagePathResolver.Resolve(value, fallbackImage, "project-previews");
 }
 
 @await Component.InvokeAsync("Home")
@@ -103,16 +105,14 @@
         <div class="portfolio-grid">
             @foreach (var item in Model)
             {
-                var imgPath = string.IsNullOrEmpty(item.Image)
-                    ? "/images/portfolio/placeholder.png"
-                    : item.Image;
+                var imgPath = ResolvePreviewImage(item.Image);
 
                 var catSlug = Slugify(item.Category?.CategoryName ?? "");
 
                 <article class="portfolio-card @catSlug" data-category="@catSlug">
                     <a href="/Portfolio/Detail/@item.ProjectId" class="portfolio-main-link">
                         <div class="portfolio-image">
-                            <img src="@imgPath" alt="@item.ProjectName" />
+                            <img src="@imgPath" alt="@item.ProjectName" onerror="this.onerror=null;this.src='@fallbackImage';" />
                         </div>
 
                         <div class="portfolio-body">

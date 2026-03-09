@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Projects";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    var fallbackImage = "/images/portfolio/placeholder.png";
 
     bool IsWebCategory(string? categoryName)
     {
@@ -56,6 +57,8 @@
             _ => categoryName ?? string.Empty
         };
     }
+
+    string ResolvePreviewImage(string? value) => Portfolyo.Services.ImagePathResolver.Resolve(value, fallbackImage, "project-previews");
 }
 
 <div class="p-6 bg-background-light min-h-screen">
@@ -128,7 +131,8 @@
                             <td class="px-6 py-4">
                                 @if (!string.IsNullOrWhiteSpace(item.Image))
                                 {
-                                    <img src="@item.Image" class="w-20 h-12 object-cover rounded-lg border border-slate-200" />
+                                    var imagePath = ResolvePreviewImage(item.Image);
+                                    <img src="@imagePath" class="w-20 h-12 object-cover rounded-lg border border-slate-200" onerror="this.onerror=null;this.src='@fallbackImage';" />
                                 }
                                 else
                                 {

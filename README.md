@@ -17,7 +17,7 @@ A full-stack personal portfolio web app built with **ASP.NET Core MVC (.NET 6)**
 - Admin dashboard with project/message stats
 - Manage About, Skills, Education, Projects, Messages
 - Project ordering support for homepage display
-- Upload preview and gallery images from admin panel
+- Upload preview and gallery images from admin panel (Cloudinary or local fallback)
 
 ### Deployment
 - PostgreSQL-first architecture
@@ -31,6 +31,7 @@ A full-stack personal portfolio web app built with **ASP.NET Core MVC (.NET 6)**
 - **Database:** PostgreSQL (Npgsql)
 - **Auth:** JWT Bearer + HttpOnly cookie
 - **Hashing:** BCrypt
+- **Image Storage:** Cloudinary (recommended) or local `wwwroot/uploads` fallback
 - **Frontend:** Razor Views + custom CSS/JS
 - **Hosting:** Docker + Render
 
@@ -70,6 +71,11 @@ Minimum required keys:
 - `JWT_EXPIRES_MINUTES`
 - `DATABASE_URL` or `DefaultConnection`
 
+Optional image storage keys (recommended for production):
+- `CLOUDINARY_CLOUD_NAME`
+- `CLOUDINARY_API_KEY`
+- `CLOUDINARY_API_SECRET`
+
 Example PostgreSQL URL:
 
 ```text
@@ -100,8 +106,12 @@ Default local URLs:
 | `DefaultConnection` | Yes* | Alternative PostgreSQL connection string |
 | `PORT` | Optional | Hosting platform port override |
 | `DATA_PROTECTION_KEYS_PATH` | Optional | Persistent key path to avoid auth/antiforgery issues after redeploy |
+| `CLOUDINARY_CLOUD_NAME` | Optional** | Cloudinary cloud name for persistent image uploads |
+| `CLOUDINARY_API_KEY` | Optional** | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Optional** | Cloudinary API secret |
 
 `*` Provide either `DATABASE_URL` or `DefaultConnection`.
+`**` If all three Cloudinary keys are set, project images are uploaded to Cloudinary.
 
 ## Render Deployment
 
@@ -111,14 +121,19 @@ Default local URLs:
    - `ADMIN_KEY`
    - `JWT_SECRET`
    - `DATABASE_URL` (from your Render PostgreSQL instance)
-4. Deploy.
+4. Recommended: add Cloudinary env vars for persistent uploads:
+   - `CLOUDINARY_CLOUD_NAME`
+   - `CLOUDINARY_API_KEY`
+   - `CLOUDINARY_API_SECRET`
+5. Deploy.
 
 ## Notes
 
-- Uploaded files are stored under:
+- Without Cloudinary, uploaded files are stored under:
   - `wwwroot/uploads/project-previews`
   - `wwwroot/uploads/project-gallery`
-- On ephemeral disks, uploaded files are not persistent unless you use persistent storage.
+- Local/container disk uploads are not persistent on ephemeral hosts after redeploy/restart.
+- With Cloudinary configured, uploaded images are persisted and returned as secure Cloudinary URLs.
 
 ## License
 

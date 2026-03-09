@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Update Project";
     Layout = "~/Views/AdminLayout/Index.cshtml";
+    var fallbackImage = "/images/portfolio/placeholder.png";
+    string ResolvePreviewImage(string? value) => Portfolyo.Services.ImagePathResolver.Resolve(value, fallbackImage, "project-previews");
+    string ResolveGalleryImage(string? value) => Portfolyo.Services.ImagePathResolver.Resolve(value, fallbackImage, "project-gallery");
 }
 
 <div class="min-h-screen bg-white flex items-start justify-center px-4 py-8">
@@ -49,7 +52,8 @@
                 <label class="block text-sm font-semibold text-slate-700 mb-2">Card Preview Image</label>
                 @if (!string.IsNullOrWhiteSpace(Model.Image))
                 {
-                    <img src="@Model.Image" class="w-40 h-24 object-cover rounded-lg border border-slate-200 mb-3" />
+                    var imagePath = ResolvePreviewImage(Model.Image);
+                    <img src="@imagePath" class="w-40 h-24 object-cover rounded-lg border border-slate-200 mb-3" onerror="this.onerror=null;this.src='@fallbackImage';" />
                 }
                 <input type="file" name="previewImageFile" accept=".jpg,.jpeg,.png,.webp,.gif" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-slate-900" />
             </div>
@@ -61,8 +65,9 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
                         @foreach (var image in Model.ProjectImages.OrderBy(x => x.SortOrder).ThenBy(x => x.ProjectImageId))
                         {
+                            var imagePath = ResolveGalleryImage(image.ImagePath);
                             <label class="border border-slate-200 rounded-lg p-2 block">
-                                <img src="@image.ImagePath" class="w-full h-24 object-cover rounded-md mb-2" />
+                                <img src="@imagePath" class="w-full h-24 object-cover rounded-md mb-2" onerror="this.onerror=null;this.src='@fallbackImage';" />
                                 <span class="text-xs text-slate-600 flex items-center gap-1">
                                     <input type="checkbox" name="removeImageIds" value="@image.ProjectImageId" /> Delete
                                 </span>

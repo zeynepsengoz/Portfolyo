@@ -30,6 +30,9 @@ SetConfigIfNotEmpty(builder.Configuration, "Jwt:Issuer", "JWT_ISSUER");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:Audience", "JWT_AUDIENCE");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:Secret", "JWT_SECRET");
 SetConfigIfNotEmpty(builder.Configuration, "Jwt:ExpiresMinutes", "JWT_EXPIRES_MINUTES");
+SetConfigIfNotEmpty(builder.Configuration, "Cloudinary:CloudName", "CLOUDINARY_CLOUD_NAME");
+SetConfigIfNotEmpty(builder.Configuration, "Cloudinary:ApiKey", "CLOUDINARY_API_KEY");
+SetConfigIfNotEmpty(builder.Configuration, "Cloudinary:ApiSecret", "CLOUDINARY_API_SECRET");
 
 var useSqlServer = string.Equals(
     Environment.GetEnvironmentVariable("USE_SQLSERVER"),
@@ -51,8 +54,11 @@ builder.Services.Configure<AdminAuthOptions>(
 
 builder.Services.Configure<JwtOptions>(
     builder.Configuration.GetSection("Jwt"));
+builder.Services.Configure<CloudinaryOptions>(
+    builder.Configuration.GetSection("Cloudinary"));
 
 builder.Services.AddScoped<JwtTokenService>();
+builder.Services.AddScoped<IProjectImageStorageService, ProjectImageStorageService>();
 
 var dataProtectionKeysPath = Environment.GetEnvironmentVariable("DATA_PROTECTION_KEYS_PATH");
 var dataProtection = builder.Services

@@ -2,6 +2,8 @@
 @model ProjectsTable
 
 @{
+    var fallbackImage = "/images/portfolio/placeholder.png";
+
     bool IsWebCategory(string? categoryName)
     {
         if (string.IsNullOrWhiteSpace(categoryName))
@@ -59,6 +61,8 @@
         .OrderBy(x => x.SortOrder)
         .ThenBy(x => x.ProjectImageId)
         .ToList();
+
+    string ResolveGalleryImage(string? value) => Portfolyo.Services.ImagePathResolver.Resolve(value, fallbackImage, "project-gallery");
 }
 
 <div class="portfolio-detail-page">
@@ -94,10 +98,12 @@
                     @for (var i = 0; i < galleryImages.Count; i++)
                     {
                         var image = galleryImages[i];
+                        var imagePath = ResolveGalleryImage(image.ImagePath);
                         <div class="portfolio-gallery-item">
-                            <img src="@image.ImagePath"
+                            <img src="@imagePath"
                                  alt="@Model.ProjectName gallery image"
                                  class="js-lightbox-image"
+                                 onerror="this.onerror=null;this.src='@fallbackImage';"
                                  data-index="@i" />
                         </div>
                     }

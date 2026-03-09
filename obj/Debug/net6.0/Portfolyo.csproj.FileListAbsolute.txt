@@ -264,3 +264,4 @@ C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Microsoft.AspNetCore.Aut
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Sprache.dll
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Npgsql.dll
 C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Zeynep\source\repos\Portfolyo\bin\Debug\net6.0\CloudinaryDotNet.dll
