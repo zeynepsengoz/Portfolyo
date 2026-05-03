@@ -7,7 +7,10 @@ using Portfolyo.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using Npgsql;
+using System.Data;
 using System.Net;
 using System.Text;
 
@@ -168,6 +171,7 @@ using (var scope = app.Services.CreateScope())
     else
     {
         await portfolioDb.Database.EnsureCreatedAsync();
+        await EnsurePortfolioModelTablesAsync(portfolioDb);
         await EnsureAdminAuthSchemaAsync(adminAuthDb);
         await EnsurePortfolioSchemaAsync(portfolioDb);
 
@@ -387,4 +391,57 @@ static async Task EnsurePortfolioSchemaAsync(portfolyodbContext portfolioDb)
               );
               CREATE INDEX [IX_ProjectImages_ProjectId] ON [ProjectImages]([ProjectId]);
           END");
+}
+
+static async Task EnsurePortfolioModelTablesAsync(portfolyodbContext portfolioDb)
+{
+    var providerName = portfolioDb.Database.ProviderName ?? string.Empty;
+    var isPostgres = providerName.Contains("Npgsql", StringComparison.OrdinalIgnoreCase);
+
+    if (!isPostgres)
+    {
+        return;
+    }
+
+    var projectsTableExists = await PostgresTableExistsAsync(portfolioDb, "\"ProjectsTable\"");
+    if (projectsTableExists)
+    {
+        return;
+    }
+
+    // EnsureCreated() skips model schema creation if any table already exists (e.g. AdminUsers from another DbContext).
+    var databaseCreator = portfolioDb.GetService<IRelationalDatabaseCreator>();
+    await databaseCreator.CreateTablesAsync();
+}
+
+static async Task<bool> PostgresTableExistsAsync(DbContext db, string relationName)
+{
+    var connection = db.Database.GetDbConnection();
+    var shouldClose = connection.State != ConnectionState.Open;
+
+    if (shouldClose)
+    {
+        await connection.OpenAsync();
+    }
+
+    try
+    {
+        await using var command = connection.CreateCommand();
+        command.CommandText = "SELECT to_regclass(@name) IS NOT NULL;";
+
+        var parameter = command.CreateParameter();
+        parameter.ParameterName = "name";
+        parameter.Value = relationName;
+        command.Parameters.Add(parameter);
+
+        var result = await command.ExecuteScalarAsync();
+        return result is bool exists && exists;
+    }
+    finally
+    {
+        if (shouldClose)
+        {
+            await connection.CloseAsync();
+        }
+    }
 }
