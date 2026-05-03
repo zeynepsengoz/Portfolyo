@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Net;
 using Portfolyo.Data;
 using Portfolyo.Models;
 using Portfolyo.Options;
@@ -38,6 +39,12 @@ public class AuthController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(string username, string password)
     {
+        if (!await _db.AdminUsers.AnyAsync())
+        {
+            TempData["Success"] = "Henüz admin hesabı yok. İlk kurulum için kayıt ekranını kullan.";
+            return Redirect("/admin/auth/register");
+        }
+
         var normalizedUsername = (username ?? string.Empty).Trim().ToLower();
         var admin = await _db.AdminUsers
             .FirstOrDefaultAsync(x => x.Username.ToLower() == normalizedUsername);
@@ -49,11 +56,13 @@ public class AuthController : Controller
         }
 
         var token = _jwtService.CreateAdminToken(admin);
+        var isLoopbackHost = IsLoopbackHost(Request.Host.Host);
 
         Response.Cookies.Append("admin_token", token, new CookieOptions
         {
             HttpOnly = true,
-            Secure = !Request.Host.Host.Contains("localhost"),
+            // Local development over HTTP needs non-secure cookie (localhost/127.0.0.1/::1).
+            Secure = !isLoopbackHost,
             SameSite = SameSiteMode.Lax,
             Expires = DateTimeOffset.UtcNow.AddMinutes(_jwtOptions.ExpiresMinutes)
         });
@@ -166,5 +175,25 @@ public class AuthController : Controller
 
         TempData["Success"] = "Şifre başarıyla güncellendi. Yeni şifreyle giriş yapabilirsin.";
         return Redirect("/admin/auth/login");
+    }
+
+    private static bool IsLoopbackHost(string host)
+    {
+        if (string.IsNullOrWhiteSpace(host))
+        {
+            return false;
+        }
+
+        if (host.Equals("localhost", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (IPAddress.TryParse(host, out var ip))
+        {
+            return IPAddress.IsLoopback(ip);
+        }
+
+        return false;
     }
 }

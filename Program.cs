@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.IdentityModel.Tokens;
 using Npgsql;
+using System.Net;
 using System.Text;
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -238,6 +239,8 @@ static string ResolvePostgresConnectionString(ConfigurationManager config)
     var username = userInfo.Length > 0 ? Uri.UnescapeDataString(userInfo[0]) : string.Empty;
     var password = userInfo.Length > 1 ? Uri.UnescapeDataString(userInfo[1]) : string.Empty;
 
+    var isLocalHost = IsLocalPostgresHost(uri.Host);
+
     var builder = new NpgsqlConnectionStringBuilder
     {
         Host = uri.Host,
@@ -245,11 +248,31 @@ static string ResolvePostgresConnectionString(ConfigurationManager config)
         Username = username,
         Password = password,
         Database = uri.AbsolutePath.TrimStart('/'),
-        SslMode = SslMode.Require,
-        TrustServerCertificate = true
+        SslMode = isLocalHost ? SslMode.Disable : SslMode.Require,
+        TrustServerCertificate = !isLocalHost
     };
 
     return builder.ConnectionString;
+}
+
+static bool IsLocalPostgresHost(string host)
+{
+    if (string.IsNullOrWhiteSpace(host))
+    {
+        return false;
+    }
+
+    if (host.Equals("localhost", StringComparison.OrdinalIgnoreCase))
+    {
+        return true;
+    }
+
+    if (IPAddress.TryParse(host, out var ip))
+    {
+        return IPAddress.IsLoopback(ip);
+    }
+
+    return false;
 }
 
 static string ResolveSqlServerConnectionString(ConfigurationManager config)
