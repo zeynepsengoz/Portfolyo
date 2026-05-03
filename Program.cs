@@ -44,6 +44,11 @@ var connectionString = useSqlServer
     ? ResolveSqlServerConnectionString(builder.Configuration)
     : ResolvePostgresConnectionString(builder.Configuration);
 
+if (!useSqlServer)
+{
+    ValidatePostgresConnectionForEnvironment(connectionString, builder.Environment);
+}
+
 var legacySqlServerConnection = Environment.GetEnvironmentVariable("LEGACY_SQLSERVER_CONNECTION");
 var shouldMigrateData =
     string.Equals(Environment.GetEnvironmentVariable("MIGRATE_LOCAL_TO_POSTGRES"), "true", StringComparison.OrdinalIgnoreCase);
@@ -273,6 +278,31 @@ static bool IsLocalPostgresHost(string host)
     }
 
     return false;
+}
+
+static void ValidatePostgresConnectionForEnvironment(string connectionString, IHostEnvironment environment)
+{
+    if (environment.IsDevelopment())
+    {
+        return;
+    }
+
+    try
+    {
+        var builder = new NpgsqlConnectionStringBuilder(connectionString);
+        if (IsLocalPostgresHost(builder.Host))
+        {
+            throw new InvalidOperationException(
+                "Production environment cannot use local PostgreSQL host (localhost/127.0.0.1/::1). " +
+                "Set DATABASE_URL to your remote PostgreSQL endpoint.");
+        }
+    }
+    catch (ArgumentException ex)
+    {
+        throw new InvalidOperationException(
+            "Invalid PostgreSQL connection string. Check DATABASE_URL/DefaultConnection format.",
+            ex);
+    }
 }
 
 static string ResolveSqlServerConnectionString(ConfigurationManager config)

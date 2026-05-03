@@ -120,7 +120,7 @@ Default local URLs:
 3. Set required env vars in Render:
    - `ADMIN_KEY`
    - `JWT_SECRET`
-   - `DATABASE_URL` (from your Render PostgreSQL instance)
+   - `DATABASE_URL` (from your Supabase project)
 4. Recommended: add Cloudinary env vars for persistent uploads:
    - `CLOUDINARY_CLOUD_NAME`
    - `CLOUDINARY_API_KEY`
